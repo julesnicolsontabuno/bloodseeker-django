@@ -55,9 +55,20 @@
 >username: admin
 >password: admin123456
 
-5. Run the project in the terminal
+# Run Project
+1. Open **XAMPP Control Panel**
+	>Apache -> Start
+	>MySQl -> Start
+
+1. Run the project in the **VS Code** terminal:
 	 ` python manage.py runserver`
 
+2. Open the project in your web browser:
+	>127.0.0.1:8000/user/login
+	
+	>127.0.0.1:8000/user/register
+	
+	>127.0.0.1:8000/admin
 
 
 
