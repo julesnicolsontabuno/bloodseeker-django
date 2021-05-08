@@ -17,10 +17,11 @@
 	- Login to your github account.
 
 # CLONE THIS PROJECT
-- Open Github Desktop
+1. Fork this project first:
+	- Please see this [Image](https://imgur.com/Fd2omst "Image").
+2.  Open Github Desktop and Clone the Repository that you **cloned**:
 	> File -> Clone Repository -> URL
 
-	- Repository URL: https://github.com/neff-1/bloodseeker-django.git
 
 # Project Setup
 1. Create a new database in **phpMyAdmin**
@@ -69,6 +70,3 @@
 	>127.0.0.1:8000/user/register
 	
 	>127.0.0.1:8000/admin
-
-
-
