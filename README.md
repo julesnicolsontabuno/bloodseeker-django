@@ -3,13 +3,13 @@
 
 
 #### PREREQUISITE
-- Install [VS CODE](http://https://code.visualstudio.com/download "VS CODE") (Please install the following from the **extensions** tab in VS CODE ):
+- Install [VS CODE](http://https://code.visualstudio.com/download "VS CODE") (Please install the following from the **extensions** tab in VS CODE):
 	- [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 	- [Python](http://https://marketplace.visualstudio.com/items?itemName=ms-python.python "Python")
 	- [Prettier](http://https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode "Prettier") 
 		- For Formatting Purposes.
 		- To run Prettier:
-			- >Ctrl + Shift + P - > Format Document
+			>Ctrl + Shift + P - > Format Document
 		- **Remember: Always run Prettier after editing HTML and CSS files**
 
 - Install [XAMPP 8.0.5 / PHP 8.0.5](http:/https://www.apachefriends.org/download.html/ "XAMPP 8.0.5 / PHP 8.0.5")
