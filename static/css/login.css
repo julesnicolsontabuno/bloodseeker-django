@@ -1,61 +1,142 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: linear-gradient(to right, #ff3737, #ffae51);
+}
 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+.wrapper {
+        width: auto;
+        height: 350px;
+        background: white;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        padding: 15px;
+        box-shadow: 0px 0px 10px #c4c4c4;
+        border-radius: 5px;
+}
+
+.wrapper .input-data {
+        height: 40px;
+        width: 100%;
+        padding-bottom: 12px;
+        position: relative;
+}
+
+.wrapper .input-data input {
+        height: 100%;
+        width: 94%;
+        padding-top: 5%;
+        padding-left: 5%;
+        border: none;
+        font-size: 15px;
+        position: relative;
+}
+
+.input-data input:focus ~ label,
+.input-data input:valid ~ label {
+        transform: translateY(-20px);
+        font-size: 12px;
+        padding-left: 5px;
+        color: #ff3737;
+}
+
+.wrapper .input-data label {
+        font-size: 13px;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        color: grey;
+        pointer-events: none;
+        transition: all 0.3s ease;
+}
+
+.wrapper .input-data .underline {
+        position: absolute;
+        bottom: 0px;
+        height: 2px;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        background: orange;
+}
+
+.input-data .underline:before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: pink;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+}
+
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before {
+        transform: scaleX(1);
+}
+
+form {
+        border: 3px solid #f1f1f1;
+        border-radius: 10px;
+        box-shadow: 3px 3px 10px rgb(38, 38, 38);
+        background-color: white;
+        width: 400px;
+        height: 570px;
+        margin-top: 30px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-right: auto;
 }
 
 button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+        background-color: #e43111;
+        border-radius: 15px;
+        color: white;
+        padding: 14px 20px;
+        margin-top: 15%;
+        margin-left: 9%;
+        border: none;
+        cursor: pointer;
+        width: 80%;
 }
 
 button:hover {
-  opacity: 0.8;
+        opacity: 0.7;
 }
 
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+.textfield {
+        padding-top: 10px;
+        font-size: 13px;
+        color: rgb(143, 143, 143);
 }
 
 .container {
-  padding: 16px;
+        padding: 30px;
+        position: relative;
+        margin: auto;
 }
 
-span.psw {
-  float: right;
-  padding-top: 16px;
+.imgcontainer {
+        padding: 20px;
+        position: relative;
+        height: 90px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+img {
+        width: auto;
+        height: 175px;
+        position: absolute;
+}
+
+.signup {
+        padding-top: 10px;
+        font-size: 12px;
+        margin-left: 55px;
+        color: rgb(99, 99, 99);
+}
+
+.psw {
+        float: left;
+        margin-top: 20%;
+        font-size: 12px;
+        color: rgb(99, 99, 99);
 }
