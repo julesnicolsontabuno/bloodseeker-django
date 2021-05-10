@@ -27,3 +27,19 @@ class RequestDonor(models.Model):
     donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Organizer(models.Model):
+    organizer_id = models.AutoField(primary_key=True)
+    hospitalName = models.CharField(max_length=100)
+    hospitalAddress = models.CharField(max_length=200)
+    businessEmail = models.EmailField(max_length=50)
+    contactInfo = models.CharField(max_length=11)
+
+class RequestOrganizer(models.Model):
+    requestOrganizerID = models.AutoField(primary_key=True)
+    hospitalName = models.CharField(max_length=100)
+    hospitalAddress = models.CharField(max_length=200)
+    businessEmail = models.EmailField(max_length=50)
+    contactInfo = models.CharField(max_length=11)
+    isApproved = models.BooleanField(default=False)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)

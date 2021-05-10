@@ -8,4 +8,5 @@ urlpatterns = [
     path('register', views.registerView.as_view(), name="register"),
     path('userList', views.userListView.as_view(), name="userList"),
     path('<user>/requestDonor', views.requestDonorView.as_view(), name="requestDonor"),
+    path('<user>/requestOrgnaizer', views.requestOrganizerView.as_view(), name="requestOrganizer"),
 ]

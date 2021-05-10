@@ -45,4 +45,27 @@ class requestDonorView(View):
 
         return render(request, self.template_name,{'user': user})
 
+class requestOrganizerView(View):
+    template_name = "user/requestOrganizer.html"
+
+    def get(self, request, user):
+        formRequestOrganizer = OrganizerForm()
+        return render(request, self.template_name, {'user': user})
+    
+    def post(self, request, user):
+        organizer = OrganizerForm(request.POST)
+
+        hospitalname = request.POST.get('hospitalName')
+        hospitaladdress = request.POST.get('hospitalAddress')
+        businessemail = request.POST.get('businessEmail')
+        contactinfo = request.POST.get('contactInfo')
+        isApproved = False
+        username = User.objects.get(pk=user)
+
+        organizerReq = RequestOrganizer(hospitalname=hospitalname, hospitaladdress=hospitaladdress, businessemail=businessemail,
+                                contactinfo=contactinfo, isApproved=isApproved, username=username)
+        
+        organizerReq.save()
+
+        return render(request, self.template_name,{'user': user})
 
