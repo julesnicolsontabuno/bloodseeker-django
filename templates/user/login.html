@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BloodSeeker | Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+  <body>
+    <form action="/action_page.php" method="post">
+      <div class="imgcontainer">
+          <img src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
+      </div>
+
+      <div class="container">
+        <input type="text" placeholder="Username" name="uname" required />
+        <input type="password" placeholder="Password" name="psw" required />
+
+        <div class="textfield">
+          <input type="checkbox" checked="checked" name="remember" /> Remember Me  
+        </div>
+        
+        <button type="submit">LOGIN</button> 
+        
+        <div class="signup">
+          Don't have an account yet? <a href="#">Sign up</a>
+        </div>
+
+      </div>   
+
+    </form>
+  </body>
+</html>
