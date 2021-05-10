@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic.base import View
+from .models import *
+from .forms import *
 
 # Create your views here.
 class loginView(View):
@@ -14,3 +15,34 @@ class registerView(View):
 
     def get(self, request):
         return render(request, self.template_name)
+
+class userListView(View):
+    template_name = "user/userList.html"
+
+    def get(self, request):
+        user = User.objects.all()
+        return render(request, self.template_name, {'user': user})
+
+class requestDonorView(View):
+    template_name = "user/requestDonor.html"
+
+    def get(self, request, user):
+        formRequestDonor = DonorForm()
+        return render(request, self.template_name, {'user': user})
+    
+    def post(self, request, user):
+        donor = DonorForm(request.POST)
+
+        address = request.POST.get('address')
+        donorBloodType = request.POST.get('donorBloodType')
+        isApproved = False
+        username = User.objects.get(pk=user)
+
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+                                isApproved=isApproved, username=username)
+        
+        donorReq.save()
+
+        return render(request, self.template_name,{'user': user})
+
+
