@@ -1,64 +1,186 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
-}
-
 * {
-  box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+}
+body {
+        height: 100vh;
+        display: flex;
+        font-size: 13px;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-image: linear-gradient(to right, #ff3737, #ffae51);
 }
 
-/* Add padding to containers */
+.containner {
+        width: auto;
+        height: auto;
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 20px;
+}
+.wrapper {
+        margin-top: 0%;
+}
+
+.imgcontainer {
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 555px;
+        opacity: 0.9;
+}
+
+img {
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px rgb(97, 97, 97);
+        width: 710px;
+        height: 570px;
+        object-fit: cover;
+}
+
 .container {
-  padding: 16px;
-  background-color: white;
+        position: absolute;
+        left: 700px;
+        max-width: 550px;
+        width: 100%;
+        background-color: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px rgb(97, 97, 97);
+        display: inline-block;
+        vertical-align: top;
 }
-
-/* Full-width input fields */
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+.container .title {
+        font-size: 30px;
+        font-weight: 500;
+        position: relative;
+        text-align: center;
 }
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  background-color: #ddd;
-  outline: none;
+.container .tagline {
+        font-size: 15px;
+        font-weight: 500;
+        padding-bottom: 5px;
+        text-align: center;
+        position: relative;
 }
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+.container .tagline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 490px;
+        border-radius: 5px;
+        background-image: linear-gradient(to right, #ff3737, #ffae51);
 }
-
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #04aa6d;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
+.content form .user-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 5px 0;
 }
-
-.registerbtn:hover {
-  opacity: 1;
+form .user-details .input-box {
+        margin-bottom: 10px;
+        width: calc(100% / 2 - 20px);
 }
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
+form .input-box span.details {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 2px;
 }
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
+.user-details .input-box input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        font-size: 13px;
+        border-radius: 5px;
+        padding-left: 15px;
+        border: 1px solid #ccc;
+        border-bottom-width: 2px;
+        transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+        border-color: #ff3737;
+}
+form .gender-details .gender-title {
+        font-size: 13px;
+        font-weight: 500;
+}
+form .category {
+        display: flex;
+        width: 35%;
+        margin: 14px;
+        justify-content: space-between;
+}
+form .category label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+}
+form .category label .dot {
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        margin-right: 10px;
+        background: #d9d9d9;
+        border: 5px solid transparent;
+        transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two {
+        background: #ff3737;
+        border-color: #d9d9d9;
+}
+form input[type="radio"] {
+        display: none;
+}
+form .button {
+        position: relative;
+        height: 45px;
+        width: 50%;
+        margin-left: 130px;
+}
+form .button input {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #ff3737, #ffae51);
+}
+form .button input:hover {
+        /* transform: scale(0.99); */
+        background: linear-gradient(-135deg, #ff3737, #ffae51);
+}
+@media (max-width: 584px) {
+        .container {
+                max-width: 100%;
+        }
+        form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+        }
+        form .category {
+                width: 100%;
+        }
+        .content form .user-details {
+                max-height: 300px;
+                overflow-y: scroll;
+        }
+        .user-details::-webkit-scrollbar {
+                width: 5px;
+        }
+}
+@media (max-width: 459px) {
+        .container .content .category {
+                flex-direction: column;
+        }
 }
