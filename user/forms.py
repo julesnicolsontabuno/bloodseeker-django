@@ -11,3 +11,16 @@ class DonorForm(forms.ModelForm):
             "isApproved",
             "username",
         ]
+
+class OrganizerForm(forms.ModelForm):
+    class Meta:
+        model = RequestOrganizer
+        fields = [
+            "requestOrganizerID",
+            "hospitalName",
+            "hospitalAddress",
+            "businessEmail",
+            "contactInfo",
+            "isApproved",
+            "username",
+        ]
