@@ -1,6 +1,9 @@
 # BLOOD SEEKER
 ## Easy Search for Blood Donors
 
+### What is Blood Seeker?
+- Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.
+
 
 #### PREREQUISITE
 - Install [VS CODE](http://https://code.visualstudio.com/download "VS CODE") (Please install the following from the **extensions** tab in VS CODE):
