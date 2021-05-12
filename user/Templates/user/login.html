@@ -12,7 +12,8 @@
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
         </head>
         <body>
-                <form action="/action_page.php" method="post">
+                <form method="post">
+                {% csrf_token %}
                         <div class="imgcontainer">
                                 <img
                                         src="{% static 'images/brand_name.png' %}"
@@ -23,7 +24,7 @@
                         <div class="container">
                                 <div class="wrapper">
                                         <div class="input-data">
-                                                <input type="text" required />
+                                                <input type="text" name="username" required="required">
                                                 <div class="underline"></div>
                                                 <label>Username</label>
                                         </div>
@@ -31,10 +32,7 @@
                                         <br />
 
                                         <div class="input-data">
-                                                <input
-                                                        type="password"
-                                                        required
-                                                />
+                                                <input type="password" name="password" required="required">
                                                 <div class="underline"></div>
                                                 <label>Password</label>
                                         </div>

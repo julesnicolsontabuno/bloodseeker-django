@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-GENDER_CHOICES = [('M', 'Male'), ('F', 'Female')]
+#GENDER_CHOICES = [('Male', 'Male'), ('Female', 'Female')]
 BLOODTYPE_CHOICES = [('O+', 'O+'), ('O-', 'O-'), ('A+', 'A+'), ('A-', 'A-'), ('B+', 'B+'), ('B-', 'B-'), ('AB+', 'AB+'), ('AB-', 'AB-'),]
 
 class User(models.Model):
@@ -12,7 +12,7 @@ class User(models.Model):
     lastName = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     contactNumber = models.CharField(max_length=20)
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
+    gender = models.CharField(max_length=10)
     age = models.IntegerField()
 
 class Donor(models.Model):

@@ -1,20 +1,47 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 from django.views.generic.base import View
 from .models import *
 from .forms import *
 
 # Create your views here.
 class loginView(View):
+
     template_name="user/login.html"
 
     def get(self, request):
+        form = LoginForm()
         return render(request,self.template_name)
+    
+    def post(self, request):
+        form = LoginForm(request.POST)
+        uname = request.POST.get('username')
+        pwd = request.POST.get('password')
+
+        if User.objects.filter(pk=uname).count() != 0:
+            account = User.objects.get(pk=uname)
+
+            if account.password == pwd:
+                return redirect(reverse('user:requestDonor', kwargs={'user': uname}))
+            else:
+                return render(request,self.template_name)
+        else:
+            return render(request,self.template_name)
 
 class registerView(View):
     template_name="user/register.html"
 
     def get(self, request):
+        formUser = UserForm()
         return render(request, self.template_name)
+
+    def post(self, request):
+        formUser = UserForm(request.POST)
+        
+        user = formUser.save(commit=False)
+        user.save()
+
+        return redirect(reverse('user:login'))
 
 class userListView(View):
     template_name = "user/userList.html"
