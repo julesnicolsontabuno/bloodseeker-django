@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
             <meta
@@ -29,6 +29,10 @@
                     <li><a href="#">Accredited Hospitals</a></li>
                     <li><a href="#">Account</a></li>
                 </ul>
-        </nav>   
+        </nav>
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
     </body>
 </html>
