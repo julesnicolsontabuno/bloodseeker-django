@@ -1,0 +1,78 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: peachpuff;
+}
+nav {
+  background: linear-gradient(to right, #ff3737, #ffae51);
+  height: 100px;
+  width: 100%;
+}
+img {
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
+}
+
+label.logo {
+  color: white;
+  font-size: 60px;
+  padding-left: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-family: "OptimusPrinceps";
+}
+
+nav ul {
+  float: right;
+  margin-right: 40px;
+  margin-top: 10px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  color: white;
+  font-size: 18px;
+  padding: 7px 10px;
+  text-shadow: 2px 2px 5px rgb(95, 95, 95);
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+/* a.active {
+
+} */
+a:hover {
+  background: white;
+  color: #ffb923;
+  transition: 0.5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+@media (max-width: 952px) {
+  /* label.logo {
+    font-size: 30px;
+    padding-left: 50px; 
+  }*/
+  nav ul li a {
+    font-size: 16px;
+  }
+}
