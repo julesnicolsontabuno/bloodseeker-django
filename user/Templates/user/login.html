@@ -46,12 +46,20 @@
                                                 />
                                                 Remember Password
                                         </div>
+                                        {% if messages %}
+                                        {% for message in messages %}
+                                        <div class="error-messages">
+                                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                                {{message}}
+                                        </div>
+                                        {% endfor %}
+                                        {% endif %}
 
                                         <button type="submit">LOGIN</button>
 
                                         <div class="signup">
                                                 Don't have an account yet?
-                                                <a href="#">Sign up</a>
+                                                <a href="{% url 'user:register' %}">Sign up</a>
                                         </div>
 
                                         <div class="psw">

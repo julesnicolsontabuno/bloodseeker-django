@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.contrib import messages
 from django.views.generic.base import View
 from .models import *
 from .forms import *
@@ -26,10 +27,12 @@ class loginView(View):
             if account.password == pwd:
                 return redirect(reverse('user:dashboard', kwargs={'user': uname}))
             else:
-                return render(request, self.template_name)
+                messages.error(request, 'Incorrect Password')
         else:
-            return render(request, self.template_name)
+            messages.error(request, 'Username Does Not Exist')
 
+        
+        return render(request, self.template_name)
 
 class registerView(View):
     template_name = "user/register.html"

@@ -91,7 +91,7 @@ button {
   border-radius: 15px;
   color: white;
   padding: 14px 20px;
-  margin-top: 15%;
+  margin-top: 5%;
   margin-left: 9%;
   border: none;
   cursor: pointer;
@@ -136,11 +136,32 @@ img {
 
 .psw {
   float: left;
-  margin-top: 20%;
+  margin-top: 10%;
   font-size: 12px;
   color: rgb(99, 99, 99);
 }
 
 a {
   text-decoration: none;
+}
+
+.error-messages {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+  margin: 5px;
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
 }
