@@ -33,6 +33,7 @@ class RequestOrganizer(models.Model):
     hospitalName = models.CharField(max_length=100)
     hospitalAddress = models.CharField(max_length=100)
     businessEmail = models.EmailField(max_length=100)
-    contactInfo = models.CharField(max_length=11)
+    contactInfo = models.CharField(max_length=20)
+    attachments = models.FileField()
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)

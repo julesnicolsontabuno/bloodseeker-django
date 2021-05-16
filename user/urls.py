@@ -9,6 +9,5 @@ urlpatterns = [
     path('userList', views.userListView.as_view(), name="userList"),
     path('<user>/dashboard', views.dashboardView.as_view(), name="dashboard"),
     path('<user>/requestDonor', views.requestDonorView.as_view(), name="requestDonor"),
-    path('<user>/requestOrganizer',
-         views.requestOrganizerView.as_view(), name="requestOrganizer"),
+    path('<user>/requestOrganizer',views.requestOrganizerView.as_view(), name="requestOrganizer"),
 ]
