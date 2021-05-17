@@ -43,12 +43,26 @@ class registerView(View):
 
     def post(self, request):
         formUser = UserForm(request.POST)
+        uname = request.POST.get('username')
+        password = request.POST.get('password')
 
-        user = formUser.save(commit=False)
-        user.save()
 
-        return redirect(reverse('user:login'))
-
+        if len(uname) < 4 and len(password) < 8:
+            messages.error(request, "Username and Password are too short.")
+        elif User.objects.filter(pk=uname).count() != 0 and len(password) < 8:
+            messages.error(request, "Username already exist and Password is too short.")
+        elif len(uname) < 4:
+            messages.error(request, "Username is too short.")
+        elif User.objects.filter(pk=uname).count() != 0:
+            messages.error(request, "Username already exist!")
+        elif len(password) < 8:
+            messages.error(request, "Password is too short.")
+        else:
+            customer = formUser.save(commit=False)
+            customer.save()
+            return redirect(reverse('user:login'))
+            
+        return render(request, self.template_name)
 
 class userListView(View):
     template_name = "user/userList.html"
