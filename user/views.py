@@ -118,11 +118,12 @@ class requestOrganizerView(View):
         hospitalAddress = request.POST.get('hospitalAddress')
         businessEmail = request.POST.get('businessEmail')
         contactInfo = request.POST.get('contactInfo')
+        attachments = request.POST.get('attachments')
         isApproved = False
         username = User.objects.get(pk=user)
 
         organizerReq = RequestOrganizer(hospitalName=hospitalName, hospitalAddress=hospitalAddress, businessEmail=businessEmail,
-                                        contactInfo=contactInfo, isApproved=isApproved, username=username)
+                                        contactInfo=contactInfo, attachments=attachments, isApproved=isApproved, username=username)
 
         organizerReq.save()
 

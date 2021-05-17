@@ -44,6 +44,7 @@ class OrganizerForm(forms.ModelForm):
             "hospitalAddress",
             "businessEmail",
             "contactInfo",
+            "attachments",
             "isApproved",
             "username",
         ]
