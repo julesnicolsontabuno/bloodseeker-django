@@ -1,56 +1,42 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 body {
-  height: 100vh;
   display: flex;
   font-size: 13px;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
   background-image: linear-gradient(to right, #ff3737, #ffae51);
 }
 
 .containner {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  margin-left: 20px;
-}
-.wrapper {
-  margin-top: 0%;
 }
 
 .imgcontainer {
   display: inline-block;
   vertical-align: top;
-  padding-right: 555px;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 img {
-  border-radius: 5px;
-  box-shadow: 3px 3px 10px rgb(97, 97, 97);
-  width: 710px;
-  height: 600px;
-  object-fit: cover;
+  width: 730px;
+  height: 765px;
+  object-fit: fill;
 }
 
 .container {
   position: absolute;
-  left: 700px;
-  max-width: 550px;
+  left: 724px;
+  max-width: 555px;
+  height: 705px;
   width: 100%;
   background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 5px;
-  box-shadow: 3px 3px 10px rgb(97, 97, 97);
-  display: inline-block;
-  vertical-align: top;
+  padding: 30px 35px;
 }
+
 .container .title {
   font-size: 30px;
   font-weight: 700;
@@ -70,7 +56,7 @@ img {
   left: 0;
   bottom: 0;
   height: 3px;
-  width: 490px;
+  width: 545px;
   border-radius: 5px;
   background-image: linear-gradient(to right, #ff3737, #ffae51);
 }
@@ -78,7 +64,9 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 5px 0;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 0px;
 }
 form .user-details .input-box {
   margin-bottom: 10px;
@@ -111,7 +99,7 @@ form .gender-details .gender-title {
 form .category {
   display: flex;
   width: 35%;
-  margin: 14px;
+  margin: 12px;
   justify-content: space-between;
 }
 form .category label {
@@ -141,7 +129,7 @@ form .button {
   height: 45px;
   width: 50%;
   margin-left: 130px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 
