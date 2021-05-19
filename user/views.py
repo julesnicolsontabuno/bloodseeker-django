@@ -123,46 +123,16 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
-        return render(request, self.template_name, {'user': user})
-
-    def post(self, request, user):
-        donor = DonorForm(request.POST)
-
-        address = request.POST.get('address')
-        donorBloodType = request.POST.get('donorBloodType')
-        isApproved = False
-        username = User.objects.get(pk=user)
-
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
-                                isApproved=isApproved, username=username)
-
-        donorReq.save()
-
-        return render(request, self.template_name, {'user': user})
+        donor = RequestDonor.objects.all()
+        return render(request, self.template_name, {'donor': donor, 'user': user})
 
 
 class accreditedHospitalView(View):
     template_name = "user/hospital.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
-        return render(request, self.template_name, {'user': user})
-
-    def post(self, request, user):
-        donor = DonorForm(request.POST)
-
-        address = request.POST.get('address')
-        donorBloodType = request.POST.get('donorBloodType')
-        isApproved = False
-        username = User.objects.get(pk=user)
-
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
-                                isApproved=isApproved, username=username)
-
-        donorReq.save()
-
-        return render(request, self.template_name, {'user': user})
+        hospital = RequestOrganizer.objects.all()
+        return render(request, self.template_name, {'hospital': hospital, 'user': user})
 
 
 class accountView(View):

@@ -24,11 +24,11 @@
                     BloodSeeker
                 </label>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Donors</a></li>
-                        <li><a class="active" href="#">Blood Banks</a></li>
-                        <li><a href="#">Account</a></li>
+                        <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
+                        <li><a href="{% url 'user:about' user %}">About</a></li>
+                        <li><a href="{% url 'user:donor' user %}">Donors</a></li>
+                        <li><a class="active" href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
+                        <li><a href="{% url 'user:account' user %}">Account</a></li>
                     </ul>
             </nav>
         </div>
@@ -44,48 +44,24 @@
                     <th></th>
                   </tr>
                 </thead>
-                <tbody> 
+                <tbody>
+                    {% for i in hospital %}
+                        {% if i.isApproved == True %}
                   <tr>
                     <!--insert script here, remove redundants-->
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{i.hospitalName}}</td>
+                    <td>{{i.hospitalAddress}}</td>
+                    <td>{{i.businessEmail}}</td>
+                    <td>{{i.contactInfo}}</td>
                     <th><button><strong>View Details</strong></button></th>
                   </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th><button><strong>View Details</strong></button></th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th><button><strong>View Details</strong></button></th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th><button><strong>View Details</strong></button></th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th><button><strong>View Details</strong></button></th>
-                  </tr>               
+                        {% endif %}
+                    {% endfor %}
                 </tbody>
             </table>
             
             <div class="becomeDonor">
-                <p>Want to organize a blood drive? <a href="#"> Send a request here!<!-- link this to request donor --></a></p>
+                <p>Want to organize a blood drive? <a href="{% url 'user:requestOrganizer' user %}"> Send a request here!<!-- link this to request donor --></a></p>
             </div>
         </div>
     </body>
