@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+            <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+            />
+            <title>BloodSeeker | Dashboard</title>
+            <link rel="stylesheet" href="{% static 'css/hospital.css' %}" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+            
+    </head>
+    <body>
+        <div>
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <label class="logo">
+                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
+                    BloodSeeker
+                </label>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Donors</a></li>
+                        <li><a class="active" href="#">Blood Banks</a></li>
+                        <li><a href="#">Account</a></li>
+                    </ul>
+            </nav>
+        </div>
+        
+        <div class="wrapper">
+            <table class="content-table">
+                <thead>
+                  <tr>
+                    <th>Hospital Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Contact Info</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr>
+                    <!--insert script here, remove redundants-->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th><button><strong>View Details</strong></button></th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th><button><strong>View Details</strong></button></th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th><button><strong>View Details</strong></button></th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th><button><strong>View Details</strong></button></th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th><button><strong>View Details</strong></button></th>
+                  </tr>               
+                </tbody>
+            </table>
+            
+            <div class="becomeDonor">
+                <p>Want to organize a blood drive? <a href="#"> Send a request here!<!-- link this to request donor --></a></p>
+            </div>
+        </div>
+    </body>
+</html>
