@@ -24,11 +24,11 @@
                     BloodSeeker
                 </label>
                     <ul>
-                        <li><a class="active" href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Donors</a></li>
-                        <li><a href="#">Blood Banks</a></li>
-                        <li><a href="#">Account</a></li>
+                        <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
+                        <li><a class="active" href="{% url 'user:about' user %}">About</a></li>
+                        <li><a href="{% url 'user:donor' user %}">Donors</a></li>
+                        <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
+                        <li><a href="{% url 'user:account' user %}">Account</a></li>
                     </ul>
             </nav>
         </div>
