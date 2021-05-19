@@ -96,6 +96,98 @@ class dashboardView(View):
         return render(request, self.template_name, {'user': user})
 
 
+class aboutView(View):
+    template_name = "user/about.html"
+
+    def get(self, request, user):
+        formRequestDonor = DonorForm()
+        return render(request, self.template_name, {'user': user})
+
+    def post(self, request, user):
+        donor = DonorForm(request.POST)
+
+        address = request.POST.get('address')
+        donorBloodType = request.POST.get('donorBloodType')
+        isApproved = False
+        username = User.objects.get(pk=user)
+
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+                                isApproved=isApproved, username=username)
+
+        donorReq.save()
+
+        return render(request, self.template_name, {'user': user})
+
+
+class donorView(View):
+    template_name = "user/donorList.html"
+
+    def get(self, request, user):
+        formRequestDonor = DonorForm()
+        return render(request, self.template_name, {'user': user})
+
+    def post(self, request, user):
+        donor = DonorForm(request.POST)
+
+        address = request.POST.get('address')
+        donorBloodType = request.POST.get('donorBloodType')
+        isApproved = False
+        username = User.objects.get(pk=user)
+
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+                                isApproved=isApproved, username=username)
+
+        donorReq.save()
+
+        return render(request, self.template_name, {'user': user})
+
+
+class accreditedHospitalView(View):
+    template_name = "user/hospital.html"
+
+    def get(self, request, user):
+        formRequestDonor = DonorForm()
+        return render(request, self.template_name, {'user': user})
+
+    def post(self, request, user):
+        donor = DonorForm(request.POST)
+
+        address = request.POST.get('address')
+        donorBloodType = request.POST.get('donorBloodType')
+        isApproved = False
+        username = User.objects.get(pk=user)
+
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+                                isApproved=isApproved, username=username)
+
+        donorReq.save()
+
+        return render(request, self.template_name, {'user': user})
+
+
+class accountView(View):
+    template_name = "user/account.html"
+
+    def get(self, request, user):
+        formRequestDonor = DonorForm()
+        return render(request, self.template_name, {'user': user})
+
+    def post(self, request, user):
+        donor = DonorForm(request.POST)
+
+        address = request.POST.get('address')
+        donorBloodType = request.POST.get('donorBloodType')
+        isApproved = False
+        username = User.objects.get(pk=user)
+
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+                                isApproved=isApproved, username=username)
+
+        donorReq.save()
+
+        return render(request, self.template_name, {'user': user})
+
+
 class requestDonorView(View):
     template_name = "user/requestDonor.html"
 
