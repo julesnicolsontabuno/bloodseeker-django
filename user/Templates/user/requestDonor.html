@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post">
-        {% csrf_token %}
-        <label>Address:</label><br>
-        <input type="text"  name="address" ><br>
-        <label>Blood Type: </label><br>
-            <select name="donorBloodType">
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-            </select>
-        <!-- <label>USER ID: </label><br>
-        <input type="text"  name="user" value="" readonly><br> -->
-        <input type="submit" value="Submit">
-    </form> 
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Become a Donor</title>
+        
+        <style>
+            body{
+                background-image: url(background_image.jpg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <label>First Name:</label><br>
+                <input type="text"  name="firstName" ><br>
+                <label>Middle Name:</label><br>
+                <input type="text"  name="middleName" ><br>
+                <label>Last Name:</label><br>
+                <input type="text"  name="lastname" ><br>
+                <label>Email address:</label><br>
+                <input type="text"  name="emailadd" ><br>
+                <label>Contact Number:</label><br>
+                <input type="number"  name="contactInfo" ><br>
+                <label>Address:</label><br>
+                <input type="text"  name="address" ><br>
+                <label>Blood Type: </label><br>
+                    <select name="donorBloodType">
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                <!-- <label>USER ID: </label><br>
+                <input type="text"  name="user" value="" readonly><br> -->
+                <input type="submit" value="Submit">
+            </form> 
+        </div>
+    </body>
 </html>

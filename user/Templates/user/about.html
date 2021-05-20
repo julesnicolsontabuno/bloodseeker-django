@@ -1,3 +1,210 @@
 {% extends 'dashboard.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
 
-<h1>BLOODSEEKER CREW</h1>
+        <title>BloodSeeker | About Us</title>
+        <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+        <style>
+            body {
+                background-image: url(background_image.jpg);
+                font-family: Arial;
+                margin: 0;
+            }
+            .header {
+                padding: 60px;
+                text-align: center;
+                background-image: url(brand_name.png);
+                color: black;
+                font-size: 30px;
+            }
+            .content { 
+                padding:20px;
+                color: black;
+                font-size: medium;
+            }
+            .styless{
+                text-align: center;
+            }
+            html {
+                box-sizing: border-box;
+            }
+            *, *:before, *:after {
+                box-sizing: inherit;
+            }
+            .column {
+                float: left;
+                width: 30%;
+                margin-bottom: 16px;
+                padding: 0 8px;
+            }
+            @media screen and (max-width: 650px) {
+                .column {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .container::after, .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            .title {
+                color: grey;
+            }
+            .button {
+                border: none;
+                outline: 0;
+                display: inline-block;
+                padding: 8px;
+                color: white;
+                background-color: #000;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+            }
+            .button:hover {
+                background-color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="w3-bar w3-red">
+                <a href="#home" class="w3-button w3-bar-item">Home</a>
+                <a href="#donors" class="w3-button w3-bar-item">Donors</a>
+                <a href="#hospitals" class="w3-button w3-bar-item">Accredited Hospitals</a>
+                <a href="#account" class="w3-button w3-bar-item">Account</a>
+                <a href="#aboutus" class="w3-button w3-bar-item">About Us</a>
+            </nav>
+            <div class="header">
+                <h1>We are</h1>
+            </div>
+    
+            <div class="content">
+                <h1 style="text-align: center;"> What is Blood Seeker? <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" /> </h1>
+                <p style="text-align: center;"> Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.</p>
+                
+                <br><br><br><br>
+                <h2> How does this app help people in the community? </h2>
+                <p> A lot of people are always struggling in looking for blood in case of emergencies. One problem would take in account is that there are a <b>LACK of blood donors.</b> And so in some cases, some people die. </p>
+                <p> Other problem arises when people just kept on asking for willing donors, and in some cases willing donors does not truthfully tell about their medical histories which later causes complications. </p>
+                <p> So how does this app help people? We, the admin, take certain precautions in order to help save lives.</p>
+                <p> We take in to account that all of our users are in need of blood evry minute of everyday. They are here in our app to look for donors with blood types from common, up to the rarest type.</p>
+                <p> We provide them an easy way to search for the blood that can help save the life of their friend or love ones. </p>
+                <p> We are here to make other people not experience the feeling of being helpless and hopeless. We are here to make you see the impossible and reach the improbable. </p>
+    
+                <br>
+                <h2> How do we operate? </h2>
+                <ol>
+                    <li> <b>Anyone</b> can login and become a user. May it be a potential donor or organizers who wants to put their lists of blood in their blood banks.
+                        <ul> To be able to login without difficulties, users must have:
+                            <li> Email <i>[for verification]</i></li>
+                            <li> Contact Number</li>
+                            <li> Provide personal information.</li>
+                        </ul>
+                    </li>
+                    <li> Users can search for a specific blood type - like for example, blood type AB is rare, and if it is what the user needs, they can easily search for it. </li>
+                    <li> Users/Donors must add <b>truthful</b> information about their <b>MEDICAL HISTORY</b> to avoid causing problems to the receiver and to avoid being banned in our app.
+                        <p> <i>***Note: We ban users/donors/organizers in order to save lives and to protect our users from danger! We don't want to cause more problems to the people who needs our help. </i> </p>
+                    </li>
+                    <li> Users and Organizers can edit/update or delete their blood descriptions to alert other users and avoid complications.  </li>
+                    <li> Users can make appointments to certain donors. For some instances, and in case of emergency, a user can make an arrangement with a certain donor with the help of the admin, in which they will need to notify the donor if he/she agrees with the appointment made by the user. </li>
+                    <li> The admin can either accept or reject any users who wants to be a donor or an organizer.
+                        <ul> We accept users who can provide us the following requirements:
+                            <li> <b>FOR DONORS </b>
+                                <ul>
+                                    <li> Birth Certificate - NSO (Original copy) </li>
+                                    <li> 2 valid IDs <i> [Driver's license, School ID (for students), Employee ID, Passport and etc.] </i> </li>
+                                    <li> Health Certificate <i> [Take some tests (that are required or a must to become a donor) run by legal clinics and hospitals.] </i> </li>
+                                    <li> Copy of the receipts of the tests <i>[in order to know the clinic or hospitals are legit.] </i> </li>
+                                    <li> Answer a few set of questions and submit all the requirements in the page.</li>
+                                </ul>
+                            </li>
+                            <li> <b> FOR ORGANIZERS </b>
+                                <ul>
+                                    <li> Business Logo </i> </li>
+                                    <li> Business Contact Information</li>
+                                    <li> Business Email </li>
+                                    <li> Business Head/Director Certification with Employee ID </li>
+                                    <li> Business Media Relations Personnel Certification with Employee ID</li>
+                                    <li> Business Certification <i>[when was it built up until latest operation in order to know if they are legal and legit.]</i> </li>
+                                    <li> Answer a few set of questions and submit all the requirements in the page.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <br>
+                <h2> Meet Our Team </h2>
+                <br>
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <img src="/w3images/team1.jpg" alt="Jules" style="width:40%">
+                            <div class="container">
+                                <h2>Jules Nicolson E. Tabuno</h2>
+                                <p class="title">CEO & Founder</p>
+                                <p> Team Leader </p>
+                                <p>example@example.com</p>
+                                <p><button class="button">Contact</button></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <div class="card">
+                            <img src="/w3images/team2.jpg" alt="Carl" style="width:40%">
+                            <div class="container">
+                                <h2>Carl V. Cordova</h2>
+                                <p class="title">Creative Director & Co-Founder</p>
+                                <p> Graphics Design </p>
+                                <p>example@example.com</p>
+                                <p><button class="button">Contact</button></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <img src="/w3images/team2.jpg" alt="Lator" style="width:40%">
+                            <div class="container">
+                                <h2>John Kendrick K. Ofianga</h2>
+                                <p class="title">Co-Founder</p>
+                                <p> Graphics & Web Design </p>
+                                <p>example@example.com</p>
+                                <p><button class="button">Contact</button></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <img src="/w3images/team2.jpg" alt="Dame" style="width:40%">
+                            <div class="container">
+                                <h2>Cherrie Dame G. Dela Peña</h2>
+                                <p class="title">Co-Founder</p>
+                                <p> Web Design </p>
+                                <p>example@example.com</p>
+                                <p><button class="button">Contact</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

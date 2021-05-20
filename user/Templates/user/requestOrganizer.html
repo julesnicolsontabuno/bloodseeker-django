@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post">
-        {% csrf_token %}
-        <label>Hospital Name:</label><br>
-        <input type="text"  name="hospitalName" ><br>
-        <label>Hospital Address:</label><br>
-        <input type="text"  name="hospitalAddress" ><br>
-        <label>Business Email:</label><br>
-        <input type="text"  name="businessEmail" ><br>
-        <label>Business Contact Info:</label><br>
-        <input type="text"  name="contactInfo" ><br>
-        <label>Attachments:</label><br>
-        <input type="file"  name="contactInfo" ><br>
-        <!-- <label>USER ID: </label><br>
-        <input type="text"  name="user" value="" readonly><br> -->
-        <input type="submit" value="Submit">
-    </form> 
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Become an Organizer</title>
+
+        <style>
+            .container {
+                padding: 0 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form method="post">
+                {% csrf_token %}
+                <label>Hospital Name:</label><br>
+                <input type="text"  name="hospitalName" ><br>
+                <label>Hospital Address:</label><br>
+                <input type="text"  name="hospitalAddress" ><br>
+                <label>Business Email:</label><br>
+                <input type="text"  name="businessEmail" ><br>
+                <label>Business Contact Info:</label><br>
+                <input type="text"  name="contactInfo" ><br>
+                <label>Attachments:</label><br>
+                <input type="file"  name="contactInfo" ><br>
+                <!-- <label>USER ID: </label><br>
+                <input type="text"  name="user" value="" readonly><br> -->
+                <input type="submit" value="Submit">
+            </form> 
+        </div>
+    </body>
 </html>
