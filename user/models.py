@@ -4,6 +4,7 @@ from django.db import models
 
 #GENDER_CHOICES = [('Male', 'Male'), ('Female', 'Female')]
 BLOODTYPE_CHOICES = [('O+', 'O+'), ('O-', 'O-'), ('A+', 'A+'), ('A-', 'A-'), ('B+', 'B+'), ('B-', 'B-'), ('AB+', 'AB+'), ('AB-', 'AB-'),]
+APPOINTMENT_CHOICES = [('Requesting for Blood Donation', 'Requesting for Immediate Transfusion')]
 
 class User(models.Model):
     username = models.CharField(max_length=30, primary_key=True)
@@ -16,12 +17,6 @@ class User(models.Model):
     age = models.IntegerField()
 
 class Donor(models.Model):
-    donor_id = models.AutoField(primary_key=True)
-    address = models.CharField(max_length=100)
-    donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-
-class RequestDonor(models.Model):
     requestDonorID = models.AutoField(primary_key=True)
     address = models.CharField(max_length=200)
     donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
@@ -29,12 +24,20 @@ class RequestDonor(models.Model):
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class RequestOrganizer(models.Model):
+class Organizer(models.Model):
     requestOrganizerID = models.AutoField(primary_key=True)
     hospitalName = models.CharField(max_length=100)
     hospitalAddress = models.CharField(max_length=100)
     businessEmail = models.EmailField(max_length=100)
     contactInfo = models.CharField(max_length=20)
-    attachments = models.FileField()
+    attachmentsID = models.FileField()
+    attachmentsBC = models.FileField()
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class RequestAppointment(models.Model):
+    requestAppointmentID = models.AutoField(primary_key=True)
+    appointmentType = models.CharField(choices=APPOINTMENT_CHOICES, max_length=100)
+    setDate = models.DateField()
+    setTime = models.TimeField()
+    isApproved = models.BooleanField(default=False)
