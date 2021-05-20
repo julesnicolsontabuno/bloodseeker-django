@@ -96,7 +96,7 @@ class dashboardView(View):
         isApproved = False
         username = User.objects.get(pk=user)
 
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+        donorReq = Donor(address=address, donorBloodType=donorBloodType,
                                 isApproved=isApproved, username=username)
 
         donorReq.save()
@@ -119,7 +119,7 @@ class aboutView(View):
         isApproved = False
         username = User.objects.get(pk=user)
 
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+        donorReq = Donor(address=address, donorBloodType=donorBloodType,
                                 isApproved=isApproved, username=username)
 
         donorReq.save()
@@ -131,7 +131,7 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-        donor = RequestDonor.objects.all()
+        donor = Donor.objects.all()
         return render(request, self.template_name, {'donor': donor, 'user': user})
 
 
@@ -139,7 +139,7 @@ class accreditedHospitalView(View):
     template_name = "user/hospital.html"
 
     def get(self, request, user):
-        hospital = RequestOrganizer.objects.all()
+        hospital = Organizer.objects.all()
         return render(request, self.template_name, {'hospital': hospital, 'user': user})
 
 
@@ -150,14 +150,14 @@ class accountView(View):
         if User.objects.filter(pk=user).count() != 0:
             account = User.objects.get(pk=user)
 
-        if RequestDonor.objects.filter(username_id=user).count() != 0:
-            donor = RequestDonor.objects.get(username_id=user)
+        if Donor.objects.filter(username_id=user).count() != 0:
+            donor = Donor.objects.get(username_id=user)
         else:
             donor = 0
             
         return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor})
 
-    def post(self, request, user):
+    def post(self, request, user, account):
         
             
             return render(request, self.template_name, {'user': user, 'account': account})
@@ -179,7 +179,7 @@ class requestDonorView(View):
         isApproved = False
         username = User.objects.get(pk=user)
 
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
+        donorReq = Donor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
                                 isApproved=isApproved, username=username)
 
         donorReq.save()
@@ -201,13 +201,38 @@ class requestOrganizerView(View):
         hospitalAddress = request.POST.get('hospitalAddress')
         businessEmail = request.POST.get('businessEmail')
         contactInfo = request.POST.get('contactInfo')
-        attachments = request.POST.get('attachments')
+        attachmentsID = request.POST.get('attachmentsID')
+        attachmentsBC = request.POST.get('attachmentsBC')
         isApproved = False
         username = User.objects.get(pk=user)
 
-        organizerReq = RequestOrganizer(hospitalName=hospitalName, hospitalAddress=hospitalAddress, businessEmail=businessEmail,
-                                        contactInfo=contactInfo, attachments=attachments, isApproved=isApproved, username=username)
+        organizerReq = Organizer(hospitalName=hospitalName, hospitalAddress=hospitalAddress, businessEmail=businessEmail,
+                                        contactInfo=contactInfo, attachmentsID=attachmentsID, attachmentsBC = attachmentsBC, 
+                                        isApproved=isApproved, username=username)
 
         organizerReq.save()
+
+        return render(request, self.template_name, {'user': user})
+
+class requestAppointmentView(View):
+    template_name = "user/requestAppointment.html"
+
+    def get(self, request, user):
+        formRequestDonor = AppointmentForm()
+        return render(request, self.template_name, {'user': user})
+
+    def post(self, request, user):
+        appointment = AppointmentForm(request.POST)
+
+        appointmentType = request.POST.get('appointmentType')
+        setDate = request.POST.get('setDate')
+        setTime = request.POST.get('setTime')
+        isApproved = False
+        #username = User.objects.get(pk=user)
+
+        appointmentReq = RequestAppointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
+                                isApproved=isApproved)
+
+        appointmentReq.save()
 
         return render(request, self.template_name, {'user': user})

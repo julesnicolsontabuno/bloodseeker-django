@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+            <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+            />
+            <title>BloodSeeker | Request Organizer</title>
+            <link rel="stylesheet" href="{% static 'css/requestOrganizer.css' %}" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            
+    </head>
+    <body>
+        <div class="navv">
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <label class="logo">
+                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
+                    BloodSeeker
+                </label>
+                    <ul>
+                        <li><a class="active">Home</a></li>
+                        <li><a >About</a></li>
+                        <li><a >Donors</a></li>
+                        <li><a >Blood Banks</a></li>
+                        <li><a >Account</a></li>
+                    </ul>
+            </nav>
+        </div>
+        
+        <div class="wrapper">
+            <div class="request">
+                <form method="post">
+                    {% csrf_token %}
+                    <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
+                    <label>Appointment Description: </label><br>
+                        <select name="appointmentType">
+                            <option value="Requesting for Blood Donation">Requesting for Blood Donation</option>
+                            <option value="Requesting for help/blood transfusion">Requesting for Immediate Transfusion</option>
+                        </select><br>
+                    <label>Set the Date for Appointment:</label><br>
+                        <input type="date" name="setDate" ><br>
+                    <label>Set the Time for Appointment:</label><br>
+                        <input type="time" name="setTime" ><br>
+                            <div class="button"></div>
+                            <input type="submit" value="Submit Request">
+                </form> 
+            </div>
+            
+        </div>
+    </body>
+</html>

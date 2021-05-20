@@ -26,7 +26,7 @@ class LoginForm(forms.ModelForm):
 
 class DonorForm(forms.ModelForm):
     class Meta:
-        model = RequestDonor
+        model = Donor
         fields = [
             "requestDonorID",
             "address",
@@ -34,18 +34,30 @@ class DonorForm(forms.ModelForm):
             "attachmentsDonor",
             "isApproved",
             "username",
-        ]
+       ]
 
 class OrganizerForm(forms.ModelForm):
     class Meta:
-        model = RequestOrganizer
+        model = Organizer
         fields = [
             "requestOrganizerID",
             "hospitalName",
             "hospitalAddress",
             "businessEmail",
             "contactInfo",
-            "attachments",
+            "attachmentsID",
+            "attachmentsBC",
             "isApproved",
             "username",
+        ]
+
+class AppointmentForm(forms.ModelForm):
+    class Meta:
+        model = RequestAppointment
+        fields = [
+            "requestAppointmentID",
+            "appointmentType",
+            "setDate",
+            "setTime",
+            "isApproved",
         ]
