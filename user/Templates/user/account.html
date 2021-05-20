@@ -42,46 +42,62 @@
                         <i class="fa fa-pen fa-xs edit"></i>
                         <table>
                             <tbody> <!-- Data taken from user & donor database -->
-                                <tr>
-                                    <td>First Name :</td>
-                                    <td>:</td>
-                                    <td>Jane</td>
-                                </tr>
-                                <tr>
-                                    <td>Last Name</td>
-                                    <td>:</td>
-                                    <td>Doe</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>:</td>
-                                    <td>jane@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>Address</td>
-                                    <td>:</td>
-                                    <td>Tisa, Cebu City</td> <!-- If user is donor use donor address, if not, leave blank -->
-                                </tr>
-                                <tr>
-                                    <td>Contact Number</td>
-                                    <td>:</td>
-                                    <td>911</td>
-                                </tr>
-                                <tr>
-                                    <td>Gender</td>
-                                    <td>:</td>
-                                    <td>Female</td>
-                                </tr>
-                                <tr>
-                                    <td>Age</td>
-                                    <td>:</td>
-                                    <td>29</td>
-                                </tr>
-                                <tr>
-                                    <td>Bloodtype</td>
-                                    <td>:</td>
-                                    <td>O+</td>
-                                </tr>
+                                    <tr>
+                                        <td>First Name</td>
+                                        <td>:</td>
+                                        <td>{{ account.firstName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td>:</td>
+                                        <td>{{ account.lastName }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td>{{ account.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>:</td>
+                                        {% if donor != 0 %}
+                                            {% if donor.username_id == account.username %}
+                                                <td>{{donor.address}}</td>
+                                            {% else %}
+                                                <td>This is not available</td>
+                                            {% endif %}
+                                        {% else %}
+                                            <td>This is not available</td>
+                                        {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Number</td>
+                                        <td>:</td>
+                                        <td>{{ account.contactNumber }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>:</td>
+                                        <td>{{ account.gender }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Age</td>
+                                        <td>:</td>
+                                        <td>{{ account.age }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bloodtype</td>
+                                        <td>:</td>
+                                        {% if donor != 0 %}
+                                            {% if donor.username_id == account.username %}
+                                                <td>{{donor.donorBloodType}}</td>
+                                            {% else %}
+                                                <td>This is not available</td>
+                                            {% endif %}
+                                        {% else %}
+                                            <td>This is not available</td>
+                                        {% endif %}
+                                    </tr>
                             </tbody>
                         </table>
                     </div>
@@ -91,9 +107,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="buttons">
-                            <a href="#"><button>EDIT ACCOUNT</button></a>
+                            <a href="{% url 'user:editAccount' user %}"><button>EDIT ACCOUNT</button></a>
                             <a href="#"><button>EDIT ORGANIZATION</button></a><!-- this part is only available if requestOrganizer is existing-->
-                            <a href="#"><button>LOG OUT</button></a>
+                            <a href="{% url 'user:login' %}"><button>LOG OUT</button></a>
                         </div>
                         
                     </div>
