@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+            <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+            />
+            <title>BloodSeeker | Edit Account</title>
+            <link rel="stylesheet" href="{% static 'css/editAccount.css' %}" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+            
+    </head>
+    <body>
+        <div class="all">
+            <div>
+                <nav>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <label class="logo">
+                        <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
+                        BloodSeeker
+                    </label>
+                        <ul>
+                            <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
+                            <li><a href="{% url 'user:about' user %}">About</a></li>
+                            <li><a href="{% url 'user:donor' user %}">Donors</a></li>
+                            <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
+                            <li><a class="active" href="{% url 'user:account' user %}">Account</a></li>
+                        </ul>
+                </nav>
+            </div>
+            
+            <div class="wrapper">
+    
+                <div class="main">
+                    <h2>PERSONAL INFO</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-pen fa-xs edit"></i>
+                            <table>
+                                <tbody> <!-- Data taken from user & donor database -->
+                                    <tr>
+                                        <td>First Name :</td>
+                                        <td>:</td>
+                                        <td>Jane</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td>:</td>
+                                        <td>Doe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td>jane@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td>:</td>
+                                        <td>Tisa, Cebu City</td> <!-- If user is donor use donor address, if not, leave blank -->
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Number</td>
+                                        <td>:</td>
+                                        <td>911</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>:</td>
+                                        <td>Female</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Age</td>
+                                        <td>:</td>
+                                        <td>29</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            
+                    <h2>USER SETTING</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="buttons">
+                                <button>EDIT ACCOUNT</button>
+                                <button>EDIT ORGANIZATION</button> <!-- this part is only available if requestOrganizer is existing-->
+                                <button>LOG OUT</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- End -->
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -6,7 +6,7 @@
                     name="viewport"
                     content="width=device-width, initial-scale=1"
             />
-            <title>BloodSeeker | Dashboard</title>
+            <title>BloodSeeker | Donors</title>
             <link rel="stylesheet" href="{% static 'css/donorList.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
                     <td>{{i.username.lastName}}</td>
                     <td>{{i.username.contactNumber}}</td>
                     <td>{{i.donorBloodType}}</td>
-                    <th><button><strong>Make Appointment</strong></button></th>
+                    <td><button><strong>Make Appointment</strong></button></td>
                   </tr>
                         {% endif %}
                     {% endfor %}        
