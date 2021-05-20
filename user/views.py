@@ -170,10 +170,11 @@ class requestDonorView(View):
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
+        attachmentsDonor = request.POST.get('attachmentsDonor')
         isApproved = False
         username = User.objects.get(pk=user)
 
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
                                 isApproved=isApproved, username=username)
 
         donorReq.save()

@@ -25,6 +25,7 @@ class RequestDonor(models.Model):
     requestDonorID = models.AutoField(primary_key=True)
     address = models.CharField(max_length=200)
     donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
+    attachmentsDonor = models.FileField()
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
