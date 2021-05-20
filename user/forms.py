@@ -31,6 +31,7 @@ class DonorForm(forms.ModelForm):
             "requestDonorID",
             "address",
             "donorBloodType",
+            "attachmentsDonor",
             "isApproved",
             "username",
         ]
