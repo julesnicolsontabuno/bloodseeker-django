@@ -8,6 +8,14 @@ from .forms import *
 # Create your views here.
 
 
+
+class editAccountView(View):
+    template_name = "user/editAccount.html"
+
+    def get(self, request, user):
+        return render(request, self.template_name, {'user': user})
+
+
 class loginView(View):
 
     template_name = "user/login.html"
@@ -139,23 +147,20 @@ class accountView(View):
     template_name = "user/account.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
-        return render(request, self.template_name, {'user': user})
+        if User.objects.filter(pk=user).count() != 0:
+            account = User.objects.get(pk=user)
+
+        if RequestDonor.objects.filter(username_id=user).count() != 0:
+            donor = RequestDonor.objects.get(username_id=user)
+        else:
+            donor = 0
+            
+        return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
-
-        address = request.POST.get('address')
-        donorBloodType = request.POST.get('donorBloodType')
-        isApproved = False
-        username = User.objects.get(pk=user)
-
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType,
-                                isApproved=isApproved, username=username)
-
-        donorReq.save()
-
-        return render(request, self.template_name, {'user': user})
+        
+            
+            return render(request, self.template_name, {'user': user, 'account': account})
 
 
 class requestDonorView(View):
@@ -166,7 +171,7 @@ class requestDonorView(View):
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
+        #donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')

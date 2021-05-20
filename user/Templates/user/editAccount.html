@@ -37,7 +37,7 @@
             <div class="wrapper">
     
                 <div class="main">
-                    <h2>PERSONAL INFO</h2>
+                    <h2>Edit Your Personal Info</h2>
                     <div class="card">
                         <div class="card-body">
                             <i class="fa fa-pen fa-xs edit"></i>
@@ -87,9 +87,9 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="buttons">
-                                <button>EDIT ACCOUNT</button>
+                                <a href="{% url 'user:account' user %}"><button>ACCOUNT</button></a>
                                 <button>EDIT ORGANIZATION</button> <!-- this part is only available if requestOrganizer is existing-->
-                                <button>LOG OUT</button>
+                                <a href="{% url 'user:login' %}"><button>LOG OUT</button></a>
                             </div>
                             
                         </div>

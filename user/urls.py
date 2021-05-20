@@ -14,4 +14,5 @@ urlpatterns = [
     path('<user>/account', views.accountView.as_view(), name="account"),
     path('<user>/requestDonor', views.requestDonorView.as_view(), name="requestDonor"),
     path('<user>/requestOrganizer', views.requestOrganizerView.as_view(), name="requestOrganizer"),
+    path('<user>/editAccount', views.editAccountView.as_view(), name="editAccount"),
 ]
