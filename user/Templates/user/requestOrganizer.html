@@ -1,26 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post">
-        {% csrf_token %}
-        <label>Hospital Name:</label><br>
-            <input type="text" name="hospitalName" ><br>
-        <label>Hospital Address:</label><br>
-            <input type="text" name="hospitalAddress" ><br>
-        <label>Business Email:</label><br>
-            <input type="text" name="businessEmail" ><br>
-        <label>Business Contact Info:</label><br>
-            <input type="text" name="contactInfo" ><br>
-        <label>Attachments:</label><br>
-            <input type="file" name="attachments" ><br>
+{% load static %}
+<html>
+    <head>
+            <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+            />
+            <title>BloodSeeker | Request Organizer</title>
+            <link rel="stylesheet" href="{% static 'css/requestOrganizer.css' %}" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            
+    </head>
+    <body>
+        <div class="navv">
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <label class="logo">
+                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
+                    BloodSeeker
+                </label>
+                    <ul>
+                        <li><a class="active">Home</a></li>
+                        <li><a >About</a></li>
+                        <li><a >Donors</a></li>
+                        <li><a >Blood Banks</a></li>
+                        <li><a >Account</a></li>
+                    </ul>
+            </nav>
+        </div>
         
-            <input type="submit" value="Submit">
-    </form> 
-</body>
+        <div class="wrapper">
+            <div class="request">
+                <form method="post">
+                    {% csrf_token %}
+                    <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
+                    <h2>ORGANIZER REQUEST FORM</h2>
+                    <h4>NOTE</h4>
+                    <p> Requesting to become an organizer for BloodSeeker requires additional attachments,
+                        this attachments will validate your credentials, as well as the specified hospital
+                        blood bank you wish to organize.
+                        <br><br>
+                        <strong>Required Attachments:</strong><br>
+                        - Company Identification/Employee ID<br>
+                        - Business of Healthcare Certificate
+                    </p><br>
+                    <h6><i>Please fill up form accordingly.</i></h6>
+                    <label>Hospital Name:</label><br>
+                        <input type="text" name="hospitalName" ><br>
+                        <p class="space"></p>
+                    <label>Hospital Address:</label><br>
+                        <input type="text" name="hospitalAddress" ><br>
+                        <p class="space"></p>
+                    <label>Business Email:</label><br>
+                        <input type="email" name="businessEmail" ><br>
+                        <p class="space"></p>
+                    <label>Business Contact Info:</label><br>
+                        <input type="text" name="contactInfo" ><br>
+                        <p class="space"></p>
+                    <label>Attachments:</label><br>
+                        <label class="labell">Company ID/Employee ID:</label>
+                            <label class="attach" for="file">
+                                <span class="material-icons">
+                                    attach_file
+                                </span>
+                                Attach file
+                            </label>
+                        <label class="labell">Business of Healthcare Certificate:</label>
+                            <label class="attach" for="file">
+                                <span class="material-icons">
+                                    attach_file
+                                </span>
+                                Attach file
+                            </label><br>
+                        <input type="file" name="attachments" >
+                        <div class="button"></div>
+                        <input type="submit" value="Submit Request">
+                </form> 
+            </div>
+            
+        </div>
+    </body>
 </html>

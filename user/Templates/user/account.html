@@ -6,8 +6,8 @@
                     name="viewport"
                     content="width=device-width, initial-scale=1"
             />
-            <title>BloodSeeker | Dashboard</title>
-            <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+            <title>BloodSeeker | Account</title>
+            <link rel="stylesheet" href="{% static 'css/account.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
             
@@ -34,11 +34,72 @@
         </div>
         
         <div class="wrapper">
-            <h1>HI this is account  page</h1>
-            <h2>Welcome</h2>
-            <button>Edit Account</button>
-            <button>Edit Organization</button> <!-- this part is only available if requestOrganizer is existing-->
-            <button>Log Out!</button>
+
+            <div class="main">
+                <h2>PERSONAL INFO</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fa fa-pen fa-xs edit"></i>
+                        <table>
+                            <tbody> <!-- Data taken from user & donor database -->
+                                <tr>
+                                    <td>First Name :</td>
+                                    <td>:</td>
+                                    <td>Jane</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>:</td>
+                                    <td>Doe</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>:</td>
+                                    <td>jane@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>:</td>
+                                    <td>Tisa, Cebu City</td> <!-- If user is donor use donor address, if not, leave blank -->
+                                </tr>
+                                <tr>
+                                    <td>Contact Number</td>
+                                    <td>:</td>
+                                    <td>911</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>:</td>
+                                    <td>Female</td>
+                                </tr>
+                                <tr>
+                                    <td>Age</td>
+                                    <td>:</td>
+                                    <td>29</td>
+                                </tr>
+                                <tr>
+                                    <td>Bloodtype</td>
+                                    <td>:</td>
+                                    <td>O+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        
+                <h2>USER SETTING</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="buttons">
+                            <a href="#"><button>EDIT ACCOUNT</button></a>
+                            <a href="#"><button>EDIT ORGANIZATION</button></a><!-- this part is only available if requestOrganizer is existing-->
+                            <a href="#"><button>LOG OUT</button></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- End -->
         </div>
     </body>
 </html>
