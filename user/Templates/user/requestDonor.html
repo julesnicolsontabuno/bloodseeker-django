@@ -1,82 +1,89 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-    <head>
-            <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-            />
-            <title>BloodSeeker | Request Donor</title>
-            <link rel="stylesheet" href="{% static 'css/requestDonor.css' %}" />
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-            
-    </head>
-    <body>
-        <div class="navv">
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                </label>
-                <label class="logo">
-                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
-                    BloodSeeker
-                </label>
-                    <ul>
-                        <li><a class="active">Home</a></li>
-                        <li><a>About</a></li>
-                        <li><a>Donors</a></li>
-                        <li><a>Blood Banks</a></li>
-                        <li><a>Account</a></li>
-                    </ul>
-            </nav>
-        </div>
-        
-        <div class="wrapper">
-            <div class="request">
-                <form method="post">
-                    {% csrf_token %}
-                    <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
-                    <h2>DONOR REQUEST FORM</h2><br>
-                    <h4>NOTE</h4>
-                    <p> Requesting to become a donor for BloodSeeker requires additional attachment,
-                        this attachment will validate your credentials to check that you are legitimate
-                        and <strong>HAD</strong> already experienced blood donation before.
-                        <br><br>
-                        <strong>Required Attachments:</strong><br>
-                        - Certificate of Appreciation towards Blood Donation
-                    </p><br>
-                    <h6><i>Please fill up form accordingly.</i></h6>
-                    <label>Address:</label><br>
-                    <input type="text" name="address" required="required">
-                    <p class="space"></p>
-                    <label>Blood Type: </label><br>
-                        <select required name="donorBloodType">
-                            <option value="">Choose Blood type</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                        </select><br>
-                    <p class="space"></p>
-                    <label>Attachments:</label>
-                        <input type="file" id="file" name="attachmentsDonor">
-                        <label class="attach" for="file">
-                            <span class="material-icons">
-                                attach_file
-                            </span>
-                            Attach file
-                        </label>
-                        <div class="button"></div>
-                            <input type="submit" id="submit" value="Submit Request">
-                </form>
-            </div>
-        </div>
-    </body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BloodSeeker | Request Donor</title>
+    <link rel="stylesheet" href="{% static 'css/requestDonor.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navv">
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">
+          <img
+            class="bslogo"
+            src="{% static 'images/bs_logo.png' %}"
+            alt="bloodseeker logo"
+          />
+          BloodSeeker
+        </label>
+        <ul>
+          <li><a class="active">Home</a></li>
+          <li><a>About</a></li>
+          <li><a>Donors</a></li>
+          <li><a>Blood Banks</a></li>
+          <li><a>Account</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="wrapper">
+      <div class="request">
+        <form method="post">
+          {% csrf_token %}
+          <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
+          <h2>DONOR REQUEST FORM</h2>
+          <br />
+          <h4>NOTE</h4>
+          <p>
+            Requesting to become a donor for BloodSeeker requires additional
+            attachment, this attachment will validate your credentials to check
+            that you are legitimate and <strong>HAD</strong> already experienced
+            blood donation before. <br /><br />
+            <strong>Required Attachments:</strong><br />
+            - Certificate of Appreciation towards Blood Donation
+          </p>
+          <br />
+          <h6><i>Please fill up form accordingly.</i></h6>
+          <label>Address:</label><br />
+          <input type="text" name="address" required="required" />
+          <p class="space"></p>
+          <label>Blood Type: </label><br />
+          <select required name="donorBloodType">
+            <option value="">Choose Blood type</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option></select
+          ><br />
+          <p class="space"></p>
+          <label>Attachments:</label>
+          <input type="file" id="file" name="attachmentsDonor" />
+          <label class="attach" for="file">
+            <span class="material-icons"> attach_file </span>
+            Attach file
+          </label>
+          <div class="button"></div>
+          <input type="submit" id="submit" value="Submit Request" />
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

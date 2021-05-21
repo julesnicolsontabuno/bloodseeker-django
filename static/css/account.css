@@ -85,7 +85,7 @@ a:hover {
 .main {
   margin-top: 2%;
   margin-left: 22%;
-  font-size: 28px;
+  font-size: 25px;
   padding: 0 10px;
   width: 58%;
 }
@@ -103,7 +103,10 @@ a:hover {
   box-shadow: 1px 1px 8px 0 grey;
   height: auto;
   margin-bottom: 20px;
-  padding: 20px 0 20px 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .main .card table {
@@ -113,53 +116,10 @@ a:hover {
   width: 80%;
 }
 
-.edit {
-  position: absolute;
-  color: #e7e7e8;
-  right: 14%;
-}
-
-.social-media {
-  text-align: center;
-  width: 90%;
-}
-
-.social-media span {
-  margin: 0 10px;
-}
-
-.fa-facebook:hover {
-  color: #4267b3 !important;
-}
-
-.fa-twitter:hover {
-  color: #1da1f2 !important;
-}
-
-.fa-instagram:hover {
-  color: #ce2b94 !important;
-}
-
-.fa-invision:hover {
-  color: #f83263 !important;
-}
-
-.fa-github:hover {
-  color: #161414 !important;
-}
-
-.fa-whatsapp:hover {
-  color: #25d366 !important;
-}
-
-.fa-snapchat:hover {
-  color: #fffb01 !important;
-}
-
 /* End */
 
 .tab {
-  margin-left: 20px;
+  margin-left: 200px;
 }
 .buttons {
   margin-left: 25px;
@@ -173,10 +133,15 @@ button {
   margin-right: 20px;
   border: none;
   cursor: pointer;
-  width: 27%;
+  width: 29%;
   background: linear-gradient(-135deg, #ff3737, #ffae51);
 }
 
 button:hover {
   background: linear-gradient(135deg, #ff3737, #ffae51);
+}
+
+.tdstyle {
+  font-size: 16px;
+  padding-right: 100px;
 }
