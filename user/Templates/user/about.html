@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div>
@@ -29,25 +30,26 @@
                 </ul>
             </nav>
         </div>
-
-        <div class="imgcontainer">
-            <img style= "width: auto; height: 175px; position: absolute;" src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
-        </div>
         
-        <div class="wrapper">
-            <div>
+        <form class="bg">
+            <div class="imgcontainer">
+                <img style= "width: 100%; height: 200px; position: center;" src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
+            </div>
+            <br> <br> <br> <br> <br> <br>
+            <div class="abc">
                 <h1 style="text-align: center;"> What is Blood Seeker? </h1>
-                <p style="text-align: center;"></p> Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.</p>
-                    
+                <p style="text-align: center;">Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.</p>
+                        
                 <br><br><br><br>
                 <h2> How does this app help people in the community? </h2>
-                <p> A lot of people are always struggling in looking for blood in case of emergencies. One problem would take in account is that there are a <b>LACK of blood donors.</b> And so in some cases, some people die. </p>
-                <p> Other problem arises when people just kept on asking for willing donors, and in some cases willing donors does not truthfully tell about their medical histories which later causes complications. </p>
-                <p> So how does this app help people? We, the admin, take certain precautions in order to help save lives.</p>
-                <p> We take in to account that all of our users are in need of blood evry minute of everyday. They are here in our app to look for donors with blood types from common, up to the rarest type.</p>
-                <p> We provide them an easy way to search for the blood that can help save the life of their friend or love ones. </p>
-                <p> We are here to make other people not experience the feeling of being helpless and hopeless. We are here to make you see the impossible and reach the improbable. </p>
-        
+                <p> A lot of people are always struggling in looking for blood in case of emergencies. One problem would take in account is that there are a <b>LACK of blood donors.</b> And so in some cases, some people die.
+                    <br><br> Other problem arises when people just kept on asking for willing donors, and in some cases willing donors does not truthfully tell about their medical histories which later causes complications.
+                    <br><br> So how does this app help people? We, the admin, take certain precautions in order to help save lives.
+                    <br><br> We take in to account that all of our users are in need of blood evry minute of everyday. They are here in our app to look for donors with blood types from common, up to the rarest type.
+                    <br><br> We provide them an easy way to search for the blood that can help save the life of their friend or love ones.
+                    <br><br> We are here to make other people not experience the feeling of being helpless and hopeless. We are here to make you see the impossible and reach the improbable.
+                </p>
+            
                 <br>
                 <h2> How do we operate? </h2>
                 <ol>
@@ -93,61 +95,59 @@
                 </ol>
             </div>
             <br>
-            <h2> Meet Our Team </h2>
-            <br>
-            <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <img src="{% static 'images/Jules.jpg' %}" alt="Jules" style="width:100%">
-                        <div class="container">
-                            <h2>Jules Nicolson E. Tabuno</h2>
-                            <p class="title">CEO & Founder</p>
-                            <p> Team Leader </p>
-                            <p>example@example.com</p>
-                            <p><button class="button">Contact</button></p>
+            <div class="wrapper">
+                <h1> Meet Our Team </h1>
+                <div class="team">
+                    <div class="team_member">
+                        <div class="team_img">
+                            <img style="border-radius: 50%;" src="{% static 'images/Jules.jpg' %}" alt="Jules">
                         </div>
+                        <h3>Jules Nicolson E. Tabuno</h3>
+                        <p class="role"> CEO & Founder</p>
+                        <p> Team Leader </p>
+                        <p>example@example.com</p>
+                        <br>
+                        <p><button class="button">Contact</button></p>
                     </div>
-                </div>
-                        
-                <div class="column">
-                    <div class="card">
-                        <img src="{% static 'images/Carl.jpg' %}" alt="Carl" style="width:100%">
-                        <div class="container">
-                            <h2>Carl V. Cordova</h2>
-                            <p class="title">Creative Director & Co-Founder</p>
-                            <p> Graphics Design </p>
-                            <p>example@example.com</p>
-                            <p><button class="button">Contact</button></p>
+    
+                    <div class="team_member">
+                        <div class="team_img">
+                            <img style="border-radius: 50%;" src="{% static 'images/Carl.jpg' %}" alt="Carl">
                         </div>
+                        <h3>Carl V. Cordova</h3>
+                        <p class="role"> Creative Director & Co-Founder</p>
+                        <p> Graphics Design </p>
+                        <p>example@example.com</p>
+                        <br>
+                        <p><button class="button">Contact</button></p>
                     </div>
-                </div>
-
-                <div class="column">
-                    <div class="card">
-                        <img src="{% static 'images/Lator.jpg' %}" alt="Lator" style="width:100%">
-                        <div class="container">
-                            <h2>John Kendrick K. Ofianga</h2>
-                            <p class="title">Co-Founder</p>
-                            <p> Graphics & Web Design </p>
-                            <p>example@example.com</p>
-                            <p><button class="button">Contact</button></p>
+    
+                    <div class="team_member">
+                        <div class="team_img">
+                            <img style="border-radius: 50%;" src="{% static 'images/Lator.jpg' %}" alt="Lator">
                         </div>
+                        <h3> John Kendrick K. Ofianga</h3>
+                        <p class="role"> Co-Founder</p>
+                        <p> Graphics & Web Design</p>
+                        <p> example@example.com</p>
+                        <br>
+                        <p><button class="button">Contact</button></p>
                     </div>
-                </div>
-
-                <div class="column">
-                    <div class="card">
-                        <img src="{% static 'images/Dame.jpg' %}" alt="Dame" style="width:100%">
-                        <div class="container">
-                            <h2>Cherrie Dame G. Dela Peña</h2>
-                            <p class="title">Co-Founder</p>
-                            <p> Web Design </p>
-                            <p>example@example.com</p>
-                            <p><button class="button">Contact</button></p>
+    
+                    <div class="team_member">
+                        <div class="team_img">
+                            <img style="border-radius: 50%;" src="{% static 'images/Dame.jpg' %}" alt="Dame">
                         </div>
+                        <h3> Cherrie Dame G. Dela Peña</h3>
+                        <p class="role"> Co-Founder</p>
+                        <p> Web Design</p>
+                        <p> example@example.com</p>
+                        <br>
+                        <p><button class="button">Contact</button></p>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
+        
     </body>
 </html>
