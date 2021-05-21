@@ -53,7 +53,7 @@
                     <td>{{i.username.lastName}}</td>
                     <td>{{i.username.contactNumber}}</td>
                     <td>{{i.donorBloodType}}</td>
-                    <td><button><strong>Make Appointment</strong></button></td>
+                    <td><a href="{% url 'user:requestAppointment' user %}"><button><strong>Make Appointment</strong></button></a></td>
                   </tr>
                         {% endif %}
                     {% endfor %}        

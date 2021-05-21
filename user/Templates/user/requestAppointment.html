@@ -7,7 +7,7 @@
                     content="width=device-width, initial-scale=1"
             />
             <title>BloodSeeker | Request Organizer</title>
-            <link rel="stylesheet" href="{% static 'css/requestOrganizer.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/requestAppointment.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -38,16 +38,24 @@
             <div class="request">
                 <form method="post">
                     {% csrf_token %}
-                    <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
+                    <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
+                    <h2>APPOINTMENT FORM</h2><br>
+                    
+                    <h6><i>Please fill up form accordingly.</i></h6>
+                    <p class="space"></p>
                     <label>Appointment Description: </label><br>
                         <select name="appointmentType">
+                            <option value="">Choose Appointment Type</option>
                             <option value="Requesting for Blood Donation">Requesting for Blood Donation</option>
                             <option value="Requesting for help/blood transfusion">Requesting for Immediate Transfusion</option>
                         </select><br>
+                        <p class="space"></p>
                     <label>Set the Date for Appointment:</label><br>
                         <input type="date" name="setDate" ><br>
+                        <p class="space"></p>
                     <label>Set the Time for Appointment:</label><br>
-                        <input type="time" name="setTime" ><br>
+                        <input type="time" name="setTime" ><br>              
+                        <p class="space"></p>
                             <div class="button"></div>
                             <input type="submit" value="Submit Request">
                 </form> 

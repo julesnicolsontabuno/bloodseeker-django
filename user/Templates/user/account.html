@@ -43,22 +43,22 @@
                         <table>
                             <tbody> <!-- Data taken from user & donor database -->
                                     <tr>
-                                        <td>First Name</td>
+                                        <td><i><strong>First Name</strong></i></td>
                                         <td>:</td>
                                         <td>{{ account.firstName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Last Name</td>
+                                        <td><i><strong>Last Name</strong></i></td>
                                         <td>:</td>
                                         <td>{{ account.lastName }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Email</td>
+                                        <td><i><strong>Email</strong></i></td>
                                         <td>:</td>
                                         <td>{{ account.email }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Address</td>
+                                        <td><i><strong>Address</strong></i></td>
                                         <td>:</td>
                                         {% if donor != 0 %}
                                             {% if donor.username_id == account.username %}
@@ -71,22 +71,22 @@
                                         {% endif %}
                                     </tr>
                                     <tr>
-                                        <td>Contact Number</td>
+                                        <td><i><strong>Contact No.</strong></i></td>
                                         <td>:</td>
                                         <td>{{ account.contactNumber }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Gender</td>
+                                        <td><i><strong>Gender</strong></i></td>
                                         <td>:</td>
                                         <td>{{ account.gender }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Age</td>
+                                        <td><i><strong>Age</strong></i></td>
                                         <td>:</td>
                                         <td>{{ account.age }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Bloodtype</td>
+                                        <td class="tdstyle"><i><strong>Bloodtype</strong></i></td>
                                         <td>:</td>
                                         {% if donor != 0 %}
                                             {% if donor.username_id == account.username %}
