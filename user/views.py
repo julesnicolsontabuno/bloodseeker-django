@@ -149,6 +149,8 @@ class accountView(View):
     def get(self, request, user):
         if User.objects.filter(pk=user).count() != 0:
             account = User.objects.get(pk=user)
+        else:
+            account = 0
 
         if Donor.objects.filter(username_id=user).count() != 0:
             donor = Donor.objects.get(username_id=user)

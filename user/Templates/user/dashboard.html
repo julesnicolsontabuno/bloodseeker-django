@@ -1,112 +1,170 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-    <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-           
-            <title>BloodSeeker | Dashboard</title>
-            <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-            <style>
-                body{
-                    background-image: url(background_image.jpg);
-                }
-                .header {
-                    padding: 60px;
-                    text-align: center;
-                    background-image: url(brand_name.png);
-                    color: black;
-                    font-size: 30px;
-                }
-                .p{
-                    text-align: justify;
-                }
-                .container {
-                    padding: 0 50px;
-                }
-                .a{
-                    color: blue;
-                }
-            </style>
-    </head>
-    <body>
-        <div class="container">
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                </label>
-                <label class="logo">
-                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
-                    BloodSeeker
-                </label>
-                    <ul>
-                        <li><a class="active" href="{% url 'user:dashboard' user %}">Home</a></li>
-                        <li><a href="{% url 'user:about' user %}">About</a></li>
-                        <li><a href="{% url 'user:donor' user %}">Donors</a></li>
-                        <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
-                        <li><a href="{% url 'user:account' user %}">Account</a></li>
-                    </ul>
-            </nav>
-        </div>
-        
-        <div class="wrapper">
-            <section>
-                <h1>Articles on Blood Donations</h1>
-                <article>
-                    <header>
-                        <h2> Red Cross calls for blood donors as holiday season peaks</h2>
-                        <p class="p"> Blood donation is a major concern to the society as donated blood is lifesaving for individuals who need it.
-                            Blood is scarce. There is a shortage to active blood donors to meet the need of increased blood demand.
-                            Blood donation as a therapeutic exercise. Globally, approximately 80 million units of blood are donated each year.
-                            One of the biggest challenges to blood safety particularly is accessing safe and adequate quantities of blood and blood products.
-                            Safe supply of blood and blood components is essential, to enable a wide range of critical care procedures to be carried out in hospitals.
-                            Good knowledge about blood donation practices is not transforming in donating blood. Interactive awareness on blood donation should be organized to create awareness and opportunities for blood donation.
-                            Blood donation could be therefore recommended that voluntary blood donations as often as possible may be therapeutically beneficial to the donors in terms of thrombotic complications and efficient blood flow mechanisms.
-                            <a class="a" href="https://www.longdom.org/peer-reviewed-journals/articles-on-blood-donation-6285.html#:~:text=Blood%20donation%20is%20a%20major,Blood%20is%20scarce.&text=Safe%20supply%20of%20blood%20and,be%20carried%20out%20in%20hospitals.">Source [click here]</a>
-                        </p>
-                    </header>
-                </article>
-                <article>
-                    <header>
-                        <h2> DOH advocates voluntary blood donation</h2>
-                        <p class="p"> MANILA -- The Department of Health (DOH) on Tuesday urged the public to take part in its campaign for voluntary and unpaid blood donation which is an integral part of universal health care (UHC).
-                            <br><br>"Blood transfusion saves millions of lives every year. It is needed in most medical procedures, instances of accidents or emergency," said Health Secretary Francisco Duque III in a press briefing.
-                            <br><br> Duque reported the DOH has received one million blood units, adding that the department's goal is to meet 100 percent voluntary non-remunerated blood donation by 2020.
-                            <br><br> "On June 14, we will be celebrating World Blood Donor Day with the theme 'Safe Blood for All' that aims to give gratitude to voluntary, unpaid blood donors for their life-saving gifts of blood. I enjoin everyone for collective action towards this goal and give the gift of life by donating your blood," he added.
-                            <a class="a" href="https://www.pna.gov.ph/articles/1072036">Read more here...</a>
-                        </p>
-                    </header>
-                </article>
-                <br>
-                <article>
-                    <header>
-                        <h2> Red Cross calls for blood donors as holiday season peaks</h2>
-                        <p class="p"> MANILA – The Philippine Red Cross (PRC) calls for blood donors as the holiday season approaches to help fill the blood reserves.
-                            <br> As people prefers to stay home fearing coronavirus infection, PRC assured that all health protocols are being observed to keep donors safe.
-                            <br> PRC is also expecting a surge in demand for blood supply and reserves during the holiday season.
-                            <br> PRC chairman and CEO, Senator Richard Gordon urged the public to donate more blood to replenish the reserves in case of emergencies.
-                            <br> “Ang pangangailangan sa dugo ay hindi tumitigil. (The need for blood doesn’t stop),” Gordon said in a news release on Tuesday.
-                            <a class="a" href="https://www.pna.gov.ph/articles/1124822">Read more here...</a>
-                        </p>
-                    </header>
-                </article>
-                <br>
-                <article>
-                    <header>
-                        <h2> Blood Donation </h2>
-                        <p class="p"> Blood donation is a vital part of worldwide healthcare.
-                            It relates to blood transfusion as a life-sustaining and life-saving procedure as well as a form of therapeutic phlebotomy as a primary medical intervention. 
-                            Over one hundred million units of blood are donated each year throughout the world. 
-                            This article will concisely discuss a short history of blood donation origin and purpose, blood testing, donor eligibility and selection, adverse effects of donation, blood donation as a primary medical intervention, and a brief discussion of pathogen reduction and inactivation for donated blood.
-                            <a class="a" href="https://www.statpearls.com/ArticleLibrary/viewarticle/18389">Read more here...</a>
-                        </p>
-                    </header>
-                </article>
-            </section>
-        </div>
-    </body>
+    <title>BloodSeeker | Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css" />
+
+    <style>
+      body {
+        background-image: url(background_image.jpg);
+      }
+      .header {
+        padding: 60px;
+        text-align: center;
+        background-image: url(brand_name.png);
+        color: black;
+        font-size: 30px;
+      }
+      .p {
+        text-align: justify;
+      }
+      .a {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">
+          <img
+            class="bslogo"
+            src="{% static 'images/bs_logo.png' %}"
+            alt="bloodseeker logo"
+          />
+          BloodSeeker
+        </label>
+        <ul>
+          <li>
+            <a class="active" href="{% url 'user:dashboard' user %}">Home</a>
+          </li>
+          <li><a href="{% url 'user:about' user %}">About</a></li>
+          <li><a href="{% url 'user:donor' user %}">Donors</a></li>
+          <li>
+            <a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a>
+          </li>
+          <li><a href="{% url 'user:account' user %}">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="wrapper">
+      <section>
+        <h1>Articles on Blood Donations</h1>
+        <article>
+          <header>
+            <h2>Red Cross calls for blood donors as holiday season peaks</h2>
+            <p class="p">
+              Blood donation is a major concern to the society as donated blood
+              is lifesaving for individuals who need it. Blood is scarce. There
+              is a shortage to active blood donors to meet the need of increased
+              blood demand. Blood donation as a therapeutic exercise. Globally,
+              approximately 80 million units of blood are donated each year. One
+              of the biggest challenges to blood safety particularly is
+              accessing safe and adequate quantities of blood and blood
+              products. Safe supply of blood and blood components is essential,
+              to enable a wide range of critical care procedures to be carried
+              out in hospitals. Good knowledge about blood donation practices is
+              not transforming in donating blood. Interactive awareness on blood
+              donation should be organized to create awareness and opportunities
+              for blood donation. Blood donation could be therefore recommended
+              that voluntary blood donations as often as possible may be
+              therapeutically beneficial to the donors in terms of thrombotic
+              complications and efficient blood flow mechanisms.
+              <a
+                class="a"
+                href="https://www.longdom.org/peer-reviewed-journals/articles-on-blood-donation-6285.html#:~:text=Blood%20donation%20is%20a%20major,Blood%20is%20scarce.&text=Safe%20supply%20of%20blood%20and,be%20carried%20out%20in%20hospitals."
+                >Source [click here]</a
+              >
+            </p>
+          </header>
+        </article>
+        <article>
+          <header>
+            <h2>DOH advocates voluntary blood donation</h2>
+            <p class="p">
+              MANILA -- The Department of Health (DOH) on Tuesday urged the
+              public to take part in its campaign for voluntary and unpaid blood
+              donation which is an integral part of universal health care (UHC).
+              <br /><br />"Blood transfusion saves millions of lives every year.
+              It is needed in most medical procedures, instances of accidents or
+              emergency," said Health Secretary Francisco Duque III in a press
+              briefing. <br /><br />
+              Duque reported the DOH has received one million blood units,
+              adding that the department's goal is to meet 100 percent voluntary
+              non-remunerated blood donation by 2020. <br /><br />
+              "On June 14, we will be celebrating World Blood Donor Day with the
+              theme 'Safe Blood for All' that aims to give gratitude to
+              voluntary, unpaid blood donors for their life-saving gifts of
+              blood. I enjoin everyone for collective action towards this goal
+              and give the gift of life by donating your blood," he added.
+              <a class="a" href="https://www.pna.gov.ph/articles/1072036"
+                >Read more here...</a
+              >
+            </p>
+          </header>
+        </article>
+        <br />
+        <article>
+          <header>
+            <h2>Red Cross calls for blood donors as holiday season peaks</h2>
+            <p class="p">
+              MANILA – The Philippine Red Cross (PRC) calls for blood donors as
+              the holiday season approaches to help fill the blood reserves.
+              <br />
+              As people prefers to stay home fearing coronavirus infection, PRC
+              assured that all health protocols are being observed to keep
+              donors safe. <br />
+              PRC is also expecting a surge in demand for blood supply and
+              reserves during the holiday season. <br />
+              PRC chairman and CEO, Senator Richard Gordon urged the public to
+              donate more blood to replenish the reserves in case of
+              emergencies. <br />
+              “Ang pangangailangan sa dugo ay hindi tumitigil. (The need for
+              blood doesn’t stop),” Gordon said in a news release on Tuesday.
+              <a class="a" href="https://www.pna.gov.ph/articles/1124822"
+                >Read more here...</a
+              >
+            </p>
+          </header>
+        </article>
+        <br />
+        <article>
+          <header>
+            <h2>Blood Donation</h2>
+            <p class="p">
+              Blood donation is a vital part of worldwide healthcare. It relates
+              to blood transfusion as a life-sustaining and life-saving
+              procedure as well as a form of therapeutic phlebotomy as a primary
+              medical intervention. Over one hundred million units of blood are
+              donated each year throughout the world. This article will
+              concisely discuss a short history of blood donation origin and
+              purpose, blood testing, donor eligibility and selection, adverse
+              effects of donation, blood donation as a primary medical
+              intervention, and a brief discussion of pathogen reduction and
+              inactivation for donated blood.
+              <a
+                class="a"
+                href="https://www.statpearls.com/ArticleLibrary/viewarticle/18389"
+                >Read more here...</a
+              >
+            </p>
+          </header>
+        </article>
+      </section>
+    </div>
+  </body>
 </html>
