@@ -80,8 +80,8 @@ a:hover {
 /* Main */
 .main {
   margin-top: 2%;
-  margin-left: 22%;
-  font-size: 28px;
+  margin-left: 25%;
+  font-size: 16px;
   padding: 0 10px;
   width: 58%;
 }
@@ -99,7 +99,7 @@ a:hover {
   box-shadow: 1px 1px 8px 0 grey;
   height: auto;
   margin-bottom: 20px;
-  padding: 20px 0 20px 50px;
+  padding: 20px 0 20px 20px;
 }
 
 .main .card table {
@@ -109,70 +109,173 @@ a:hover {
   width: 80%;
 }
 
-.edit {
-  position: absolute;
-  color: #e7e7e8;
-  right: 14%;
-}
-
-.social-media {
-  text-align: center;
-  width: 90%;
-}
-
-.social-media span {
-  margin: 0 10px;
-}
-
-.fa-facebook:hover {
-  color: #4267b3 !important;
-}
-
-.fa-twitter:hover {
-  color: #1da1f2 !important;
-}
-
-.fa-instagram:hover {
-  color: #ce2b94 !important;
-}
-
-.fa-invision:hover {
-  color: #f83263 !important;
-}
-
-.fa-github:hover {
-  color: #161414 !important;
-}
-
-.fa-whatsapp:hover {
-  color: #25d366 !important;
-}
-
-.fa-snapchat:hover {
-  color: #fffb01 !important;
-}
-
 /* End */
 
 .tab {
   margin-left: 20px;
 }
 .buttons {
-  margin-left: 25px;
+  margin-left: 20px;
 }
 button {
   border-radius: 10px;
   color: white;
   padding: 12px 25px;
-  margin-top: 15px;
+  margin-top: 5px;
   margin-bottom: 15px;
-  margin-right: 20px;
   border: none;
   cursor: pointer;
-  width: 27%;
+  width: 20%;
   background: linear-gradient(-135deg, #ff3737, #ffae51);
 }
 
 button:hover {
   background: linear-gradient(135deg, #ff3737, #ffae51);
+}
+
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+form .user-details .input-box {
+  margin-bottom: 10px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.user-details .input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 13px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: #ff3737;
+}
+form .gender-details .gender-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+form .category {
+  display: flex;
+  width: 35%;
+  margin: 12px;
+  justify-content: space-between;
+}
+form .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+form .category label .dot {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two {
+  background: #ff3737;
+  border-color: #d9d9d9;
+}
+form input[type="radio"] {
+  display: none;
+}
+form .button {
+  position: relative;
+  height: 45px;
+  width: 50%;
+  margin-left: 160px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #ff3737, #ffae51);
+}
+form .button input:hover {
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #ff3737, #ffae51);
+}
+@media (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category {
+    width: 100%;
+  }
+  .content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+@media (max-width: 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}
+
+.signin {
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: rgb(99, 99, 99);
+  margin-bottom: 7px;
+}
+a {
+  text-decoration: none;
+}
+
+.error-message {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+  margin: 5px;
+}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
 }
