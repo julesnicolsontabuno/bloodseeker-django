@@ -2,40 +2,152 @@
 {% load static %}
 <html>
     <head>
-            <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-            />
-            <title>BloodSeeker | About</title>
-            <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
-            
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <title>BloodSeeker | About</title>
+        <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
     </head>
     <body>
         <div>
-            <nav>
-                <input type="checkbox" id="check">
+            <nav class="w3-bar w3-red">
+                <input type="checkbox" id="check" />
                 <label for="check" class="checkbtn">
                     <i class="fas fa-bars"></i>
                 </label>
                 <label class="logo">
-                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
-                    BloodSeeker
+                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" /> BloodSeeker
                 </label>
-                    <ul>
-                        <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
-                        <li><a class="active" href="{% url 'user:about' user %}">About</a></li>
-                        <li><a href="{% url 'user:donor' user %}">Donors</a></li>
-                        <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
-                        <li><a href="{% url 'user:account' user %}">Account</a></li>
-                    </ul>
+                <ul>
+                    <li> <a class="active" href="{% url 'user:dashboard' user %}">Home</a> </li>
+                    <li> <a href="{% url 'user:about' user %}">About</a></li>
+                    <li> <a href="{% url 'user:donor' user %}">Donors</a></li>
+                    <li> <a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a> </li>
+                    <li><a href="{% url 'user:account' user %}">Account</a></li>
+                </ul>
             </nav>
+        </div>
+
+        <div class="imgcontainer">
+            <img style= "width: auto; height: 175px; position: absolute;" src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
         </div>
         
         <div class="wrapper">
-            <h1>HI this is about</h1>
-            <h2>Welcome</h2>
+            <div>
+                <h1 style="text-align: center;"> What is Blood Seeker? </h1>
+                <p style="text-align: center;"></p> Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.</p>
+                    
+                <br><br><br><br>
+                <h2> How does this app help people in the community? </h2>
+                <p> A lot of people are always struggling in looking for blood in case of emergencies. One problem would take in account is that there are a <b>LACK of blood donors.</b> And so in some cases, some people die. </p>
+                <p> Other problem arises when people just kept on asking for willing donors, and in some cases willing donors does not truthfully tell about their medical histories which later causes complications. </p>
+                <p> So how does this app help people? We, the admin, take certain precautions in order to help save lives.</p>
+                <p> We take in to account that all of our users are in need of blood evry minute of everyday. They are here in our app to look for donors with blood types from common, up to the rarest type.</p>
+                <p> We provide them an easy way to search for the blood that can help save the life of their friend or love ones. </p>
+                <p> We are here to make other people not experience the feeling of being helpless and hopeless. We are here to make you see the impossible and reach the improbable. </p>
+        
+                <br>
+                <h2> How do we operate? </h2>
+                <ol>
+                    <li> <b>Anyone</b> can login and become a user. May it be a potential donor or organizers who wants to put their lists of blood in their blood banks.
+                        <br>
+                        <ul> To be able to login without difficulties, users must have:
+                            <li> Email <i>[for verification]</i></li>
+                            <li> Contact Number</li>
+                            <li> Provide personal information.</li>
+                        </ul>
+                    </li>
+                    <li> Users can search for a specific blood type - like for example, blood type AB is rare, and if it is what the user needs, they can easily search for it. </li>
+                    <li> Users/Donors must add <b>truthful</b> information about their <b>MEDICAL HISTORY</b> to avoid causing problems to the receiver and to avoid being banned in our app.
+                        <p> <i>***Note: We ban users/donors/organizers in order to save lives and to protect our users from danger! We don't want to cause more problems to the people who needs our help. </i> </p>
+                    </li>
+                    <li> Users and Organizers can edit/update or delete their blood descriptions to alert other users and avoid complications.  </li>
+                    <li> Users can make appointments to certain donors. For some instances, and in case of emergency, a user can make an arrangement with a certain donor with the help of the admin, in which they will need to notify the donor if he/she agrees with the appointment made by the user. </li>
+                    <li> The admin can either accept or reject any users who wants to be a donor or an organizer.
+                        <br>
+                        <ul> We accept users who can provide us the following requirements:
+                            <li> <b>FOR DONORS </b>
+                                <ul>
+                                    <li> Birth Certificate - NSO (Original copy) </li>
+                                    <li> 2 valid IDs <i> [Driver's license, School ID (for students), Employee ID, Passport and etc.] </i> </li>
+                                    <li> Health Certificate <i> [Take some tests (that are required or a must to become a donor) run by legal clinics and hospitals.] </i> </li>
+                                    <li> Copy of the receipts of the tests <i>[in order to know the clinic or hospitals are legit.] </i> </li>
+                                    <li> Answer a few set of questions and submit all the requirements in the page.</li>
+                                </ul>
+                            </li>
+                            <li> <b> FOR ORGANIZERS </b>
+                                <ul>
+                                    <li> Business Logo </i> </li>
+                                    <li> Business Contact Information</li>
+                                    <li> Business Email </li>
+                                    <li> Business Head/Director Certification with Employee ID </li>
+                                    <li> Business Media Relations Personnel Certification with Employee ID</li>
+                                    <li> Business Certification <i>[when was it built up until latest operation in order to know if they are legal and legit.]</i> </li>
+                                    <li> Answer a few set of questions and submit all the requirements in the page.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            <br>
+            <h2> Meet Our Team </h2>
+            <br>
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'images/Jules.jpg' %}" alt="Jules" style="width:100%">
+                        <div class="container">
+                            <h2>Jules Nicolson E. Tabuno</h2>
+                            <p class="title">CEO & Founder</p>
+                            <p> Team Leader </p>
+                            <p>example@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+                        
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'images/Carl.jpg' %}" alt="Carl" style="width:100%">
+                        <div class="container">
+                            <h2>Carl V. Cordova</h2>
+                            <p class="title">Creative Director & Co-Founder</p>
+                            <p> Graphics Design </p>
+                            <p>example@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'images/Lator.jpg' %}" alt="Lator" style="width:100%">
+                        <div class="container">
+                            <h2>John Kendrick K. Ofianga</h2>
+                            <p class="title">Co-Founder</p>
+                            <p> Graphics & Web Design </p>
+                            <p>example@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="{% static 'images/Dame.jpg' %}" alt="Dame" style="width:100%">
+                        <div class="container">
+                            <h2>Cherrie Dame G. Dela Peña</h2>
+                            <p class="title">Co-Founder</p>
+                            <p> Web Design </p>
+                            <p>example@example.com</p>
+                            <p><button class="button">Contact</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
