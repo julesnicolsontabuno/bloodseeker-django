@@ -1,3 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
 body {
   font-family: "Poppins", sans-serif;
   background-image: url('/static/images/background_image.jpg');
@@ -5,6 +12,7 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
 }
+
 nav {
   background: linear-gradient(to right, #ff3737, #ffae51);
   height: 100px;
@@ -24,6 +32,7 @@ label.logo {
   font-weight: bold;
   font-family: "OptimusPrinceps";
 }
+
 nav ul {
   float: right;
   margin-right: 40px;
@@ -42,6 +51,9 @@ nav ul li a {
   border-radius: 3px;
   text-transform: uppercase;
 }
+/* a.active {
+  
+  } */
 a:hover {
   background: white;
   color: #ffb923;
@@ -61,29 +73,19 @@ a:hover {
 }
 @media (max-width: 952px) {
   /* label.logo {
-    font-size: 30px;
-    padding-left: 50px;
-  }*/
+      font-size: 30px;
+      padding-left: 50px; 
+    }*/
   nav ul li a {
     font-size: 16px;
   }
 }
+
 .imgcontainer {
   padding: 20px;
   position: relative;
   height: 90px;
 }
-
-html {
-  box-sizing: border-box;
-}
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .wrapper{
   margin-top: 10%;
 }
@@ -160,21 +162,6 @@ html {
   background-color: #555;
 }
 
-h2, p{
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-ol{
-  padding-left: 8.5%;
-  padding-right: 8.5%;
-}
-
-ul{
-  padding-left: 3%;
-  padding-right: 3%;
-}
-
 form {
   border: 3px solid #f1f1f1;
   border-radius: 10px;
@@ -189,4 +176,14 @@ form {
 }
 form.bg{
   background: rgba(255, 255, 255, 0.80);
+}
+
+ol .one{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+h2, p{
+  padding-left: 5%;
+  padding-right: 5%;
 }
