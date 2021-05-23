@@ -6,7 +6,7 @@
                     name="viewport"
                     content="width=device-width, initial-scale=1"
             />
-            <title>BloodSeeker | Request Appointment</title>
+            <title>BloodSeeker | Donor</title>
             <link rel="stylesheet" href="{% static 'css/requestAppointment.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
@@ -38,26 +38,24 @@
             <div class="request">
                 <form method="post">
                     {% csrf_token %}
-                    <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
-                    <h2>APPOINTMENT FORM</h2><br>
+                    <span class="material-icons"><a href="{% url 'user:requestDonor' user %}">arrow_back</a></span>
+                    <h2>CHOOSING DONOR STATUS</h2><br>
                     
-                    <h6><i>Please fill up form accordingly.</i></h6>
                     <p class="space"></p>
-                    <label>Appointment Description: </label><br>
-                        <select name="appointmentType">
-                            <option value="">Choose Appointment Type</option>
-                            <option value="Requesting for Blood Donation">Requesting for Blood Donation</option>
-                            <option value="Requesting for Immediate transfusion">Requesting for Immediate Transfusion</option>
+                    <label>Set Status: </label><br>
+                        <select name="setStatus">
+                            <option value="">Choose Status</option>
+                            <option value="Ready to Donate">Ready to Donate</option>
+                            <option value="Waiting Appointment">Waiting for Appointment</option>
+                            <option value="Has Donated">Already Donated</option>
                         </select><br>
                         <p class="space"></p>
-                    <label>Set the Date for Appointment:</label><br>
-                        <input type="date" name="setDate" ><br>
-                        <p class="space"></p>
-                    <label>Set the Time for Appointment:</label><br>
-                        <input type="time" name="setTime" ><br>              
-                        <p class="space"></p>
+                    <h6><i>Fill this up if you want to note yourself when you last donated or if not yet.</i></h6>
+                    <label>Write to Yourself:</label><br>
+                        <input type="text" name="writeReminder" ><br>
+                        <p class="space"></p>            
                             <div class="button"></div>
-                            <input type="submit" value="Make Appointment">
+                            <input type="submit" value="Save">
                 </form> 
             </div>
             

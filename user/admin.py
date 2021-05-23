@@ -7,3 +7,4 @@ admin.site.register(User)
 admin.site.register(Donor)
 admin.site.register(Organizer)
 admin.site.register(RequestAppointment)
+
