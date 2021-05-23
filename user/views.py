@@ -85,11 +85,11 @@ class dashboardView(View):
     template_name = "user/dashboard.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
+        formRequestDonor = RequestDonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
+        donor = RequestDonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -108,11 +108,11 @@ class aboutView(View):
     template_name = "user/about.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
+        formRequestDonor = RequestDonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
+        donor = RequestDonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -131,7 +131,7 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-        donor = Donor.objects.all()
+        donor = RequestDonor.objects.all()
         return render(request, self.template_name, {'donor': donor, 'user': user})
 
 
@@ -169,11 +169,11 @@ class requestDonorView(View):
     template_name = "user/requestDonor.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
+        formRequestDonor = RequestDonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
+        donor = RequestDonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -181,7 +181,7 @@ class requestDonorView(View):
         isApproved = False
         username = User.objects.get(pk=user)
 
-        donorReq = Donor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
+        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
                                 isApproved=isApproved, username=username)
 
         donorReq.save()
