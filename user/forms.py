@@ -1,4 +1,6 @@
 from django import forms
+from django.db.models import fields
+from django.db.models.base import Model
 from .models import *
 
 
@@ -24,9 +26,9 @@ class LoginForm(forms.ModelForm):
             "password"
         ]
 
-class DonorForm(forms.ModelForm):
+class RequestDonorForm(forms.ModelForm):
     class Meta:
-        model = Donor
+        model = RequestDonor
         fields = [
             "requestDonorID",
             "address",
@@ -60,4 +62,12 @@ class AppointmentForm(forms.ModelForm):
             "setDate",
             "setTime",
             "isApproved",
+        ]
+
+class DonorForm(forms.ModelForm):
+    class Meta:
+        model = Donor
+        fields = [
+            "requestDonorID",
+            "requestAppointmentID",
         ]
