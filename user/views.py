@@ -173,7 +173,7 @@ class requestDonorView(View):
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        #donor = DonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -230,7 +230,6 @@ class requestAppointmentView(View):
         setDate = request.POST.get('setDate')
         setTime = request.POST.get('setTime')
         isApproved = False
-        #username = User.objects.get(pk=user)
 
         appointmentReq = RequestAppointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
                                 isApproved=isApproved)
@@ -238,3 +237,5 @@ class requestAppointmentView(View):
         appointmentReq.save()
 
         return render(request, self.template_name, {'user': user})
+
+
