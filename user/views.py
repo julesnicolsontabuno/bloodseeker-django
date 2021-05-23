@@ -8,6 +8,7 @@ from .forms import *
 # Create your views here.
 
 
+
 class editAccountView(View):
     template_name = "user/editAccount.html"
 
@@ -84,11 +85,11 @@ class dashboardView(View):
     template_name = "user/dashboard.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -96,7 +97,7 @@ class dashboardView(View):
         username = User.objects.get(pk=user)
 
         donorReq = Donor(address=address, donorBloodType=donorBloodType,
-                         isApproved=isApproved, username=username)
+                                isApproved=isApproved, username=username)
 
         donorReq.save()
 
@@ -107,11 +108,11 @@ class aboutView(View):
     template_name = "user/about.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -119,7 +120,7 @@ class aboutView(View):
         username = User.objects.get(pk=user)
 
         donorReq = Donor(address=address, donorBloodType=donorBloodType,
-                         isApproved=isApproved, username=username)
+                                isApproved=isApproved, username=username)
 
         donorReq.save()
 
@@ -130,7 +131,6 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-      
         donor = Donor.objects.all()
 
         if User.objects.filter(pk=user).count() != 0:
@@ -144,7 +144,6 @@ class donorView(View):
             donor1 = 0
 
         return render(request, self.template_name, {'donor': donor, 'user': user, 'account': account, 'donor1': donor1})
-
 
 
 class accreditedHospitalView(View):
@@ -164,27 +163,28 @@ class accountView(View):
         else:
             account = 0
 
-        if Donor.objects.filter(username_id=user).count() != 0:
-            donor = Donor.objects.get(username_id=user)
+        if RequestDonor.objects.filter(username_id=user).count() != 0:
+            donor = RequestDonor.objects.get(username_id=user)
         else:
             donor = 0
-
+            
         return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor})
 
     def post(self, request, user, account):
-
-        return render(request, self.template_name, {'user': user, 'account': account})
+        
+            
+            return render(request, self.template_name, {'user': user, 'account': account})
 
 
 class requestDonorView(View):
     template_name = "user/requestDonor.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -192,11 +192,8 @@ class requestDonorView(View):
         isApproved = False
         username = User.objects.get(pk=user)
 
-
-
-        donorReq = RequestDonor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
+        donorReq = Donor(address=address, donorBloodType=donorBloodType, attachmentsDonor=attachmentsDonor,
                                 isApproved=isApproved, username=username)
-
 
         donorReq.save()
 
@@ -223,13 +220,12 @@ class requestOrganizerView(View):
         username = User.objects.get(pk=user)
 
         organizerReq = Organizer(hospitalName=hospitalName, hospitalAddress=hospitalAddress, businessEmail=businessEmail,
-                                 contactInfo=contactInfo, attachmentsID=attachmentsID, attachmentsBC=attachmentsBC,
-                                 isApproved=isApproved, username=username)
+                                        contactInfo=contactInfo, attachmentsID=attachmentsID, attachmentsBC = attachmentsBC, 
+                                        isApproved=isApproved, username=username)
 
         organizerReq.save()
 
         return render(request, self.template_name, {'user': user})
-
 
 class requestAppointmentView(View):
     template_name = "user/requestAppointment.html"
@@ -247,8 +243,10 @@ class requestAppointmentView(View):
         isApproved = False
 
         appointmentReq = RequestAppointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
-                                            isApproved=isApproved)
+                                isApproved=isApproved)
 
         appointmentReq.save()
 
         return render(request, self.template_name, {'user': user})
+
+
