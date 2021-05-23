@@ -5,12 +5,21 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  background-image: url('/static/images/background_image.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+  background-color: peachpuff;
 }
 
 nav {
@@ -86,18 +95,18 @@ a:hover {
   position: relative;
   height: 90px;
 }
-.wrapper{
+.wrapper {
   margin-top: 10%;
 }
 
-.wrapper h1{
-  font-family: 'Allura', cursive;
+.wrapper h1 {
+  /* font-family: "Allura", cursive; */
   font-size: 52px;
   margin-bottom: 60px;
   text-align: center;
 }
 
-.team{
+.team {
   display: flex;
   justify-content: center;
   width: auto;
@@ -105,31 +114,31 @@ a:hover {
   flex-wrap: wrap;
 }
 
-.team .team_member{
+.team .team_member {
   background: #fff;
   margin: 5px;
   margin-bottom: 50px;
   width: 300px;
   padding: 20px;
   line-height: 20px;
-  color: #8e8b8b;  
+  color: #8e8b8b;
   position: relative;
 }
 
-.team .team_member h3{
+.team .team_member h3 {
   color: #81c644;
   font-size: 26px;
   margin-top: 50px;
 }
 
-.team .team_member p.role{
+.team .team_member p.role {
   color: #ccc;
   margin: 12px 0;
   font-size: 12px;
   text-transform: uppercase;
 }
 
-.team .team_member .team_img{
+.team .team_member .team_img {
   position: absolute;
   top: -50px;
   left: 50%;
@@ -140,7 +149,7 @@ a:hover {
   background: #fff;
 }
 
-.team .team_member .team_img img{
+.team .team_member .team_img img {
   width: 100px;
   height: 100px;
   padding: 5px;
@@ -174,16 +183,17 @@ form {
   margin-left: auto;
   margin-right: auto;
 }
-form.bg{
-  background: rgba(255, 255, 255, 0.80);
+form.bg {
+  background: rgba(255, 255, 255, 0.8);
 }
 
-ol .one{
+ol .one {
   padding-left: 5%;
   padding-right: 5%;
 }
 
-h2, p{
+h2,
+p {
   padding-left: 5%;
   padding-right: 5%;
 }

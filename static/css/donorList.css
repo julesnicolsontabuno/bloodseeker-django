@@ -5,6 +5,18 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: peachpuff;
@@ -61,7 +73,7 @@ a:hover {
   color: white;
   float: right;
   line-height: 80px;
-  margin-right: 40px;
+  margin-right: 2 0px;
   cursor: pointer;
   display: none;
 }
@@ -81,9 +93,9 @@ a:hover {
 .content-table {
   background-color: white;
   border-collapse: collapse;
-  margin: 25px 300px;
+  margin: 25px 250px;
   font-size: 0.9em;
-  min-width: 800px;
+  min-width: 900px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -98,7 +110,8 @@ a:hover {
 
 .content-table th,
 .content-table td {
-  padding: 12px 15px;
+  padding: 10px 20px;
+  width: 20px;
 }
 
 .content-table tbody tr {

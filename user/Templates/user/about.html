@@ -2,153 +2,153 @@
 {% load static %}
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <title>BloodSeeker | About</title>
-        <link rel="stylesheet" href="{% static 'css/about.css' %}" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div>
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                </label>
-                <label class="logo">
-                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
-                    BloodSeeker
-                </label>
-                    <ul>
-                        <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
-                        <li><a class="active" href="{% url 'user:about' user %}">About</a></li>
-                        <li><a href="{% url 'user:donor' user %}">Donors</a></li>
-                        <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
-                        <li><a href="{% url 'user:account' user %}">Account</a></li>
-                    </ul>
-            </nav>
-        </div>
-        
-        <form class="bg">
-            <div class="imgcontainer">
-                <img style="width: 100%; height: 500%;" src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
-            </div>
-            <br> <br> <br> <br> <br> <br>
-            <div class="abc">
-                <h1 style="text-align: center;"> What is Blood Seeker? </h1>
-                <p style="text-align: center;">Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.</p>
-                        
-                <br><br><br><br>
-                <h2> How does this app help people in the community? </h2>
-                <p> A lot of people are always struggling in looking for blood in case of emergencies. One problem would take in account is that there are a <b>LACK of blood donors.</b> And so in some cases, some people die.
-                    <br><br> Other problem arises when people just kept on asking for willing donors, and in some cases willing donors does not truthfully tell about their medical histories which later causes complications.
-                    <br><br> So how does this app help people? We, the admin, take certain precautions in order to help save lives.
-                    <br><br> We take in to account that all of our users are in need of blood evry minute of everyday. They are here in our app to look for donors with blood types from common, up to the rarest type.
-                    <br><br> We provide them an easy way to search for the blood that can help save the life of their friend or love ones.
-                    <br><br> We are here to make other people not experience the feeling of being helpless and hopeless. We are here to make you see the impossible and reach the improbable.
-                </p>
+            <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+            />
+            <title>BloodSeeker | About</title>
+            <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
             
-                <br>
-                <h2> How do we operate? </h2>
-                <ol class="one">
-                    <li style="padding-left: 5%; padding-right: 5%;"> 1. <b>Anyone</b> can login and become a user. May it be a potential donor or organizers who wants to put their lists of blood in their blood banks.
-                        <br>
-                        <ul style="padding-left: 5%; padding-right: 5%;"> To be able to login without difficulties, users must have:
-                            <li style="padding-left: 5%; padding-right: 5%;"> Email <i>[for verification]</i></li>
-                            <li style="padding-left: 5%; padding-right: 5%;"> Contact Number</li>
-                            <li style="padding-left: 5%; padding-right: 5%;"> Provide personal information.</li>
+    </head>
+    <body class="example">
+            <div>
+                <nav>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <label class="logo">
+                        <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
+                        BloodSeeker
+                    </label>
+                        <ul>
+                            <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
+                            <li><a class="active" href="{% url 'user:about' user %}">About</a></li>
+                            <li><a href="{% url 'user:donor' user %}">Donors</a></li>
+                            <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
+                            <li><a href="{% url 'user:account' user %}">Account</a></li>
                         </ul>
-                    </li>
-                    <li style="padding-left: 5%; padding-right: 5%;"> 2. Users can search for a specific blood type - like for example, blood type AB is rare, and if it is what the user needs, they can easily search for it. </li>
-                    <li style="padding-left: 5%; padding-right: 5%;"> 3. Users/Donors must add <b>truthful</b> information about their <b>MEDICAL HISTORY</b> to avoid causing problems to the receiver and to avoid being banned in our app.
-                        <p> <i>***Note: We ban users/donors/organizers in order to save lives and to protect our users from danger! We don't want to cause more problems to the people who needs our help. </i> </p>
-                    </li>
-                    <li style="padding-left: 5%; padding-right: 5%;"> 4. Users and Organizers can edit/update or delete their blood descriptions to alert other users and avoid complications.  </li>
-                    <li style="padding-left: 5%; padding-right: 5%;"> 5. Users can make appointments to certain donors. For some instances, and in case of emergency, a user can make an arrangement with a certain donor with the help of the admin, in which they will need to notify the donor if he/she agrees with the appointment made by the user. </li>
-                    <li style="padding-left: 5%; padding-right: 5%;"> 6. The admin can either accept or reject any users who wants to be a donor or an organizer.
-                        <br>
-                        <ul style="padding-left: 5%; padding-right: 5%;"> We accept users who can provide us the following requirements:
-                            <li style="padding-left: 5%; padding-right: 5%;"> <b>FOR DONORS </b>
-                                <ul style="padding-left: 5%; padding-right: 5%;">
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Birth Certificate - NSO (Original copy) </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> 2 valid IDs <i> [Driver's license, School ID (for students), Employee ID, Passport and etc.] </i> </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Health Certificate <i> [Take some tests (that are required or a must to become a donor) run by legal clinics and hospitals.] </i> </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Copy of the receipts of the tests <i>[in order to know the clinic or hospitals are legit.] </i> </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Answer a few set of questions and submit all the requirements in the page.</li>
-                                </ul>
-                            </li>
-                            <li style="padding-left: 5%; padding-right: 5%;"> <b> FOR ORGANIZERS </b>
-                                <ul style="padding-left: 5%; padding-right: 5%;">
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Business Logo </i> </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Business Contact Information</li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Business Email </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Business Head/Director Certification with Employee ID </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Business Media Relations Personnel Certification with Employee ID</li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Business Certification <i>[when was it built up until latest operation in order to know if they are legal and legit.]</i> </li>
-                                    <li style="padding-left: 5%; padding-right: 5%;"> Answer a few set of questions and submit all the requirements in the page.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
+                </nav>
             </div>
-            <br>
-            <div class="wrapper">
-                <h1> Meet Our Team </h1>
-                <div class="team">
-                    <div class="team_member">
-                        <div class="team_img">
-                            <img style="border-radius: 50%;" src="{% static 'images/Jules.jpg' %}" alt="Jules">
+            
+            <form class="bg">
+               
+                <br>
+                <div class="abc">
+                    <h1 style="text-align: center;"> What is Blood Seeker? </h1>
+                    <p style="text-align: center;">Blood Seeker is a web application wherein people/users can easily locate specified blood types in specific hospitals and donors.</p>
+                            
+                    <br><br>
+                    <h2> How does this app help people in the community? </h2>
+                    <p> A lot of people are always struggling in looking for blood in case of emergencies. One problem would take in account is that there are a <b>LACK of blood donors.</b> And so in some cases, some people die.
+                        <br><br> Other problem arises when people just kept on asking for willing donors, and in some cases willing donors does not truthfully tell about their medical histories which later causes complications.
+                        <br><br> So how does this app help people? We, the admin, take certain precautions in order to help save lives.
+                        <br><br> We take in to account that all of our users are in need of blood evry minute of everyday. They are here in our app to look for donors with blood types from common, up to the rarest type.
+                        <br><br> We provide them an easy way to search for the blood that can help save the life of their friend or love ones.
+                        <br><br> We are here to make other people not experience the feeling of being helpless and hopeless. We are here to make you see the impossible and reach the improbable.
+                    </p>
+                
+                    <br>
+                    <h2> How do we operate? </h2>
+                    <ol class="one">
+                        <li style="padding-left: 5%; padding-right: 5%;"> 1. <b>Anyone</b> can login and become a user. May it be a potential donor or organizers who wants to put their lists of blood in their blood banks.
+                            <br>
+                            <ul style="padding-left: 5%; padding-right: 5%;"> To be able to login without difficulties, users must have:
+                                <li style="padding-left: 5%; padding-right: 5%;"> Email <i>[for verification]</i></li>
+                                <li style="padding-left: 5%; padding-right: 5%;"> Contact Number</li>
+                                <li style="padding-left: 5%; padding-right: 5%;"> Provide personal information.</li>
+                            </ul>
+                        </li>
+                        <li style="padding-left: 5%; padding-right: 5%;"> 2. Users can search for a specific blood type - like for example, blood type AB is rare, and if it is what the user needs, they can easily search for it. </li>
+                        <li style="padding-left: 5%; padding-right: 5%;"> 3. Users/Donors must add <b>truthful</b> information about their <b>MEDICAL HISTORY</b> to avoid causing problems to the receiver and to avoid being banned in our app.
+                            <p> <i>***Note: We ban users/donors/organizers in order to save lives and to protect our users from danger! We don't want to cause more problems to the people who needs our help. </i> </p>
+                        </li>
+                        <li style="padding-left: 5%; padding-right: 5%;"> 4. Users and Organizers can edit/update or delete their blood descriptions to alert other users and avoid complications.  </li>
+                        <li style="padding-left: 5%; padding-right: 5%;"> 5. Users can make appointments to certain donors. For some instances, and in case of emergency, a user can make an arrangement with a certain donor with the help of the admin, in which they will need to notify the donor if he/she agrees with the appointment made by the user. </li>
+                        <li style="padding-left: 5%; padding-right: 5%;"> 6. The admin can either accept or reject any users who wants to be a donor or an organizer.
+                            <br>
+                            <ul style="padding-left: 5%; padding-right: 5%;"> We accept users who can provide us the following requirements:
+                                <li style="padding-left: 5%; padding-right: 5%;"> <b>FOR DONORS </b>
+                                    <ul style="padding-left: 5%; padding-right: 5%;">
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Birth Certificate - NSO (Original copy) </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> 2 valid IDs <i> [Driver's license, School ID (for students), Employee ID, Passport and etc.] </i> </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Health Certificate <i> [Take some tests (that are required or a must to become a donor) run by legal clinics and hospitals.] </i> </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Copy of the receipts of the tests <i>[in order to know the clinic or hospitals are legit.] </i> </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Answer a few set of questions and submit all the requirements in the page.</li>
+                                    </ul>
+                                </li>
+                                <li style="padding-left: 5%; padding-right: 5%;"> <b> FOR ORGANIZERS </b>
+                                    <ul style="padding-left: 5%; padding-right: 5%;">
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Business Logo </i> </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Business Contact Information</li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Business Email </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Business Head/Director Certification with Employee ID </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Business Media Relations Personnel Certification with Employee ID</li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Business Certification <i>[when was it built up until latest operation in order to know if they are legal and legit.]</i> </li>
+                                        <li style="padding-left: 5%; padding-right: 5%;"> Answer a few set of questions and submit all the requirements in the page.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <br>
+                <div class="wrapper">
+                    <h1> Meet Our Team </h1>
+                    <div class="team">
+                        <div class="team_member">
+                            <div class="team_img">
+                                <img style="border-radius: 50%;" src="{% static 'images/Jules.jpg' %}" alt="Jules">
+                            </div>
+                            <h3>Jules Nicolson E. Tabuno</h3>
+                            <p class="role"> CEO & Founder</p>
+                            <p> Team Leader </p>
+                            <p>example@example.com</p>
+                            <br>
+                            <p><button class="button">Contact</button></p>
                         </div>
-                        <h3>Jules Nicolson E. Tabuno</h3>
-                        <p class="role"> CEO & Founder</p>
-                        <p> Team Leader </p>
-                        <p>example@example.com</p>
-                        <br>
-                        <p><button class="button">Contact</button></p>
-                    </div>
-    
-                    <div class="team_member">
-                        <div class="team_img">
-                            <img style="border-radius: 50%;" src="{% static 'images/Carl.jpg' %}" alt="Carl">
+        
+                        <div class="team_member">
+                            <div class="team_img">
+                                <img style="border-radius: 50%;" src="{% static 'images/Carl.jpg' %}" alt="Carl">
+                            </div>
+                            <h3>Carl V. Cordova</h3>
+                            <p class="role"> Creative Director & Co-Founder</p>
+                            <p> Graphics Design </p>
+                            <p>example@example.com</p>
+                            <br>
+                            <p><button class="button">Contact</button></p>
                         </div>
-                        <h3>Carl V. Cordova</h3>
-                        <p class="role"> Creative Director & Co-Founder</p>
-                        <p> Graphics Design </p>
-                        <p>example@example.com</p>
-                        <br>
-                        <p><button class="button">Contact</button></p>
-                    </div>
-    
-                    <div class="team_member">
-                        <div class="team_img">
-                            <img style="border-radius: 50%;" src="{% static 'images/Lator.jpg' %}" alt="Lator">
+        
+                        <div class="team_member">
+                            <div class="team_img">
+                                <img style="border-radius: 50%;" src="{% static 'images/Lator.jpg' %}" alt="Lator">
+                            </div>
+                            <h3> John Kendrick K. Ofianga</h3>
+                            <p class="role"> Co-Founder</p>
+                            <p> Graphics & Web Design</p>
+                            <p> example@example.com</p>
+                            <br>
+                            <p><button class="button">Contact</button></p>
                         </div>
-                        <h3> John Kendrick K. Ofianga</h3>
-                        <p class="role"> Co-Founder</p>
-                        <p> Graphics & Web Design</p>
-                        <p> example@example.com</p>
-                        <br>
-                        <p><button class="button">Contact</button></p>
-                    </div>
-    
-                    <div class="team_member">
-                        <div class="team_img">
-                            <img style="border-radius: 50%;" src="{% static 'images/Dame.jpg' %}" alt="Dame">
+        
+                        <div class="team_member">
+                            <div class="team_img">
+                                <img style="border-radius: 50%;" src="{% static 'images/Dame.jpg' %}" alt="Dame">
+                            </div>
+                            <h3> Cherrie Dame G. Dela Peña</h3>
+                            <p class="role"> Co-Founder</p>
+                            <p> Web Design</p>
+                            <p> example@example.com</p>
+                            <br>
+                            <p><button class="button">Contact</button></p>
                         </div>
-                        <h3> Cherrie Dame G. Dela Peña</h3>
-                        <p class="role"> Co-Founder</p>
-                        <p> Web Design</p>
-                        <p> example@example.com</p>
-                        <br>
-                        <p><button class="button">Contact</button></p>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+   
         
     </body>
 </html>

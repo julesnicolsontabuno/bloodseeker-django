@@ -8,184 +8,13 @@
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        text-decoration: none;
-        list-style: none;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background-image: url('/static/images/background_image.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-      }
-      nav {
-        background: linear-gradient(to right, #ff3737, #ffae51);
-        height: 100px;
-        width: 100%;
-      }
-      img {
-        height: 80px;
-        width: 80px;
-        margin-top: 10px;
-      }
 
-      label.logo {
-        color: white;
-        font-size: 60px;
-        padding-left: 50px;
-        text-align: center;
-        font-weight: bold;
-        font-family: "OptimusPrinceps";
-      }
-      nav ul {
-        float: right;
-        margin-right: 40px;
-        margin-top: 10px;
-      }
-      nav ul li {
-        display: inline-block;
-        line-height: 80px;
-        margin: 0 5px;
-      }
-      nav ul li a {
-        color: white;
-        font-size: 18px;
-        padding: 7px 10px;
-        text-shadow: 2px 2px 5px rgb(95, 95, 95);
-        border-radius: 3px;
-        text-transform: uppercase;
-      }
-      /* a.active {
-
-        } */
-      a:hover {
-        background: white;
-        color: #ffb923;
-        transition: 0.5s;
-      }
-      .checkbtn {
-        font-size: 30px;
-        color: white;
-        float: right;
-        line-height: 80px;
-        margin-right: 40px;
-        cursor: pointer;
-        display: none;
-      }
-      #check {
-        display: none;
-      }
-      @media (max-width: 952px) {
-        /* label.logo {
-          font-size: 30px;
-          padding-left: 50px;
-        }*/
-        nav ul li a {
-          font-size: 16px;
-        }
-      }
-      .imgcontainer {
-        padding: 20px;
-        position: relative;
-        height: 90px;
-      }
-      h1{
-        text-align: center;
-      }
-
-      h2, p{
-        padding-left: 10%;
-        padding-right: 5%;
-      }
-      form {
-        border: 3px solid #f1f1f1;
-        border-radius: 10px;
-        box-shadow: 3px 3px 10px rgb(38, 38, 38);
-        background: rgb(255, 218, 185);
-        width: 75%;
-        height: auto;
-        margin-top: 30px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-right: auto;
-        color: black;
-      }
-      form.dbg{
-        background: rgba(255, 218, 185, 0.8);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      div.body {
-        margin: 0;
-        font-family: Arial;
-      }
-
-      /* The grid: Four equal columns that floats next to each other */
-      .column {
-        float: left;
-        width: 25%;
-        padding: 10px;
-      }
-
-      /* Style the images inside the grid */
-      .column img {
-        opacity: 0.8; 
-        cursor: pointer; 
-      }
-
-      .column img:hover {
-        opacity: 1;
-      }
-
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-
-      /* The expanding image container */
-      .container {
-        position: relative;
-        display: none;
-      }
-
-      /* Expanding image text */
-      #imgtext {
-        position: absolute;
-        bottom: 15px;
-        left: 15px;
-        color: white;
-        font-size: 20px;
-      }
-
-      /* Closable button inside the expanded image */
-      .closebtn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        color: white;
-        font-size: 35px;
-        cursor: pointer;
-      }
-      img .slide{
-        height: 100%;
-        width: 100%;
-      }
-      
-    </style>
   </head>
-  <body>
+  <body class="example">
     <div>
       <nav>
           <input type="checkbox" id="check">
@@ -208,24 +37,22 @@
 
     <form class="dbg">
       <div class="imgcontainer">
-        <img style= "width: 100%; height: 200px; position: center;" src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
-      </div>
-
-      <br /><br /><br /><br /><br /><br />
-    
+        <img src="{% static 'images/brand_name.png' %}" alt="bloodseeker brand name" />
+      </div>    
       <div class="body">
+        <br /><br /><br /><br /><br /><br /><br />
         <div class="row">
           <div class="column">
-            <img class="slide" src="{% static 'images/slideshow3.jpg' %}" alt="give blood" style="width:100%; height: 100%;" onclick="myFunction(this);">
+            <img class="slide" src="{% static 'images/slideshow3.jpg' %}" alt="give blood" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img class="slide" src="{% static 'images/slideshow4.png' %}" alt="blood" style="width:100%; height: 100%;" onclick="myFunction(this);">
+            <img class="slide" src="{% static 'images/slideshow4.png' %}" alt="blood" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img class="slide" src="{% static 'images/slideshow2.png' %}" alt="blood type" style="width:100%; height: 100%;" onclick="myFunction(this);">
+            <img class="slide" src="{% static 'images/slideshow2.png' %}" alt="blood type" onclick="myFunction(this);">
           </div>
           <div class="column">
-            <img class="slide" src="{% static 'images/slideshow8.png' %}" alt="compatibility" style="width:100%; height: 100%;" onclick="myFunction(this);">
+            <img class="slide" src="{% static 'images/slideshow8.png' %}" alt="compatibility" onclick="myFunction(this);">
           </div>
         </div>
         <div class="container">
@@ -246,11 +73,11 @@
       </div>
 
 
-      <br /><br /><br /><br /><br /><br />
+      <br /><br />
 
       <div class="abc">
-        <h1 style="text-align: center;">Articles on Blood Donations</h1>
-        <h2>Red Cross calls for blood donors as holiday season peaks</h2>
+        <h1 style="text-align: center;">ARTICLES ON BLOOD DONATIONS</h1><br>
+        <h2>Red Cross calls for blood donors as holiday season peaks</h2><br>
         <p class="p">
           Blood donation is a major concern to the society as donated blood 
           is lifesaving for individuals who need it. Blood is scarce. There 
@@ -271,9 +98,8 @@
           <br/><a class="a" href="https://www.longdom.org/peer-reviewed-journals/articles-on-blood-donation-6285.html#:~:text=Blood%20donation%20is%20a%20major,Blood%20is%20scarce.&text=Safe%20supply%20of%20blood%20and,be%20carried%20out%20in%20hospitals." >Source [click here]</a>
         </p>
         
-        <br /><br /><br />
-        
-        <h2>DOH advocates voluntary blood donation</h2>
+        <br /><br />
+        <h2>DOH advocates voluntary blood donation</h2><br>
         <p class="p">
           MANILA -- The Department of Health (DOH) on Tuesday urged the 
           public to take part in its campaign for voluntary and unpaid blood 
@@ -295,8 +121,7 @@
           <br/><a class="a" href="https://www.pna.gov.ph/articles/1072036" >Read more here...</a>
         </p>
         
-        <br /><br /><br />
-        
+        <br /><br />
         <h2>Red Cross calls for blood donors as holiday season peaks</h2>
         <p class="p">
           MANILA – The Philippine Red Cross (PRC) calls for blood donors as 
@@ -336,39 +161,35 @@
         </p>
         <br/><br/>
       </div>
+      
 
-      <br/><br/><br/><br/>
-
-      <div class="body">
-        <div class="row">
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow11.jpg' %}" alt="give blood" style="width:100%; height: 100%;">
-          </div>
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow12.jpg' %}" alt="blood" style="width:100%; height: 100%;">
-          </div>
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow14.jpg' %}" alt="blood type" style="width:100%; height: 100%;" >
-          </div>
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow15.jpg' %}" alt="compatibility" style="width:100%; height: 100%;" >
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow17.jpg' %}" alt="blood type" style="width:100%; height: 100%;" >
-          </div>
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow20.jpg' %}" alt="compatibility" style="width:100%; height: 100%;" >
-          </div>
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow19.jpg' %}" alt="blood type" style="width:100%; height: 100%;" >
-          </div>
-          <div class="column">
-            <img class="slide" src="{% static 'images/slideshow18.jpg' %}" alt="compatibility" style="width:100%; height: 100%;" >
-          </div>
-        </div>
+      <div class="w3-content w3-section" style="max-width:1000px">
+        <img class="mySlides" src="{% static 'images/slideshow11.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow12.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow14.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow15.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow17.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow18.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow19.jpg' %}" style="width:900px; height:500px;" >
+        <img class="mySlides" src="{% static 'images/slideshow20.jpg' %}" style="width:900px; height:500px;" >
       </div>
+      
+      <script>
+      var myIndex = 0;
+      carousel();
+      
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 1700); // Change image every 1.7 second
+      }
+      </script>
     </form>
   </body>
 </html>

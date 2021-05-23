@@ -5,6 +5,18 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: peachpuff;
@@ -50,10 +62,6 @@ nav ul li a {
 /* a.active {
   
   } */
-a {
-  text-decoration: none;
-  color: white;
-}
 a:hover {
   background: white;
   color: #ffb923;
@@ -102,7 +110,7 @@ a:hover {
   border-radius: 18px;
   box-shadow: 1px 1px 8px 0 grey;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 20px;
@@ -113,6 +121,25 @@ a:hover {
   border: none;
   font-size: 16px;
   height: 270px;
+  width: 80%;
+}
+
+.main .card1 {
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 1px 1px 8px 0 grey;
+  height: auto;
+  margin-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.main .card1 table {
+  border: none;
+  font-size: 16px;
+  height: 200px;
   width: 80%;
 }
 
