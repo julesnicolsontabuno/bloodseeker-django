@@ -94,11 +94,11 @@ class dashboardView(View):
     template_name = "user/dashboard.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
+        formRequestDonor = RequestDonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
+        donor = RequestDonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -124,15 +124,15 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-        donor = RequestDonor.objects.all()
+        donor = Donor.objects.all()
 
         if User.objects.filter(pk=user).count() != 0:
             account = User.objects.get(pk=user)
         else:
             account = 0
 
-        if RequestDonor.objects.filter(username_id=user).count() != 0:
-            donor1 = RequestDonor.objects.get(username_id=user)
+        if Donor.objects.filter(username_id=user).count() != 0:
+            donor1 = Donor.objects.get(username_id=user)
         else:
             donor1 = 0
 
@@ -156,8 +156,8 @@ class accountView(View):
         else:
             account = 0
 
-        if RequestDonor.objects.filter(username_id=user).count() != 0:
-            donor = RequestDonor.objects.get(username_id=user)
+        if Donor.objects.filter(username_id=user).count() != 0:
+            donor = Donor.objects.get(username_id=user)
         else:
             donor = 0
             
@@ -173,11 +173,11 @@ class requestDonorView(View):
     template_name = "user/requestDonor.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
+        formRequestDonor = RequestDonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = DonorForm(request.POST)
+        donor = RequestDonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -234,12 +234,34 @@ class requestAppointmentView(View):
         setDate = request.POST.get('setDate')
         setTime = request.POST.get('setTime')
         isApproved = False
+        #requestDonorID = Donor.objects.get(pk=user)
 
         appointmentReq = RequestAppointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
-                                isApproved=isApproved)
+                                isApproved=isApproved, )
 
         appointmentReq.save()
 
         return render(request, self.template_name, {'user': user})
+
+class AppointmentView(View):
+    template_name = "user/appointmentList.html"
+
+    def get(self, request, user):
+        formDonor = AppointmentForm()
+        #requestDonorID = RequestDonor.objects.get(pk=user)
+        requestAppointmentID = RequestAppointment.objects.all()
+        return render(request, self.template_name, {'user': user, 'requestAppointmentID':requestAppointmentID})
+
+    def post(self, request, user):
+        appointmentList = AppointmentForm(request.POST)
+
+        #requestDonorID = RequestDonor.objects.get(pk=user)
+        requestAppointmentID = RequestAppointment.objects.get(pk=user)
+        
+        appointmentList = Donor(requestAppointmentID=requestAppointmentID)
+
+        appointmentList.save()
+
+        return render(request, self.template_name, {'user': user, 'requestAppointmentID':requestAppointmentID})
 
 

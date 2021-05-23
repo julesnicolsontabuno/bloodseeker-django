@@ -17,7 +17,7 @@ class User(models.Model):
     gender = models.CharField(max_length=10)
     age = models.IntegerField()
 
-class RequestDonor(models.Model):
+class Donor(models.Model):
     requestDonorID = models.AutoField(primary_key=True)
     address = models.CharField(max_length=200)
     donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
@@ -42,11 +42,9 @@ class RequestAppointment(models.Model):
     setDate = models.DateField()
     setTime = models.TimeField()
     isApproved = models.BooleanField(default=False)
+    requestDonorID = models.ForeignKey(Donor, on_delete=models.CASCADE)
 
-class Donor(models.Model):
-    DonorID = models.AutoField(primary_key=True)
-    requestDonorID = models.ForeignKey(RequestDonor, on_delete=models.CASCADE)
-    requestAppointmentID = models.ForeignKey(RequestAppointment, on_delete=models.CASCADE)
+
 
 
 

@@ -28,7 +28,7 @@ class LoginForm(forms.ModelForm):
 
 class RequestDonorForm(forms.ModelForm):
     class Meta:
-        model = RequestDonor
+        model = Donor
         fields = [
             "requestDonorID",
             "address",
@@ -64,10 +64,3 @@ class AppointmentForm(forms.ModelForm):
             "isApproved",
         ]
 
-class DonorForm(forms.ModelForm):
-    class Meta:
-        model = Donor
-        fields = [
-            "requestDonorID",
-            "requestAppointmentID",
-        ]
