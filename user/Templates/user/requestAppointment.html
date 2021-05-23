@@ -6,14 +6,14 @@
                     name="viewport"
                     content="width=device-width, initial-scale=1"
             />
-            <title>BloodSeeker | Request Organizer</title>
+            <title>BloodSeeker | Request Appointment</title>
             <link rel="stylesheet" href="{% static 'css/requestAppointment.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             
     </head>
-    <body>
+    <body class="example">
         <div class="navv">
             <nav>
                 <input type="checkbox" id="check">
@@ -47,7 +47,7 @@
                         <select name="appointmentType">
                             <option value="">Choose Appointment Type</option>
                             <option value="Requesting for Blood Donation">Requesting for Blood Donation</option>
-                            <option value="Requesting for help/blood transfusion">Requesting for Immediate Transfusion</option>
+                            <option value="Requesting for Immediate transfusion">Requesting for Immediate Transfusion</option>
                         </select><br>
                         <p class="space"></p>
                     <label>Set the Date for Appointment:</label><br>
@@ -57,7 +57,7 @@
                         <input type="time" name="setTime" ><br>              
                         <p class="space"></p>
                             <div class="button"></div>
-                            <input type="submit" value="Submit Request">
+                            <input type="submit" value="Make Appointment">
                 </form> 
             </div>
             

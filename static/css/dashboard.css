@@ -5,6 +5,18 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: peachpuff;
@@ -28,7 +40,6 @@ label.logo {
   font-weight: bold;
   font-family: "OptimusPrinceps";
 }
-
 nav ul {
   float: right;
   margin-right: 40px;
@@ -49,7 +60,7 @@ nav ul li a {
 }
 /* a.active {
 
-} */
+  } */
 a:hover {
   background: white;
   color: #ffb923;
@@ -70,9 +81,130 @@ a:hover {
 @media (max-width: 952px) {
   /* label.logo {
     font-size: 30px;
-    padding-left: 50px; 
+    padding-left: 50px;
   }*/
   nav ul li a {
     font-size: 16px;
   }
+}
+.imgcontainer {
+  padding: 5px;
+  position: relative;
+  height: 50px;
+}
+
+.imgcontainer img {
+  width: 600px;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2,
+p {
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: justify;
+}
+form {
+  border: 3px solid #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgb(38, 38, 38);
+  width: 75%;
+  height: auto;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  color: black;
+}
+form.dbg {
+  background-color: white;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-left: 25px;
+  float: left;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  height: 200px;
+  width: 200px;
+  object-fit: fill;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+.column1 img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column1 img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+img .slide {
+  height: 100%;
+  width: 100%;
+}
+
+.body1 {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.mySlides {
+  display: none;
+  border-radius: 15px;
+  margin-left: 60px;
+  margin-bottom: 40px;
 }

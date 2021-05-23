@@ -10,9 +10,10 @@
             <link rel="stylesheet" href="{% static 'css/editAccount.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
             
     </head>
-    <body>
+    <body class="example">
         <div class="all">
             <div>
                 <nav>
@@ -37,61 +38,81 @@
             <div class="wrapper">
     
                 <div class="main">
-                    <h2>Edit Your Personal Info</h2>
+                    
                     <div class="card">
                         <div class="card-body">
-                            <i class="fa fa-pen fa-xs edit"></i>
-                            <table>
-                                <tbody> <!-- Data taken from user & donor database -->
-                                    <tr>
-                                        <td>First Name :</td>
-                                        <td>:</td>
-                                        <td>Jane</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Last Name</td>
-                                        <td>:</td>
-                                        <td>Doe</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>:</td>
-                                        <td>jane@gmail.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Address</td>
-                                        <td>:</td>
-                                        <td>Tisa, Cebu City</td> <!-- If user is donor use donor address, if not, leave blank -->
-                                    </tr>
-                                    <tr>
-                                        <td>Contact Number</td>
-                                        <td>:</td>
-                                        <td>911</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender</td>
-                                        <td>:</td>
-                                        <td>Female</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Age</td>
-                                        <td>:</td>
-                                        <td>29</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-            
-                    <h2>USER SETTING</h2>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="buttons">
-                                <a href="{% url 'user:account' user %}"><button>ACCOUNT</button></a>
-                                <button>EDIT ORGANIZATION</button> <!-- this part is only available if requestOrganizer is existing-->
-                                <a href="{% url 'user:login' %}"><button>LOG OUT</button></a>
-                            </div>
-                            
+                            <div class="container">
+                                <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
+                                <h2>EDIT PERSONAL INFORMATION</h2>
+                                <h5><i>Update your credentials</i></h5>
+                                <div class="content">
+                                  <form method="post">
+                                    {% csrf_token %}
+                                    <div class="user-details">
+                                      <div class="input-box">
+                                        <span class="details">First Name</span>
+                                        <input type="text" name="firstName" placeholder="Enter your first name" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Last Name</span>
+                                        <input type="text" name="lastName" placeholder="Enter your first name" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Username</span>
+                                        <input type="text" name="username" placeholder="Enter your username" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Email</span>
+                                        <input type="email" name="email" placeholder="Enter your email" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Contact Number</span>
+                                        <input type="text" name="contactNumber" placeholder="Enter your number" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Age</span>
+                                        <input type="number" name="age" placeholder="Enter your age" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Password</span>
+                                        <input type="password" name="password" placeholder="Enter your password" required="required">
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">Confirm Password</span>
+                                        <input type="password" name="confirmPassword" placeholder="Confirm your password" required="required">
+                                      </div>
+                                    </div>
+                                    <div class="gender-details">
+                                      <input type="radio" name="gender" id="dot-1" checked="checked" value="Male">
+                                      <input type="radio" name="gender" id="dot-2" value="Female">
+                                      <span class="gender-title">Gender</span>
+                                      <div class="category">
+                                        <label for="dot-1">
+                                          <span class="dot one"></span>
+                                          <span class="gender">Male</span>
+                                        </label>
+                                        <label for="dot-2">
+                                          <span class="dot two"></span>
+                                          <span class="gender">Female</span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                    {% if messages %}
+                                    {% for message in messages %} 
+                                    <div class="error-message">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        {{message}}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <br>
+                                    <div class="button">
+                                      <input type="submit" value="UPDATE">
+                                    </div>
+                                
+                                  </form>
+                                </div>
+                              </div>
                         </div>
                     </div>
                 </div>
