@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib import messages
@@ -13,7 +14,12 @@ class editAccountView(View):
     template_name = "user/editAccount.html"
 
     def get(self, request, user):
-        return render(request, self.template_name, {'user': user})
+        
+        if User.objects.filter(pk=user).count() != 0:
+            account = User.objects.get(pk=user)
+
+
+        return render(request, self.template_name, {'user': user, 'account': account})
 
 
 class loginView(View):
@@ -53,6 +59,7 @@ class registerView(View):
         formUser = UserForm(request.POST)
         uname = request.POST.get('username')
         password = request.POST.get('password')
+        confirmPassword = request.POST.get('confirmPassword')
 
         if len(uname) < 4 and len(password) < 8:
             messages.error(request, "Username and Password are too short.")
@@ -65,6 +72,8 @@ class registerView(View):
             messages.error(request, "Username already exist!")
         elif len(password) < 8:
             messages.error(request, "Password is too short.")
+        elif confirmPassword != password:
+            messages.error(request, "Password doesn't match.")
         else:
             customer = formUser.save(commit=False)
             customer.save()
@@ -108,22 +117,6 @@ class aboutView(View):
     template_name = "user/about.html"
 
     def get(self, request, user):
-        formRequestDonor = DonorForm()
-        return render(request, self.template_name, {'user': user})
-
-    def post(self, request, user):
-        donor = DonorForm(request.POST)
-
-        address = request.POST.get('address')
-        donorBloodType = request.POST.get('donorBloodType')
-        isApproved = False
-        username = User.objects.get(pk=user)
-
-        donorReq = Donor(address=address, donorBloodType=donorBloodType,
-                                isApproved=isApproved, username=username)
-
-        donorReq.save()
-
         return render(request, self.template_name, {'user': user})
 
 
@@ -131,15 +124,15 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-        donor = Donor.objects.all()
+        donor = RequestDonor.objects.all()
 
         if User.objects.filter(pk=user).count() != 0:
             account = User.objects.get(pk=user)
         else:
             account = 0
 
-        if Donor.objects.filter(username_id=user).count() != 0:
-            donor1 = Donor.objects.get(username_id=user)
+        if RequestDonor.objects.filter(username_id=user).count() != 0:
+            donor1 = RequestDonor.objects.get(username_id=user)
         else:
             donor1 = 0
 

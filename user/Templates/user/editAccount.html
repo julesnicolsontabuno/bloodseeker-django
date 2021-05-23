@@ -51,38 +51,38 @@
                                     <div class="user-details">
                                       <div class="input-box">
                                         <span class="details">First Name</span>
-                                        <input type="text" name="firstName" placeholder="Enter your first name" required="required">
+                                        <input type="text" name="firstName" placeholder="Enter your first name" value={{account.firstName}} required="required">
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Last Name</span>
-                                        <input type="text" name="lastName" placeholder="Enter your first name" required="required">
+                                        <input type="text" name="lastName" placeholder="Enter your first name" value={{account.lastName}} required="required">
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Username</span>
-                                        <input type="text" name="username" placeholder="Enter your username" required="required">
+                                        <input type="text" name="username" placeholder="Enter your username" value={{account.username}} required="required" readonly>
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Email</span>
-                                        <input type="email" name="email" placeholder="Enter your email" required="required">
+                                        <input type="email" name="email" placeholder="Enter your email" value={{account.email}} required="required">
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Contact Number</span>
-                                        <input type="text" name="contactNumber" placeholder="Enter your number" required="required">
+                                        <input type="text" name="contactNumber" placeholder="Enter your number" value={{account.contactNumber}} required="required">
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Age</span>
-                                        <input type="number" name="age" placeholder="Enter your age" required="required">
+                                        <input type="number" name="age" placeholder="Enter your age" value={{account.age}} required="required">
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Password</span>
-                                        <input type="password" name="password" placeholder="Enter your password" required="required">
+                                        <input type="password" name="password" placeholder="Enter your password" value={{account.password}} required="required">
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Confirm Password</span>
-                                        <input type="password" name="confirmPassword" placeholder="Confirm your password" required="required">
+                                        <input type="password" name="confirmPassword" placeholder="Confirm your password" value={{account.password}} required="required">
                                       </div>
                                     </div>
-                                    <div class="gender-details">
+                                    <!-- <div class="gender-details">
                                       <input type="radio" name="gender" id="dot-1" checked="checked" value="Male">
                                       <input type="radio" name="gender" id="dot-2" value="Female">
                                       <span class="gender-title">Gender</span>
@@ -96,15 +96,7 @@
                                           <span class="gender">Female</span>
                                         </label>
                                       </div>
-                                    </div>
-                                    {% if messages %}
-                                    {% for message in messages %} 
-                                    <div class="error-message">
-                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                                        {{message}}
-                                    </div>
-                                    {% endfor %}
-                                    {% endif %}
+                                    </div> -->
                                     <br>
                                     <div class="button">
                                       <input type="submit" value="UPDATE">

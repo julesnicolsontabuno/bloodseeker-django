@@ -197,3 +197,8 @@ p {
   padding-left: 5%;
   padding-right: 5%;
 }
+
+li {
+  text-align: justify;
+  font-size: 15px;
+}
