@@ -60,7 +60,11 @@
                 </tbody>
             </table>
             <div class="becomeDonor">
+            {% if donor1.username_id == account.username %}
+                <p>You are already a donor!</p>
+            {% else %}
                 <p>Want to become a donor? <a href="{% url 'user:requestDonor' user %}"> Sign up here!<!-- link this to request donor --></a></p>
+            {% endif %}
             </div>
         </div>
     </body>

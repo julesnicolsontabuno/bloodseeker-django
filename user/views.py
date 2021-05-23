@@ -130,8 +130,21 @@ class donorView(View):
     template_name = "user/donorList.html"
 
     def get(self, request, user):
-        donor = RequestDonor.objects.all()
-        return render(request, self.template_name, {'donor': donor, 'user': user})
+      
+        donor = Donor.objects.all()
+
+        if User.objects.filter(pk=user).count() != 0:
+            account = User.objects.get(pk=user)
+        else:
+            account = 0
+
+        if Donor.objects.filter(username_id=user).count() != 0:
+            donor1 = Donor.objects.get(username_id=user)
+        else:
+            donor1 = 0
+
+        return render(request, self.template_name, {'donor': donor, 'user': user, 'account': account, 'donor1': donor1})
+
 
 
 class accreditedHospitalView(View):
