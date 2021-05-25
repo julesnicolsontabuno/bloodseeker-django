@@ -180,10 +180,15 @@ select {
   align-items: center;
 }
 
-.button {
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  padding-bottom: 10px;
+input[type="submit"] {
+  border-radius: 15px;
+  color: white;
+  float: right;
+  padding: 14px 20px;
+  margin-top: 5px;
+  margin-left: 35%;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  background: linear-gradient(-135deg, #ff3737, #ffae51);
 }
