@@ -170,7 +170,18 @@ class accreditedHospitalView(View):
 
     def get(self, request, user):
         hospital = Organizer.objects.all()
-        return render(request, self.template_name, {'hospital': hospital, 'user': user})
+
+        if User.objects.filter(pk=user).count() != 0:
+            account = User.objects.get(pk=user)
+        else:
+            account = 0
+
+        if Organizer.objects.filter(username_id=user).count() != 0:
+            hospital1 = Organizer.objects.get(username_id=user)
+        else:
+            hospital1 = 0
+
+        return render(request, self.template_name, {'hospital': hospital, 'user': user, 'account':account, 'hospital1':hospital1})
 
 
 class accountView(View):
