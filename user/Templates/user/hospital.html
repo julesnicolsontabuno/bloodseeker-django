@@ -61,7 +61,11 @@
             </table>
             
             <div class="becomeDonor">
+            {% if hospital1.username_id == account.username %}
+                <p>You are already an organizer!</p>
+            {% else %}
                 <p>Want to organize a blood drive? <a href="{% url 'user:requestOrganizer' user %}"> Send a request here!<!-- link this to request donor --></a></p>
+            {% endif %}
             </div>
         </div>
     </body>
