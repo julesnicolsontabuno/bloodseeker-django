@@ -97,6 +97,14 @@
                                         </label>
                                       </div>
                                     </div> -->
+                                    {% if messages %}
+                                    {% for message in messages %} 
+                                    <div class="error-message">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        {{message}}
+                                    </div>
+                                    {% endfor %}
+                                    {% endif %}
                                     <br>
                                     <div class="button">
                                       <input type="submit" value="UPDATE">

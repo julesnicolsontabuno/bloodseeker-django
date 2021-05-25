@@ -17,8 +17,33 @@ class editAccountView(View):
         
         if User.objects.filter(pk=user).count() != 0:
             account = User.objects.get(pk=user)
+        
+        return render(request, self.template_name, {'user': user, 'account': account})
+        
+    def post(self, request, user):
 
+        formUser = UserForm(request.POST)
 
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        contactNumber = request.POST.get('contactNumber')
+        age = request.POST.get('age')
+        password = request.POST.get('password')
+        confirmPassword = request.POST.get('confirmPassword')
+
+        if password == confirmPassword:
+            updateAccount = User(username=username, password=password, firstName=firstName, lastName=lastName, email=email,
+        contactNumber=contactNumber, age=age)
+            updateAccount.save()
+            messages.error(request, 'Account Update Successful!')
+        else:
+            messages.error(request, 'Password does not match!')
+        
+        if User.objects.filter(pk=user).count() != 0:
+            account = User.objects.get(pk=user)
+        
         return render(request, self.template_name, {'user': user, 'account': account})
 
 
