@@ -22,7 +22,8 @@ class editAccountView(View):
         
     def post(self, request, user):
 
-        formUser = UserForm(request.POST)
+        if User.objects.filter(pk=user).count() != 0:
+            account = User.objects.get(pk=user)
 
         firstName = request.POST.get('firstName')
         lastName = request.POST.get('lastName')
@@ -35,7 +36,7 @@ class editAccountView(View):
 
         if password == confirmPassword:
             updateAccount = User(username=username, password=password, firstName=firstName, lastName=lastName, email=email,
-        contactNumber=contactNumber, age=age)
+        contactNumber=contactNumber, gender=account.gender, age=age)
             updateAccount.save()
             messages.error(request, 'Account Update Successful!')
         else:
