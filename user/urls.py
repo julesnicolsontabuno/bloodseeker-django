@@ -17,4 +17,7 @@ urlpatterns = [
     path('<user>/editAccount', views.editAccountView.as_view(), name="editAccount"),
     path('<user>/requestAppointment', views.requestAppointmentView.as_view(), name="requestAppointment"),
     path('<user>/appointmentList', views.AppointmentView.as_view(), name="appointmentList"),
+    path('<user>/editOrganizer', views.editOrganizerView.as_view(), name="editOrganizer"),
+    path('<user>/editDetails', views.editDetailsView.as_view(), name="editDetails"),
+    path('<user>/viewDetails', views.viewDetailsView.as_view(), name="viewDetails"),
 ]

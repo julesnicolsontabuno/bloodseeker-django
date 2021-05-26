@@ -301,4 +301,22 @@ class AppointmentView(View):
 
         return render(request, self.template_name, {'user': user, 'requestAppointmentID':requestAppointmentID})
 
+class editOrganizerView(View):
+    template_name = "user/editOrganizer.html"
+
+    def get(self, request, user):
+        return render(request, self.template_name, {'user': user})
+
+class editDetailsView(View):
+    template_name = "user/editDetails.html"
+
+    def get(self, request, user):
+        return render(request, self.template_name, {'user':user})
+
+class viewDetailsView(View):
+    template_name = "user/viewDetails.html"
+
+    def get(self, request, user):
+        return render(request, self.template_name, {'user':user})
+
 
