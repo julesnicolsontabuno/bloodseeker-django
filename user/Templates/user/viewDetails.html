@@ -36,10 +36,8 @@
         
         <div class="wrapper">
             <div class="request">
-                <form method="post">
-                    {% csrf_token %}
                     <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
-                    <h2>EXAMPLE: Carl's Hospital</h2> <!--add the hospital's name here-->
+                    <h2>{{ org.hospitalName }}</h2> <!--add the hospital's name here-->
                     <br>
                     <table class="content-table">
                         <thead>
@@ -52,48 +50,50 @@
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>O+</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.oPlus }}</td> 
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>O-</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.oMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>A+</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.aPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>A-</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.aMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>B+</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.bPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>B-</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.bMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>AB+</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.aBPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>AB-</td>
-                            <td></td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ org1.aBMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                         </tbody>
                     </table>
-
-                    <a href="{% url 'user:editDetails' user %}"><button><strong>EDIT DETAILS</strong></button></a> <!--pls fix connection, Error HTTP 405-->
-                </form> 
+                    {% if org.username_id == user %}
+                      <a href="{% url 'user:editDetails' user hospital1 org1.bloodBankID %}"><button><strong>EDIT DETAILS</strong></button></a>
+                    {% else %}
+                      <a href="#"><button><strong>EDIT DETAILS</strong></button></a>
+                    {% endif %}
             </div>
             
         </div>

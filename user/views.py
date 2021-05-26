@@ -120,11 +120,11 @@ class dashboardView(View):
     template_name = "user/dashboard.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -178,6 +178,12 @@ class accreditedHospitalView(View):
 
         if Organizer.objects.filter(username_id=user).count() != 0:
             hospital1 = Organizer.objects.get(username_id=user)
+
+            bloodBankDetail = BloodBank(oPlus=0,oMinus=0,aPlus=0,aMinus=0,bPlus=0,bMinus=0,aBPlus=0,aBMinus=0,
+            hospitalName=hospital1)
+            
+            if BloodBank.objects.filter(hospitalName=hospital1).count() == 0:
+                bloodBankDetail.save()
         else:
             hospital1 = 0
 
@@ -201,8 +207,6 @@ class accountView(View):
         return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor})
 
     def post(self, request, user, account):
-        
-            
             return render(request, self.template_name, {'user': user, 'account': account})
 
 
@@ -210,11 +214,11 @@ class requestDonorView(View):
     template_name = "user/requestDonor.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -272,8 +276,8 @@ class requestAppointmentView(View):
         isApproved = False
         #requestDonorID = Donor.objects.get(pk=user)
 
-        appointmentReq = RequestAppointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
-                                isApproved=isApproved, )
+        appointmentReq = Appointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
+                                isApproved=isApproved)
 
         appointmentReq.save()
 
@@ -284,15 +288,14 @@ class AppointmentView(View):
 
     def get(self, request, user):
         formDonor = AppointmentForm()
-        #requestDonorID = RequestDonor.objects.get(pk=user)
-        requestAppointmentID = RequestAppointment.objects.all()
+        requestAppointmentID = Appointment.objects.all()
+
         return render(request, self.template_name, {'user': user, 'requestAppointmentID':requestAppointmentID})
 
     def post(self, request, user):
         appointmentList = AppointmentForm(request.POST)
 
-        #requestDonorID = RequestDonor.objects.get(pk=user)
-        requestAppointmentID = RequestAppointment.objects.get(pk=user)
+        requestAppointmentID = Appointment.objects.get(pk=user)
         
         appointmentList = Donor(requestAppointmentID=requestAppointmentID)
 
@@ -309,13 +312,56 @@ class editOrganizerView(View):
 class editDetailsView(View):
     template_name = "user/editDetails.html"
 
-    def get(self, request, user):
-        return render(request, self.template_name, {'user':user})
+    def get(self, request, user, hospital1, org1):
+
+        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
+            value = BloodBank.objects.get(hospitalName_id=hospital1)
+
+        return render(request, self.template_name, {'user':user, 'hospital1':hospital1, 'value':value})
+
+    def post(self, request, user, hospital1, org1):
+
+        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
+            value = BloodBank.objects.get(hospitalName_id=hospital1)
+        
+        if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
+            org = Organizer.objects.get(pk=hospital1)
+        
+            oPlus = request.POST.get('O+')
+            oMinus = request.POST.get('O-')
+            aPlus = request.POST.get('A+')
+            aMinus = request.POST.get('A-')
+            bPlus = request.POST.get('B+')
+            bMinus = request.POST.get('B-')
+            aBPlus = request.POST.get('AB+')
+            aBMinus = request.POST.get('AB-')
+
+            updateDetails = BloodBank(bloodBankID=org1,oPlus=oPlus,oMinus=oMinus,aPlus=aPlus,aMinus=aMinus,bPlus=bPlus,bMinus=bMinus,aBPlus=aBPlus,aBMinus=aBMinus,
+                hospitalName=org)
+        
+            updateDetails.save()
+        
+        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
+            value = BloodBank.objects.get(hospitalName_id=hospital1)
+
+        return render(request, self.template_name, {'user':user,'hospital1':hospital1, 'value': value})
 
 class viewDetailsView(View):
     template_name = "user/viewDetails.html"
 
-    def get(self, request, user):
-        return render(request, self.template_name, {'user':user})
+    def get(self, request, user, hospital1):
+
+            if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
+                org = Organizer.objects.get(pk=hospital1)
+        
+            if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
+                org1 = BloodBank.objects.get(hospitalName_id=hospital1)
+            
+            return render(request, self.template_name, {'user':user, 'org':org, 'org1':org1, 'hospital1':hospital1})
+
+    def post(self, request, user, hospital1):
+        
+        return render(request, self.template_name, {'user':user, 'hospital1':hospital1})
+
 
 

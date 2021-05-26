@@ -26,11 +26,11 @@ class LoginForm(forms.ModelForm):
             "password"
         ]
 
-class RequestDonorForm(forms.ModelForm):
+class DonorForm(forms.ModelForm):
     class Meta:
         model = Donor
         fields = [
-            "requestDonorID",
+            "donorID",
             "address",
             "donorBloodType",
             "attachmentsDonor",
@@ -42,7 +42,6 @@ class OrganizerForm(forms.ModelForm):
     class Meta:
         model = Organizer
         fields = [
-            "requestOrganizerID",
             "hospitalName",
             "hospitalAddress",
             "businessEmail",
@@ -52,11 +51,27 @@ class OrganizerForm(forms.ModelForm):
             "username",
         ]
 
+class BloodBankForm(forms.ModelForm):
+    class Meta:
+        model = BloodBank
+        fields = [
+            "bloodBankID",
+            "oPlus",
+            "oMinus",
+            "aPlus",
+            "aMinus",
+            "bPlus",
+            "bMinus",
+            "aBPlus",
+            "aBMinus",
+            "hospitalName",
+        ]
+
 class AppointmentForm(forms.ModelForm):
     class Meta:
-        model = RequestAppointment
+        model = Appointment
         fields = [
-            "requestAppointmentID",
+            "appointmentID",
             "appointmentType",
             "setDate",
             "setTime",

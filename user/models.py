@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 
 # Create your models here.
@@ -18,7 +19,7 @@ class User(models.Model):
     age = models.IntegerField()
 
 class Donor(models.Model):
-    requestDonorID = models.AutoField(primary_key=True)
+    donorID = models.AutoField(primary_key=True)
     address = models.CharField(max_length=200)
     donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
     attachmentsDonor = models.FileField()
@@ -26,8 +27,7 @@ class Donor(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Organizer(models.Model):
-    requestOrganizerID = models.AutoField(primary_key=True)
-    hospitalName = models.CharField(max_length=100)
+    hospitalName = models.CharField(max_length=100, primary_key=True)
     hospitalAddress = models.CharField(max_length=100)
     businessEmail = models.EmailField(max_length=100)
     contactInfo = models.CharField(max_length=20)
@@ -35,13 +35,25 @@ class Organizer(models.Model):
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class RequestAppointment(models.Model):
-    requestAppointmentID = models.AutoField(primary_key=True)
+class BloodBank(models.Model):
+    bloodBankID = models.AutoField(primary_key=True)
+    oPlus = models.CharField(max_length=100)
+    oMinus = models.CharField(max_length=100)
+    aPlus = models.CharField(max_length=100)
+    aMinus = models.CharField(max_length=100)
+    bPlus = models.CharField(max_length=100)
+    bMinus = models.CharField(max_length=100)
+    aBPlus = models.CharField(max_length=100)
+    aBMinus = models.CharField(max_length=100)
+    hospitalName = models.ForeignKey(Organizer, on_delete=models.CASCADE)
+
+class Appointment(models.Model):
+    appointmentID = models.AutoField(primary_key=True)
     appointmentType = models.CharField(choices=APPOINTMENT_CHOICES, max_length=100)
     setDate = models.DateField()
     setTime = models.TimeField()
     isApproved = models.BooleanField(default=False)
-    requestDonorID = models.ForeignKey(Donor, on_delete=models.CASCADE)
+    donorID = models.ForeignKey(Donor, on_delete=models.CASCADE)
 
 
 

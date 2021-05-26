@@ -47,14 +47,18 @@
                 <tbody>
                     {% for i in hospital %}
                         {% if i.isApproved == True %}
-                  <tr>
-                    <!--insert script here, remove redundants-->
-                    <td>{{i.hospitalName}}</td>
-                    <td>{{i.hospitalAddress}}</td>
-                    <td>{{i.businessEmail}}</td>
-                    <td>{{i.contactInfo}}</td>
-                    <td><a href="{% url 'user:viewDetails' user %}"><button><strong>View Details</strong></button></a></td>
-                  </tr>
+                    <tr>
+                        <!--insert script here, remove redundants-->
+                        <td>{{i.hospitalName}}</td>
+                        <td>{{i.hospitalAddress}}</td>
+                        <td>{{i.businessEmail}}</td>
+                        <td>{{i.contactInfo}}</td>
+                {% if hospital1 != 0 %}
+                    <td><a href="{% url 'user:viewDetails' user hospital1.hospitalName %}"><button><strong>View Details</strong></button></a></td>
+                {% else %}
+                    <td><a href="{% url 'user:viewDetails' user hospital1%}"><button><strong>View Details</strong></button></a></td>
+                {% endif %}
+                    </tr>
                         {% endif %}
                     {% endfor %}
                 </tbody>
