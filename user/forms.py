@@ -30,7 +30,7 @@ class RequestDonorForm(forms.ModelForm):
     class Meta:
         model = Donor
         fields = [
-            "requestDonorID",
+            "donorID",
             "address",
             "donorBloodType",
             "attachmentsDonor",
@@ -42,7 +42,7 @@ class OrganizerForm(forms.ModelForm):
     class Meta:
         model = Organizer
         fields = [
-            "requestOrganizerID",
+            "organizerID",
             "hospitalName",
             "hospitalAddress",
             "businessEmail",
@@ -54,9 +54,9 @@ class OrganizerForm(forms.ModelForm):
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
-        model = RequestAppointment
+        model = Appointment
         fields = [
-            "requestAppointmentID",
+            "appointmentID",
             "appointmentType",
             "setDate",
             "setTime",

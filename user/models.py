@@ -18,7 +18,7 @@ class User(models.Model):
     age = models.IntegerField()
 
 class Donor(models.Model):
-    requestDonorID = models.AutoField(primary_key=True)
+    donorID = models.AutoField(primary_key=True)
     address = models.CharField(max_length=200)
     donorBloodType = models.CharField(choices=BLOODTYPE_CHOICES, max_length=3)
     attachmentsDonor = models.FileField()
@@ -26,7 +26,7 @@ class Donor(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Organizer(models.Model):
-    requestOrganizerID = models.AutoField(primary_key=True)
+    organizerID = models.AutoField(primary_key=True)
     hospitalName = models.CharField(max_length=100)
     hospitalAddress = models.CharField(max_length=100)
     businessEmail = models.EmailField(max_length=100)
@@ -35,13 +35,13 @@ class Organizer(models.Model):
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
-class RequestAppointment(models.Model):
-    requestAppointmentID = models.AutoField(primary_key=True)
+class Appointment(models.Model):
+    appointmentID = models.AutoField(primary_key=True)
     appointmentType = models.CharField(choices=APPOINTMENT_CHOICES, max_length=100)
     setDate = models.DateField()
     setTime = models.TimeField()
     isApproved = models.BooleanField(default=False)
-    requestDonorID = models.ForeignKey(Donor, on_delete=models.CASCADE)
+    donorID = models.ForeignKey(Donor, on_delete=models.CASCADE)
 
 
 
