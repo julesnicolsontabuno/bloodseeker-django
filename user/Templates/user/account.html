@@ -108,7 +108,7 @@
                     <div class="card-body">
                         <div class="buttons">
                             <a href="{% url 'user:editAccount' user %}"><button>EDIT ACCOUNT</button></a>
-                            <a href="#"><button>EDIT ORGANIZATION</button></a><!-- this part is only available if requestOrganizer is existing-->
+                            <a href="{% url 'user:editOrganizer' user %}"><button>EDIT ORGANIZATION</button></a><!-- this part is only available if requestOrganizer is existing-->
                             <a href="{% url 'user:login' %}"><button>LOG OUT</button></a>
                         </div>
                         

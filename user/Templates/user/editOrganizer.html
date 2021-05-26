@@ -7,7 +7,7 @@
                     content="width=device-width, initial-scale=1"
             />
             <title>BloodSeeker | Edit Account</title>
-            <link rel="stylesheet" href="#" />
+            <link rel="stylesheet" href="{% static 'css/editOrganizer.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -42,7 +42,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="container">
-                                <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
+                                <span class="material-icons"><a href="{% url 'user:account' user %}">arrow_back</a></span>
                                 <h2>EDIT ORGANIZER INFORMATION</h2>
                                 <h5><i>Update your hospital's credentials</i></h5>
                                 <div class="content">
@@ -65,7 +65,7 @@
                                         <span class="details">Business Contact Info</span>
                                         <input type="text" name="hospitalName" placeholder="Enter contact info" value={{account.firstName}} required="required"> <!--change value to the correct value-->
                                       </div>
-                                      
+                                    </div> 
                                     {% if messages %}
                                     {% for message in messages %} 
                                     <div class="error-message">

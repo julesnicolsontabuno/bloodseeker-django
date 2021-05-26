@@ -7,7 +7,7 @@
                     content="width=device-width, initial-scale=1"
             />
             <title>BloodSeeker | View Details</title>
-            <link rel="stylesheet" href="#" />
+            <link rel="stylesheet" href="{% static 'css/viewDetails.css' %}" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,7 +39,7 @@
                 <form method="post">
                     {% csrf_token %}
                     <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
-                    <h2></h2> <!--add the hospital's name here-->
+                    <h2>EXAMPLE: Carl's Hospital</h2> <!--add the hospital's name here-->
                     <br>
                     <table class="content-table">
                         <thead>
@@ -92,7 +92,7 @@
                         </tbody>
                     </table>
 
-                    <input type="submit" value="Edit Details">
+                    <a href="{% url 'user:editDetails' user %}"><button><strong>EDIT DETAILS</strong></button></a> <!--pls fix connection, Error HTTP 405-->
                 </form> 
             </div>
             
