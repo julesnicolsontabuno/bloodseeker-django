@@ -32,7 +32,6 @@ class Organizer(models.Model):
     businessEmail = models.EmailField(max_length=100)
     contactInfo = models.CharField(max_length=20)
     attachmentsID = models.FileField()
-    attachmentsBC = models.FileField()
     isApproved = models.BooleanField(default=False)
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
