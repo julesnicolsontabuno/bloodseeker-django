@@ -178,6 +178,12 @@ class accreditedHospitalView(View):
 
         if Organizer.objects.filter(username_id=user).count() != 0:
             hospital1 = Organizer.objects.get(username_id=user)
+
+            bloodBankDetail = BloodBank(oPlus=0,oMinus=0,aPlus=0,aMinus=0,bPlus=0,bMinus=0,aBPlus=0,aBMinus=0,
+            hospitalName=hospital1)
+            
+            if BloodBank.objects.filter(hospitalName=hospital1).count() == 0:
+                bloodBankDetail.save()
         else:
             hospital1 = 0
 
@@ -201,8 +207,6 @@ class accountView(View):
         return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor})
 
     def post(self, request, user, account):
-        
-            
             return render(request, self.template_name, {'user': user, 'account': account})
 
 
@@ -314,7 +318,18 @@ class editDetailsView(View):
 class viewDetailsView(View):
     template_name = "user/viewDetails.html"
 
-    def get(self, request, user):
-        return render(request, self.template_name, {'user':user})
+    def get(self, request, user, hospital1):
+
+        if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
+            org = Organizer.objects.get(pk=hospital1)
+        
+        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
+            org1 = BloodBank.objects.get(hospitalName_id=hospital1)
+
+        return render(request, self.template_name, {'user':user, 'org':org, 'org1':org1})
+
+    def post(self, request, user, hospital1):
+        
+        return render(request, self.template_name, {'user':user, 'hospital1':hospital1})
 
 

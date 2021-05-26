@@ -51,6 +51,22 @@ class OrganizerForm(forms.ModelForm):
             "username",
         ]
 
+class BloodBankForm(forms.ModelForm):
+    class Meta:
+        model = BloodBank
+        fields = [
+            "bloodBankID",
+            "oPlus",
+            "oMinus",
+            "aPlus",
+            "aMinus",
+            "bPlus",
+            "bMinus",
+            "aBPlus",
+            "aBMinus",
+            "hospitalName",
+        ]
+
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
