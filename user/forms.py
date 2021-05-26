@@ -48,7 +48,6 @@ class OrganizerForm(forms.ModelForm):
             "businessEmail",
             "contactInfo",
             "attachmentsID",
-            "attachmentsBC",
             "isApproved",
             "username",
         ]
