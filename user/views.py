@@ -351,16 +351,17 @@ class viewDetailsView(View):
 
     def get(self, request, user, hospital1):
 
-        if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
-            org = Organizer.objects.get(pk=hospital1)
+            if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
+                org = Organizer.objects.get(pk=hospital1)
         
-        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
-            org1 = BloodBank.objects.get(hospitalName_id=hospital1)
-
-        return render(request, self.template_name, {'user':user, 'org':org, 'org1':org1, 'hospital1':hospital1})
+            if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
+                org1 = BloodBank.objects.get(hospitalName_id=hospital1)
+            
+            return render(request, self.template_name, {'user':user, 'org':org, 'org1':org1, 'hospital1':hospital1})
 
     def post(self, request, user, hospital1):
         
         return render(request, self.template_name, {'user':user, 'hospital1':hospital1})
+
 
 

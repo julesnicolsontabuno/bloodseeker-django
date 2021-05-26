@@ -89,7 +89,11 @@
                           </tr>
                         </tbody>
                     </table>
-                    <a href="{% url 'user:editDetails' user hospital1 org1.bloodBankID %}"><button><strong>EDIT DETAILS</strong></button></a> <!--pls fix connection, Error HTTP 405-->
+                    {% if org.username_id == user %}
+                      <a href="{% url 'user:editDetails' user hospital1 org1.bloodBankID %}"><button><strong>EDIT DETAILS</strong></button></a>
+                    {% else %}
+                      <a href="#"><button><strong>EDIT DETAILS</strong></button></a>
+                    {% endif %}
             </div>
             
         </div>
