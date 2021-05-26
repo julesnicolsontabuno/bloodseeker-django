@@ -26,7 +26,7 @@ class LoginForm(forms.ModelForm):
             "password"
         ]
 
-class RequestDonorForm(forms.ModelForm):
+class DonorForm(forms.ModelForm):
     class Meta:
         model = Donor
         fields = [

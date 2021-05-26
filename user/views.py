@@ -120,11 +120,11 @@ class dashboardView(View):
     template_name = "user/dashboard.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
@@ -210,11 +210,11 @@ class requestDonorView(View):
     template_name = "user/requestDonor.html"
 
     def get(self, request, user):
-        formRequestDonor = RequestDonorForm()
+        formRequestDonor = DonorForm()
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        donor = RequestDonorForm(request.POST)
+        donor = DonorForm(request.POST)
 
         address = request.POST.get('address')
         donorBloodType = request.POST.get('donorBloodType')
