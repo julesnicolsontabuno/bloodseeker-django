@@ -42,7 +42,6 @@ class OrganizerForm(forms.ModelForm):
     class Meta:
         model = Organizer
         fields = [
-            "organizerID",
             "hospitalName",
             "hospitalAddress",
             "businessEmail",

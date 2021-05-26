@@ -272,7 +272,7 @@ class requestAppointmentView(View):
         isApproved = False
         #requestDonorID = Donor.objects.get(pk=user)
 
-        appointmentReq = RequestAppointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
+        appointmentReq = Appointment(appointmentType=appointmentType, setDate=setDate, setTime=setTime,
                                 isApproved=isApproved, )
 
         appointmentReq.save()
@@ -284,15 +284,14 @@ class AppointmentView(View):
 
     def get(self, request, user):
         formDonor = AppointmentForm()
-        #requestDonorID = RequestDonor.objects.get(pk=user)
-        requestAppointmentID = RequestAppointment.objects.all()
+        requestAppointmentID = Appointment.objects.all()
+
         return render(request, self.template_name, {'user': user, 'requestAppointmentID':requestAppointmentID})
 
     def post(self, request, user):
         appointmentList = AppointmentForm(request.POST)
 
-        #requestDonorID = RequestDonor.objects.get(pk=user)
-        requestAppointmentID = RequestAppointment.objects.get(pk=user)
+        requestAppointmentID = Appointment.objects.get(pk=user)
         
         appointmentList = Donor(requestAppointmentID=requestAppointmentID)
 

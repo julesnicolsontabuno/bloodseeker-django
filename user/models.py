@@ -26,8 +26,7 @@ class Donor(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Organizer(models.Model):
-    organizerID = models.AutoField(primary_key=True)
-    hospitalName = models.CharField(max_length=100)
+    hospitalName = models.CharField(max_length=100, primary_key=True)
     hospitalAddress = models.CharField(max_length=100)
     businessEmail = models.EmailField(max_length=100)
     contactInfo = models.CharField(max_length=20)
