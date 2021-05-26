@@ -1,83 +1,81 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-    <head>
-            <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-            />
-            <title>BloodSeeker | View Details</title>
-            <link rel="stylesheet" href="#" />
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BloodSeeker | Edit Details</title>
+    <link rel="stylesheet" href="{% static 'css/editDetails.css' %}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="example">
+    <div class="navv">
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">
+          <img
+            class="bslogo"
+            src="{% static 'images/bs_logo.png' %}"
+            alt="bloodseeker logo"
+          />
+          BloodSeeker
+        </label>
+        <ul>
+          <li><a class="active">Home</a></li>
+          <li><a>About</a></li>
+          <li><a>Donors</a></li>
+          <li><a>Blood Banks</a></li>
+          <li><a>Account</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="wrapper">
+      <div class="request">
+        <form method="post">
+          {% csrf_token %}
+          <span class="material-icons"><a href="{% url 'user:viewDetails' user %}">arrow_back</a></span>
+          <h2>UPDATE BLOOD STOCK AVAILABILTY</h2>
+          <br />
+          <h4>NOTE</h4>
+          <p>
+            Please review before clicking the <strong>update</strong> button. <br /><br />
+          </p>
+          <h6><i>Please fill up form accordingly.</i></h6>
+          <div class="labell">
+            <label class="bt">Bloodtype <strong>O+</strong></label><br>
+                <input type="text" name="O+" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>O-</strong></label><br>
+                <input type="text" name="O-" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>A+</strong></label><br>
+                <input type="text" name="A+" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>A-</strong></label><br>
+                <input type="text" name="A-" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>B+</strong></label><br>
+                <input type="text" name="B+" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>B-</strong></label><br>
+                <input type="text" name="B+" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>AB+</strong></label><br>
+                <input type="text" name="AB+" ><br><p class="space"></p>
+            <label class="bt">Bloodtype <strong>AB-</strong></label><br>
+                <input type="text" name="AB+" ><br><p class="space"></p>
+                <br><br>
+          </div>
             
-    </head>
-    <body class="example">
-        <div class="navv">
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="checkbtn">
-                    <i class="fas fa-bars"></i>
-                </label>
-                <label class="logo">
-                    <img class="bslogo" src="{% static 'images/bs_logo.png' %}" alt="bloodseeker logo" />
-                    BloodSeeker
-                </label>
-                    <ul>
-                        <li><a class="active">Home</a></li>
-                        <li><a >About</a></li>
-                        <li><a >Donors</a></li>
-                        <li><a >Blood Banks</a></li>
-                        <li><a >Account</a></li>
-                    </ul>
-            </nav>
-        </div>
-        
-        <div class="wrapper">
-            <div class="request">
-                <form method="post">
-                    {% csrf_token %}
-                    <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
-                    <h2>Update Blood Stock Availability</h2>
-                    <br>
 
-                    <form method="post">
-                      {% csrf_token %}
-                      <span class="material-icons"><a href="{% url 'user:donor' user %}">arrow_back</a></span>
-                      <h2>BLOOD STOCK AVAILABILITY</h2><br>
-                      
-                      <h6><i>Please fill up form accordingly.</i></h6>
-                      <p class="space"></p>
-                      
-                      <label>O+</label>
-                      <input type="text" id="O+" name="O+"><br><br>
-                      <label>O-</label>
-                      <input type="text" id="O-" name="O-"><br><br>
-                     
-                      <label>A+</label>
-                      <input type="text" id="A+" name="A+"><br><br>
-                      <label>A-</label>
-                      <input type="text" id="A-" name="A-"><br><br>
-                      
-                      <label>B+</label>
-                      <input type="text" id="B+" name="B+"><br><br>
-                      <label>B-</label>
-                      <input type="text" id="B-" name="B-"><br><br>
-                      
-                      <label>AB+</label>
-                      <input type="text" id="AB+" name="AB+"><br><br>
-                      <label>AB-</label>
-                      <input type="text" id="AB-" name="AB-"><br><br>
-                     
-                  </form> 
-
-
-
-                    <input type="submit" value="Update Details">
-                </form> 
-            </div>
-            
-        </div>
-    </body>
+          <input type="submit" id="submit" value="UPDATE DETAILS" /> <!--if user is an organizer of this specified blood bank, button is available-->
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
