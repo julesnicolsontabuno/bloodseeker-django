@@ -44,7 +44,7 @@
       <div class="request">
         <form method="post">
           {% csrf_token %}
-          <span class="material-icons"><a href="{% url 'user:viewDetails' user %}">arrow_back</a></span>
+          <span class="material-icons"><a href="{% url 'user:viewDetails' user hospital1 %}">arrow_back</a></span>
           <h2>UPDATE BLOOD STOCK AVAILABILTY</h2>
           <br />
           <h4>NOTE</h4>
@@ -54,21 +54,21 @@
           <h6><i>Please fill up form accordingly.</i></h6>
           <div class="labell">
             <label class="bt">Bloodtype <strong>O+</strong></label><br>
-                <input type="text" name="O+" ><br><p class="space"></p>
+                <input type="text" name="O+" value={{ value.oPlus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>O-</strong></label><br>
-                <input type="text" name="O-" ><br><p class="space"></p>
+                <input type="text" name="O-" value={{ value.oMinus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>A+</strong></label><br>
-                <input type="text" name="A+" ><br><p class="space"></p>
+                <input type="text" name="A+" value={{ value.aPlus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>A-</strong></label><br>
-                <input type="text" name="A-" ><br><p class="space"></p>
+                <input type="text" name="A-" value={{ value.aMinus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>B+</strong></label><br>
-                <input type="text" name="B+" ><br><p class="space"></p>
+                <input type="text" name="B+" value={{ value.bPlus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>B-</strong></label><br>
-                <input type="text" name="B+" ><br><p class="space"></p>
+                <input type="text" name="B-" value={{ value.bMinus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>AB+</strong></label><br>
-                <input type="text" name="AB+" ><br><p class="space"></p>
+                <input type="text" name="AB+" value={{ value.aBPlus }}><br><p class="space"></p>
             <label class="bt">Bloodtype <strong>AB-</strong></label><br>
-                <input type="text" name="AB+" ><br><p class="space"></p>
+                <input type="text" name="AB-" value={{ value.aBMinus }}><br><p class="space"></p>
                 <br><br>
           </div>
             
