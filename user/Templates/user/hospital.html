@@ -53,11 +53,7 @@
                         <td>{{i.hospitalAddress}}</td>
                         <td>{{i.businessEmail}}</td>
                         <td>{{i.contactInfo}}</td>
-                {% if hospital1 != 0 %}
-                    <td><a href="{% url 'user:viewDetails' user hospital1.hospitalName %}"><button><strong>View Details</strong></button></a></td>
-                {% else %}
-                    <td><a href="{% url 'user:viewDetails' user hospital1%}"><button><strong>View Details</strong></button></a></td>
-                {% endif %}
+                        <td><a href="{% url 'user:viewDetails' user hospital %}"><button><strong>View Details</strong></button></a></td>
                     </tr>
                         {% endif %}
                     {% endfor %}

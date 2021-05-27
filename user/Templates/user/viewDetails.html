@@ -36,8 +36,9 @@
         
         <div class="wrapper">
             <div class="request">
+                    {% for i in org %}
                     <span class="material-icons"><a href="{% url 'user:accreditedHospital' user %}">arrow_back</a></span>
-                    <h2>{{ org.hospitalName }}</h2> <!--add the hospital's name here-->
+                    <h2>{{ i.hospitalName }}</h2> <!--add the hospital's name here-->
                     <br>
                     <table class="content-table">
                         <thead>
@@ -50,47 +51,48 @@
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>O+</td>
-                            <td>{{ org1.oPlus }}</td> 
+                            <td>{{ i.oPlus }}</td> 
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>O-</td>
-                            <td>{{ org1.oMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.oMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>A+</td>
-                            <td>{{ org1.aPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.aPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>A-</td>
-                            <td>{{ org1.aMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.aMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>B+</td>
-                            <td>{{ org1.bPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.bPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>B-</td>
-                            <td>{{ org1.bMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.bMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>AB+</td>
-                            <td>{{ org1.aBPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.aBPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                           <tr>
                             <!--insert script here, remove redundants-->
                             <td>AB-</td>
-                            <td>{{ org1.aBMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                            <td>{{ i.aBMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
                           </tr>
                         </tbody>
                     </table>
-                    {% if org.username_id == user %}
-                      <a href="{% url 'user:editDetails' user hospital1 org1.bloodBankID %}"><button><strong>EDIT DETAILS</strong></button></a>
+                    {% endfor %}
+                    {% if org1.username_id == account.username %}
+                      <a href="{% url 'user:editDetails' user %}"><button><strong>EDIT DETAILS</strong></button></a>
                     {% else %}
                       <a href="#"><button><strong>EDIT DETAILS</strong></button></a>
                     {% endif %}

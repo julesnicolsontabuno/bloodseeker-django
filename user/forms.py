@@ -48,14 +48,6 @@ class OrganizerForm(forms.ModelForm):
             "contactInfo",
             "attachmentsID",
             "isApproved",
-            "username",
-        ]
-
-class BloodBankForm(forms.ModelForm):
-    class Meta:
-        model = BloodBank
-        fields = [
-            "bloodBankID",
             "oPlus",
             "oMinus",
             "aPlus",
@@ -64,7 +56,7 @@ class BloodBankForm(forms.ModelForm):
             "bMinus",
             "aBPlus",
             "aBMinus",
-            "hospitalName",
+            "username",
         ]
 
 class AppointmentForm(forms.ModelForm):
