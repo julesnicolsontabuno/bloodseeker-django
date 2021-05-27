@@ -27,7 +27,7 @@
                         <li><a href="{% url 'user:dashboard' user %}">Home</a></li>
                         <li><a href="{% url 'user:about' user %}">About</a></li>
                         <li><a href="{% url 'user:donor' user %}">Donors</a></li>
-                        <li><a class="active" href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
+                        <li><a href="{% url 'user:accreditedHospital' user %}">Blood Banks</a></li>
                         <li><a href="{% url 'user:account' user %}">Account</a></li>
                     </ul>
             </nav>
@@ -41,7 +41,7 @@
                     <th>Address</th>
                     <th>Email</th>
                     <th>Contact Info</th>
-                    <th></th>
+                    <th>Blood type Stock</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -53,12 +53,75 @@
                         <td>{{i.hospitalAddress}}</td>
                         <td>{{i.businessEmail}}</td>
                         <td>{{i.contactInfo}}</td>
-                        <td><a href="{% url 'user:viewDetails' user %}"><button><strong>View Details</strong></button></a></td>
+                        <td>
+                            <button class="accordion">View Detailswa</button>
+                            <div class="panel">
+                              <p>
+                                <table style="margin-left: 14px;">
+                                    <tbody style="font-size: 12px;">
+                                        
+                                            <tr>
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>O+</strong></td>
+                                                <td>{{ i.oPlus }}</td>  
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>O-</strong></td>
+                                                <td>{{ i.oMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                            </tr>
+                                            <tr>
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>A+</strong></td>
+                                                <td>{{ i.aPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>A-</strong></td>
+                                                <td>{{ i.aMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                            </tr>                                     
+                                            <tr>
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>B+</strong></td>
+                                                <td>{{ i.bPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>B-</strong></td>
+                                                <td>{{ i.bMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                            </tr>
+                                            <tr>
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>AB+</strong></td>
+                                                <td>{{ i.aBPlus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                                <!--insert script here, remove redundants-->
+                                                <td><strong>AB-</strong></td>
+                                                <td>{{ i.aBMinus }}</td> <!--blood stock of O+, if null put "out of stock" instead, thanks!-->
+                                              </tr>
+                                        
+                                        
+                                      </tbody>
+                                </table>
+                             </p>
+                            </div>
+                        </td>
+                        <!-- <td><a href="{% url 'user:viewDetails' user %}"><button><strong>View Details</strong></button></a></td> -->
                     </tr>
                         {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
+
+            <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+                
+                for (i = 0; i < acc.length; i++) {
+                  acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                      panel.style.maxHeight = null;
+                    } else {
+                      panel.style.maxHeight = panel.scrollHeight + "px";
+                    } 
+                  });
+                }
+            </script>
             
             <div class="becomeDonor">
             {% if hospital1.username_id == account.username %}
