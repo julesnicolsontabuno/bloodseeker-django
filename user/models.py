@@ -33,10 +33,6 @@ class Organizer(models.Model):
     contactInfo = models.CharField(max_length=20)
     attachmentsID = models.FileField()
     isApproved = models.BooleanField(default=False)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-
-class BloodBank(models.Model):
-    bloodBankID = models.AutoField(primary_key=True)
     oPlus = models.CharField(max_length=100)
     oMinus = models.CharField(max_length=100)
     aPlus = models.CharField(max_length=100)
@@ -45,7 +41,7 @@ class BloodBank(models.Model):
     bMinus = models.CharField(max_length=100)
     aBPlus = models.CharField(max_length=100)
     aBMinus = models.CharField(max_length=100)
-    hospitalName = models.ForeignKey(Organizer, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Appointment(models.Model):
     appointmentID = models.AutoField(primary_key=True)

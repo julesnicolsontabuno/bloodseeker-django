@@ -1,3 +1,4 @@
+from ast import Or
 from email import message
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -178,12 +179,6 @@ class accreditedHospitalView(View):
 
         if Organizer.objects.filter(username_id=user).count() != 0:
             hospital1 = Organizer.objects.get(username_id=user)
-
-            bloodBankDetail = BloodBank(oPlus=0,oMinus=0,aPlus=0,aMinus=0,bPlus=0,bMinus=0,aBPlus=0,aBMinus=0,
-            hospitalName=hospital1)
-            
-            if BloodBank.objects.filter(hospitalName=hospital1).count() == 0:
-                bloodBankDetail.save()
         else:
             hospital1 = 0
 
@@ -254,7 +249,9 @@ class requestOrganizerView(View):
 
         organizerReq = Organizer(hospitalName=hospitalName, hospitalAddress=hospitalAddress, businessEmail=businessEmail,
                                         contactInfo=contactInfo, attachmentsID=attachmentsID, 
-                                        isApproved=isApproved, username=username)
+                                        isApproved=isApproved,
+                                        oPlus=0,oMinus=0,aPlus=0,aMinus=0,bPlus=0,bMinus=0,aBPlus=0,aBMinus=0,
+                                        username=username)
 
         organizerReq.save()
 
@@ -312,20 +309,16 @@ class editOrganizerView(View):
 class editDetailsView(View):
     template_name = "user/editDetails.html"
 
-    def get(self, request, user, hospital1, org1):
+    def get(self, request, user):
+        org = Organizer.objects.all()
 
-        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
-            value = BloodBank.objects.get(hospitalName_id=hospital1)
-
-        return render(request, self.template_name, {'user':user, 'hospital1':hospital1, 'value':value})
-
-    def post(self, request, user, hospital1, org1):
-
-        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
-            value = BloodBank.objects.get(hospitalName_id=hospital1)
+        if User.objects.filter(username=user).count != 0:
+            account = User.objects.get(username=user)
         
-        if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
-            org = Organizer.objects.get(pk=hospital1)
+        if Organizer.objects.filter(username_id=user).count() != 0:
+            value = Organizer.objects.get(username_id=user)
+        else:
+            value = 0
         
             oPlus = request.POST.get('O+')
             oMinus = request.POST.get('O-')
@@ -336,32 +329,69 @@ class editDetailsView(View):
             aBPlus = request.POST.get('AB+')
             aBMinus = request.POST.get('AB-')
 
-            updateDetails = BloodBank(bloodBankID=org1,oPlus=oPlus,oMinus=oMinus,aPlus=aPlus,aMinus=aMinus,bPlus=bPlus,bMinus=bMinus,aBPlus=aBPlus,aBMinus=aBMinus,
-                hospitalName=org)
+            updateDetails = Organizer(hospitalName=value.hospitalName, hospitalAddress=value.hospitalAddress, businessEmail=value.businessEmail,
+                                        contactInfo=value.contactInfo, attachmentsID=value.attachmentsID, 
+                                        isApproved=value.isApproved,
+                                        oPlus=oPlus,oMinus=oMinus,aPlus=aPlus,aMinus=aMinus,bPlus=bPlus,bMinus=bMinus,aBPlus=aBPlus,aBMinus=aBMinus,
+                                        username=account)
         
             updateDetails.save()
-        
-        if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
-            value = BloodBank.objects.get(hospitalName_id=hospital1)
 
-        return render(request, self.template_name, {'user':user,'hospital1':hospital1, 'value': value})
+            if Organizer.objects.filter(username_id=user).count() != 0:
+                value = Organizer.objects.get(username_id=user)
+
+        return render(request, self.template_name, {'user':user, 'org':org, 'value':value})
+
+    def post(self, request, user):
+        org = Organizer.objects.all()
+
+        if User.objects.filter(username=user).count != 0:
+            account = User.objects.get(username=user)
+        
+        if Organizer.objects.filter(username_id=user).count() != 0:
+            value = Organizer.objects.get(username_id=user)
+        
+            oPlus = request.POST.get('O+')
+            oMinus = request.POST.get('O-')
+            aPlus = request.POST.get('A+')
+            aMinus = request.POST.get('A-')
+            bPlus = request.POST.get('B+')
+            bMinus = request.POST.get('B-')
+            aBPlus = request.POST.get('AB+')
+            aBMinus = request.POST.get('AB-')
+
+            updateDetails = Organizer(hospitalName=value.hospitalName, hospitalAddress=value.hospitalAddress, businessEmail=value.businessEmail,
+                                        contactInfo=value.contactInfo, attachmentsID=value.attachmentsID, 
+                                        isApproved=value.isApproved,
+                                        oPlus=oPlus,oMinus=oMinus,aPlus=aPlus,aMinus=aMinus,bPlus=bPlus,bMinus=bMinus,aBPlus=aBPlus,aBMinus=aBMinus,
+                                        username=account)
+        
+            updateDetails.save()
+            if Organizer.objects.filter(username_id=user).count() != 0:
+                value = Organizer.objects.get(username_id=user)
+
+        return render(request, self.template_name, {'user':user, 'org':org, 'value':value})
 
 class viewDetailsView(View):
     template_name = "user/viewDetails.html"
 
-    def get(self, request, user, hospital1):
+    def get(self, request, user, hospital):
 
-            if Organizer.objects.filter(hospitalName=hospital1).count() != 0:
-                org = Organizer.objects.get(pk=hospital1)
-        
-            if BloodBank.objects.filter(hospitalName=hospital1).count() != 0:
-                org1 = BloodBank.objects.get(hospitalName_id=hospital1)
-            
-            return render(request, self.template_name, {'user':user, 'org':org, 'org1':org1, 'hospital1':hospital1})
+        if Organizer.objects.filter(pk=hospital).count != 0:
+            org = Organizer.objects.get(pk=hospital)
 
-    def post(self, request, user, hospital1):
+        if User.objects.filter(username=user).count != 0:
+            account = User.objects.get(username=user)
         
-        return render(request, self.template_name, {'user':user, 'hospital1':hospital1})
+        if Organizer.objects.filter(username_id=user).count() != 0:
+            org1 = Organizer.objects.get(username_id=user)
+        else:
+            org1 = 0
+
+        return render(request, self.template_name, {'user':user, 'org':org, 'account':account, 'org1':org1})
+
+    def post(self, request, user):
+        return render(request, self.template_name, {'user':user})
 
 
 

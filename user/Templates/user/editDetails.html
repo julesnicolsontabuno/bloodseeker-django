@@ -44,7 +44,7 @@
       <div class="request">
         <form method="post">
           {% csrf_token %}
-          <span class="material-icons"><a href="{% url 'user:viewDetails' user hospital1 %}">arrow_back</a></span>
+          <span class="material-icons"><a href="{% url 'user:viewDetails' user %}">arrow_back</a></span>
           <h2>UPDATE BLOOD STOCK AVAILABILTY</h2>
           <br />
           <h4>NOTE</h4>
@@ -71,8 +71,6 @@
                 <input type="text" name="AB-" value={{ value.aBMinus }}><br><p class="space"></p>
                 <br><br>
           </div>
-            
-
           <input type="submit" id="submit" value="UPDATE DETAILS" /> <!--if user is an organizer of this specified blood bank, button is available-->
         </form>
       </div>
