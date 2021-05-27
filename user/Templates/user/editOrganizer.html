@@ -51,19 +51,19 @@
                                     <div class="user-details">
                                       <div class="input-box">
                                         <span class="details">Hospital Name</span>
-                                        <input type="text" name="hospitalName" placeholder="Enter hospital name" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="hospitalName" placeholder="Enter hospital name" value='{{org.hospitalName}}' required="required" readonly> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Hospital Address</span>
-                                        <input type="text" name="hospitalAddress" placeholder="Enter hospital address" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="hospitalAddress" placeholder="Enter hospital name" value='{{org.hospitalAddress}}' required="required"> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Business Email</span>
-                                        <input type="email" name="hospitalName" placeholder="Enter hospital name" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="email" name="businessEmail" placeholder="Enter hospital name" value={{org.businessEmail}} required="required"> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">Business Contact Info</span>
-                                        <input type="text" name="hospitalName" placeholder="Enter contact info" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="contactInfo" placeholder="Enter contact info" value={{org.contactInfo}} required="required"> <!--change value to the correct value-->
                                       </div>
                                     </div>
                                 <br>
@@ -75,38 +75,35 @@
                                     <div class="user-details">
                                       <div class="input-box">
                                         <span class="details">O+</span>
-                                        <input type="text" name="O+" placeholder="Enter stock on bloodtype O+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="O+" placeholder="Enter stock on bloodtype O+" value={{org.oPlus}} required="required"> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">O-</span>
-                                        <input type="text" name="O-" placeholder="Enter stock on bloodtype O-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="O-" placeholder="Enter stock on bloodtype O-" value={{org.oMinus}} required="required"> <!--change value to the correct value-->
                                       </div>
-
                                       <div class="input-box">
                                         <span class="details">A+</span>
-                                        <input type="text" name="A+" placeholder="Enter stock on bloodtype A+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="A+" placeholder="Enter stock on bloodtype A+" value={{org.aPlus}} required="required"> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">A-</span>
-                                        <input type="text" name="A-" placeholder="Enter stock on bloodtype A-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="A-" placeholder="Enter stock on bloodtype A-" value={{org.aMinus}} required="required"> <!--change value to the correct value-->
                                       </div>
-
                                       <div class="input-box">
                                         <span class="details">B+</span>
-                                        <input type="text" name="B+" placeholder="Enter stock on bloodtype B+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="B+" placeholder="Enter stock on bloodtype B+" value={{org.bPlus}} required="required"> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">B-</span>
-                                        <input type="text" name="B-" placeholder="Enter stock on bloodtype B-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="B-" placeholder="Enter stock on bloodtype B-" value={{org.bMinus}} required="required"> <!--change value to the correct value-->
                                       </div>
-
                                       <div class="input-box">
                                         <span class="details">AB+</span>
-                                        <input type="text" name="AB+" placeholder="Enter stock on bloodtype AB+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="AB+" placeholder="Enter stock on bloodtype B-" value={{org.aBPlus}} required="required"> <!--change value to the correct value-->
                                       </div>
                                       <div class="input-box">
                                         <span class="details">AB-</span>
-                                        <input type="text" name="AB-" placeholder="Enter stock on bloodtype AB-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                        <input type="text" name="AB-" placeholder="Enter stock on bloodtype B-" value={{org.aBMinus}} required="required"> <!--change value to the correct value-->
                                       </div>
                                     </div> 
                                     {% if messages %}
