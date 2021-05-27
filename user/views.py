@@ -198,11 +198,14 @@ class accountView(View):
             donor = Donor.objects.get(username_id=user)
         else:
             donor = 0
-            
-        return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor})
+        
+        if Organizer.objects.filter(username_id=user).count() != 0:
+            org = Organizer.objects.get(username_id=user)
+        else:
+            org = 0
 
-    def post(self, request, user, account):
-            return render(request, self.template_name, {'user': user, 'account': account})
+            
+        return render(request, self.template_name, {'user': user, 'account': account, 'donor': donor, 'org':org})
 
 
 class requestDonorView(View):
@@ -237,7 +240,6 @@ class requestOrganizerView(View):
         return render(request, self.template_name, {'user': user})
 
     def post(self, request, user):
-        organizer = OrganizerForm(request.POST)
 
         hospitalName = request.POST.get('hospitalName')
         hospitalAddress = request.POST.get('hospitalAddress')
@@ -304,21 +306,19 @@ class editOrganizerView(View):
     template_name = "user/editOrganizer.html"
 
     def get(self, request, user):
-        return render(request, self.template_name, {'user': user})
 
-class editDetailsView(View):
-    template_name = "user/editDetails.html"
-
-    def get(self, request, user):
-        org = Organizer.objects.all()
-
-        if User.objects.filter(username=user).count != 0:
-            account = User.objects.get(username=user)
-        
         if Organizer.objects.filter(username_id=user).count() != 0:
-            value = Organizer.objects.get(username_id=user)
-        else:
-            value = 0
+            org = Organizer.objects.get(username_id=user)
+
+        return render(request, self.template_name, {'user': user, 'org':org})
+    
+    def post(self, request, user):
+
+        if Organizer.objects.filter(username_id=user).count() != 0:
+            org = Organizer.objects.get(username_id=user)
+
+            if User.objects.filter(username=user).count != 0:
+                account = User.objects.get(username=user)
         
             oPlus = request.POST.get('O+')
             oMinus = request.POST.get('O-')
@@ -329,68 +329,18 @@ class editDetailsView(View):
             aBPlus = request.POST.get('AB+')
             aBMinus = request.POST.get('AB-')
 
-            updateDetails = Organizer(hospitalName=value.hospitalName, hospitalAddress=value.hospitalAddress, businessEmail=value.businessEmail,
-                                        contactInfo=value.contactInfo, attachmentsID=value.attachmentsID, 
-                                        isApproved=value.isApproved,
+            updateDetails = Organizer(hospitalName=org.hospitalName, hospitalAddress=org.hospitalAddress, businessEmail=org.businessEmail,
+                                        contactInfo=org.contactInfo, attachmentsID=org.attachmentsID, 
+                                        isApproved=org.isApproved,
                                         oPlus=oPlus,oMinus=oMinus,aPlus=aPlus,aMinus=aMinus,bPlus=bPlus,bMinus=bMinus,aBPlus=aBPlus,aBMinus=aBMinus,
                                         username=account)
         
             updateDetails.save()
+            messages.error(request, 'Update Organization Successful!')
 
-            if Organizer.objects.filter(username_id=user).count() != 0:
-                value = Organizer.objects.get(username_id=user)
-
-        return render(request, self.template_name, {'user':user, 'org':org, 'value':value})
-
-    def post(self, request, user):
-        org = Organizer.objects.all()
-
-        if User.objects.filter(username=user).count != 0:
-            account = User.objects.get(username=user)
-        
         if Organizer.objects.filter(username_id=user).count() != 0:
-            value = Organizer.objects.get(username_id=user)
-        
-            oPlus = request.POST.get('O+')
-            oMinus = request.POST.get('O-')
-            aPlus = request.POST.get('A+')
-            aMinus = request.POST.get('A-')
-            bPlus = request.POST.get('B+')
-            bMinus = request.POST.get('B-')
-            aBPlus = request.POST.get('AB+')
-            aBMinus = request.POST.get('AB-')
+            org = Organizer.objects.get(username_id=user)
 
-            updateDetails = Organizer(hospitalName=value.hospitalName, hospitalAddress=value.hospitalAddress, businessEmail=value.businessEmail,
-                                        contactInfo=value.contactInfo, attachmentsID=value.attachmentsID, 
-                                        isApproved=value.isApproved,
-                                        oPlus=oPlus,oMinus=oMinus,aPlus=aPlus,aMinus=aMinus,bPlus=bPlus,bMinus=bMinus,aBPlus=aBPlus,aBMinus=aBMinus,
-                                        username=account)
-        
-            updateDetails.save()
-            if Organizer.objects.filter(username_id=user).count() != 0:
-                value = Organizer.objects.get(username_id=user)
-
-        return render(request, self.template_name, {'user':user, 'org':org, 'value':value})
-
-class viewDetailsView(View):
-    template_name = "user/viewDetails.html"
-
-    def get(self, request, user):
-
-        org = Organizer.objects.all()
-
-        if User.objects.filter(username=user).count != 0:
-            account = User.objects.get(username=user)
-        
-        if Organizer.objects.filter(username_id=user).count() != 0:
-            org1 = Organizer.objects.get(username_id=user)
-        else:
-            org1 = 0
-
-        return render(request, self.template_name, {'user':user, 'org':org, 'account':account, 'org1':org1})
-
-    def post(self, request, user):
-        return render(request, self.template_name, {'user':user})
-
+        return render(request, self.template_name, {'user': user, 'org':org})
 
 
