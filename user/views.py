@@ -375,10 +375,9 @@ class editDetailsView(View):
 class viewDetailsView(View):
     template_name = "user/viewDetails.html"
 
-    def get(self, request, user, hospital):
+    def get(self, request, user):
 
-        if Organizer.objects.filter(pk=hospital).count != 0:
-            org = Organizer.objects.get(pk=hospital)
+        org = Organizer.objects.all()
 
         if User.objects.filter(username=user).count != 0:
             account = User.objects.get(username=user)
