@@ -65,9 +65,52 @@
                                         <span class="details">Business Contact Info</span>
                                         <input type="text" name="hospitalName" placeholder="Enter contact info" value={{account.firstName}} required="required"> <!--change value to the correct value-->
                                       </div>
+                                    </div>
+                                <br>
+                                <h2>EDIT BLOOD AVAILABILITY STOCK</h2>
+                                <h5><i>Update your blood bank drive</i></h5>
+                                <div class="content">
+                                  <form method="post">
+                                    {% csrf_token %}
+                                    <div class="user-details">
+                                      <div class="input-box">
+                                        <span class="details">O+</span>
+                                        <input type="text" name="O+" placeholder="Enter stock on bloodtype O+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">O-</span>
+                                        <input type="text" name="O-" placeholder="Enter stock on bloodtype O-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+
+                                      <div class="input-box">
+                                        <span class="details">A+</span>
+                                        <input type="text" name="A+" placeholder="Enter stock on bloodtype A+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">A-</span>
+                                        <input type="text" name="A-" placeholder="Enter stock on bloodtype A-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+
+                                      <div class="input-box">
+                                        <span class="details">B+</span>
+                                        <input type="text" name="B+" placeholder="Enter stock on bloodtype B+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">B-</span>
+                                        <input type="text" name="B-" placeholder="Enter stock on bloodtype B-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+
+                                      <div class="input-box">
+                                        <span class="details">AB+</span>
+                                        <input type="text" name="AB+" placeholder="Enter stock on bloodtype AB+" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
+                                      <div class="input-box">
+                                        <span class="details">AB-</span>
+                                        <input type="text" name="AB-" placeholder="Enter stock on bloodtype AB-" value={{account.firstName}} required="required"> <!--change value to the correct value-->
+                                      </div>
                                     </div> 
                                     {% if messages %}
-                                    {% for message in messages %} 
+                                    {% for message in messages %}   
                                     <div class="error-message">
                                         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                                         {{message}}

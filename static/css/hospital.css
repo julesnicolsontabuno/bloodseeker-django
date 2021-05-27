@@ -109,7 +109,7 @@ a:hover {
 
 .content-table th,
 .content-table td {
-  padding: 12px 15px;
+  padding: 15px 15px;
 }
 
 .content-table tbody tr {
@@ -132,12 +132,11 @@ a:hover {
 button {
   border-radius: 10px;
   color: white;
-  padding: 14px 20px;
+  padding: 14px 14px;
   margin-top: 5%;
-  margin-left: 9%;
   border: none;
   cursor: pointer;
-  width: 80%;
+  width: 100%;
   background: linear-gradient(-135deg, #ff3737, #ffae51);
 }
 
@@ -147,4 +146,40 @@ button {
   font-size: 20px;
   text-align: center;
   color: rgb(99, 99, 99);
+}
+
+.accordion {
+  background-color: #eee;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  transition: 0.4s;
+  margin-left: 0;
+}
+/* 
+.active,
+.accordion:hover {
+  background-color: #ccc;
+} */
+
+.accordion:after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
